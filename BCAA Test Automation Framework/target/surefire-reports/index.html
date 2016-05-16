@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite">
+              <span class="suite-name border-failed">NEAT Smoke Test Suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-NEAT_Smoke_Test_Suite">
+                    <span>C:\Users\optimus154.OPTIMUSDOM\Desktop\Optimus-repository\BCAA Test Automation Framework\testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-NEAT_Smoke_Test_Suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-NEAT_Smoke_Test_Suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-NEAT_Smoke_Test_Suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-NEAT_Smoke_Test_Suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-NEAT_Smoke_Test_Suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-NEAT_Smoke_Test_Suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">32 methods, 2 failed,   30 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-NEAT_Smoke_Test_Suite" class="hide-methods failed suite-NEAT_Smoke_Test_Suite"> (hide)</a> <!-- hide-methods failed suite-NEAT_Smoke_Test_Suite -->
+                      <a href="#" panel-name="suite-NEAT_Smoke_Test_Suite" class="show-methods failed suite-NEAT_Smoke_Test_Suite"> (show)</a> <!-- show-methods failed suite-NEAT_Smoke_Test_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-NEAT_Smoke_Test_Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="addNotes">addNotes</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="searchQuotePolicy">searchQuotePolicy</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-NEAT_Smoke_Test_Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-NEAT_Smoke_Test_Suite" class="hide-methods passed suite-NEAT_Smoke_Test_Suite"> (hide)</a> <!-- hide-methods passed suite-NEAT_Smoke_Test_Suite -->
+                      <a href="#" panel-name="suite-NEAT_Smoke_Test_Suite" class="show-methods passed suite-NEAT_Smoke_Test_Suite"> (show)</a> <!-- show-methods passed suite-NEAT_Smoke_Test_Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-NEAT_Smoke_Test_Suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3946">BCAA_3946</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3950_Condo">BCAA_3950_Condo</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3950_Home">BCAA_3950_Home</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3950_Tenant">BCAA_3950_Tenant</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3953">BCAA_3953</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3955_WithEPP">BCAA_3955_WithEPP</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3955_WithOutEPP">BCAA_3955_WithOutEPP</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3960">BCAA_3960</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3962">BCAA_3962</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3964">BCAA_3964</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3965">BCAA_3965</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3968">BCAA_3968</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3971">BCAA_3971</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3973">BCAA_3973</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3976">BCAA_3976</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_3981">BCAA_3981</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_4009">BCAA_4009</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_4013">BCAA_4013</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_4015">BCAA_4015</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="BCAA_4018">BCAA_4018</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="addInsured">addInsured</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="addRemarks">addRemarks</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="commitQuote">commitQuote</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="createDraftQuote">createDraftQuote</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="editInsured">editInsured</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="goToAssetsTab">goToAssetsTab</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="goToHomeEvaluationTab">goToHomeEvaluationTab</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="logInToNEAT">logInToNEAT</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="riskDetails">riskDetails</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="verifyOptions">verifyOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-NEAT_Smoke_Test_Suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-NEAT_Smoke_Test_Suite" class="panel NEAT_Smoke_Test_Suite">
+          <div class="suite-NEAT_Smoke_Test_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.BCAA.neat.testcases.HabitationalTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="addNotes">
+                  </a> <!-- addNotes -->
+                  <span class="method-name">addNotes</span>
+                  <div class="stack-trace">java.lang.AssertionError: null
+	at com.BCAA.neat.executor.Browser.setElement(Browser.java:127)
+	at com.BCAA.neat.pageObjects.insurance.HomeEvaluationTabPage.addHomeEvaluation(HomeEvaluationTabPage.java:102)
+	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:762)
+	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:774)
+	at com.BCAA.neat.testcases.HabitationalTests.addNotes(HabitationalTests.java:786)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(BCAA-3909: Add Notes)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="searchQuotePolicy">
+                  </a> <!-- searchQuotePolicy -->
+                  <span class="method-name">searchQuotePolicy</span>
+                  <div class="stack-trace">java.lang.AssertionError: null
+	at com.BCAA.neat.executor.Browser.setElement(Browser.java:127)
+	at com.BCAA.neat.pageObjects.insurance.SelectInsurancePlanPage.selectInsurancePlan(SelectInsurancePlanPage.java:89)
+	at com.BCAA.neat.pageObjects.insurance.FindQuotesOrPolicyPage.searchQuotePolicy(FindQuotesOrPolicyPage.java:77)
+	at com.BCAA.neat.testcases.HabitationalTests.searchQuotePolicy(HabitationalTests.java:664)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(BCAA-3931: Find Quote)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-NEAT_Smoke_Test_Suite-class-failed -->
+          <div class="suite-NEAT_Smoke_Test_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.BCAA.neat.testcases.HabitationalTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3946">
+                  </a> <!-- BCAA_3946 -->
+                  <span class="method-name">BCAA_3946</span>
+                  <em>
+(BCAA-3946:Commit Quote, Copy and Issue a Policy)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3950_Condo">
+                  </a> <!-- BCAA_3950_Condo -->
+                  <span class="method-name">BCAA_3950_Condo</span>
+                  <em>
+(BCAA-3950:Issue an Endorsed Policy (Condo))                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3950_Home">
+                  </a> <!-- BCAA_3950_Home -->
+                  <span class="method-name">BCAA_3950_Home</span>
+                  <em>
+(BCAA-3950:Issue an Endorsed Policy (Home))                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3950_Tenant">
+                  </a> <!-- BCAA_3950_Tenant -->
+                  <span class="method-name">BCAA_3950_Tenant</span>
+                  <em>
+(BCAA-3950:Issue an Endorsed Policy (Tenant))                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3953">
+                  </a> <!-- BCAA_3953 -->
+                  <span class="method-name">BCAA_3953</span>
+                  <em>
+(BCAA-3953: Create and Delete External Claim)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3955_WithEPP">
+                  </a> <!-- BCAA_3955_WithEPP -->
+                  <span class="method-name">BCAA_3955_WithEPP</span>
+                  <em>
+(BCAA-3955: Renew and Cancel a Policy (with EPP))                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3955_WithOutEPP">
+                  </a> <!-- BCAA_3955_WithOutEPP -->
+                  <span class="method-name">BCAA_3955_WithOutEPP</span>
+                  <em>
+(BCAA-3955: Renew and Cancel a Policy (without EPP))                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3960">
+                  </a> <!-- BCAA_3960 -->
+                  <span class="method-name">BCAA_3960</span>
+                  <em>
+(BCAA-3960: Reinstate a Policy)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3962">
+                  </a> <!-- BCAA_3962 -->
+                  <span class="method-name">BCAA_3962</span>
+                  <em>
+(BCAA-3962: Void a Policy)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3964">
+                  </a> <!-- BCAA_3964 -->
+                  <span class="method-name">BCAA_3964</span>
+                  <em>
+(BCAA-3964: Commit Quote ,Copy and Issue a Policy with Multiple Assets)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3965">
+                  </a> <!-- BCAA_3965 -->
+                  <span class="method-name">BCAA_3965</span>
+                  <em>
+(BCAA-3965: Endorse a Policy (Multiple Times) with Home Business Added)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3968">
+                  </a> <!-- BCAA_3968 -->
+                  <span class="method-name">BCAA_3968</span>
+                  <em>
+(BCAA-3968:Endorse a Policy (RCT to Appraisal))                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3971">
+                  </a> <!-- BCAA_3971 -->
+                  <span class="method-name">BCAA_3971</span>
+                  <em>
+(BCAA-3971:Endorse a Policy (Upgrade from H1 to H5))                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3973">
+                  </a> <!-- BCAA_3973 -->
+                  <span class="method-name">BCAA_3973</span>
+                  <em>
+(BCAA-3973:Set an additional insured as the primary policyholder)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3976">
+                  </a> <!-- BCAA_3976 -->
+                  <span class="method-name">BCAA_3976</span>
+                  <em>
+(BCAA-3976:Member related discounts should be removed when member is removed)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_3981">
+                  </a> <!-- BCAA_3981 -->
+                  <span class="method-name">BCAA_3981</span>
+                  <em>
+(BCAA-3981:Safe Home points is adjusted accordingly when Safe Home points are earned or lost)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_4009">
+                  </a> <!-- BCAA_4009 -->
+                  <span class="method-name">BCAA_4009</span>
+                  <em>
+(BCAA-4009:Endorse an issued policy and date in the future)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_4013">
+                  </a> <!-- BCAA_4013 -->
+                  <span class="method-name">BCAA_4013</span>
+                  <em>
+(BCAA-4013:Adding a 2nd location asset with a different liability should result to error)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_4015">
+                  </a> <!-- BCAA_4015 -->
+                  <span class="method-name">BCAA_4015</span>
+                  <em>
+(BCAA-4015:Trigger an authorization and have someone with authority to use the “Override Sign In” link)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="BCAA_4018">
+                  </a> <!-- BCAA_4018 -->
+                  <span class="method-name">BCAA_4018</span>
+                  <em>
+( BCAA-4018:Remove FUS Override on Edit Asset page)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="addInsured">
+                  </a> <!-- addInsured -->
+                  <span class="method-name">addInsured</span>
+                  <em>
+(BCAA-3935: Add Insured)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="addRemarks">
+                  </a> <!-- addRemarks -->
+                  <span class="method-name">addRemarks</span>
+                  <em>
+(BCAA-3908: Add Remarks)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="commitQuote">
+                  </a> <!-- commitQuote -->
+                  <span class="method-name">commitQuote</span>
+                  <em>
+(BCAA-3905: Commit Quote)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createDraftQuote">
+                  </a> <!-- createDraftQuote -->
+                  <span class="method-name">createDraftQuote</span>
+                  <em>
+(BCAA-3986: Create Habitational Draft Quote)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="editInsured">
+                  </a> <!-- editInsured -->
+                  <span class="method-name">editInsured</span>
+                  <em>
+(BCAA-3901: Edit Insured)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="goToAssetsTab">
+                  </a> <!-- goToAssetsTab -->
+                  <span class="method-name">goToAssetsTab</span>
+                  <em>
+(BCAA-3990: Go To Assets Tab)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="goToHomeEvaluationTab">
+                  </a> <!-- goToHomeEvaluationTab -->
+                  <span class="method-name">goToHomeEvaluationTab</span>
+                  <em>
+(BCAA-3992: Go To Home Evaluation Tab)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="logInToNEAT">
+                  </a> <!-- logInToNEAT -->
+                  <span class="method-name">logInToNEAT</span>
+                  <em>
+(BCAA-3934: Log Into NEAT)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="riskDetails">
+                  </a> <!-- riskDetails -->
+                  <span class="method-name">riskDetails</span>
+                  <em>
+(BCAA-3930: Add Home Asset - Risk Details)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyOptions">
+                  </a> <!-- verifyOptions -->
+                  <span class="method-name">verifyOptions</span>
+                  <em>
+(BCAA-3916: Verify Options)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-NEAT_Smoke_Test_Suite-class-passed -->
+        </div> <!-- panel NEAT_Smoke_Test_Suite -->
+        <div panel-name="test-xml-NEAT_Smoke_Test_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\optimus154.OPTIMUSDOM\Desktop\Optimus-repository\BCAA Test Automation Framework\testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot; name=&quot;NEAT Smoke Test Suite&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.BCAA.neat.utils.TestListener&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;test name=&quot;NEAT Tests&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.BCAA.neat.testcases.HabitationalTests&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- NEAT Tests --&gt;
+&lt;/suite&gt; &lt;!-- NEAT Smoke Test Suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-NEAT_Smoke_Test_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for NEAT Smoke Test Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">NEAT Tests (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-NEAT_Smoke_Test_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for NEAT Smoke Test Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-NEAT_Smoke_Test_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for NEAT Smoke Test Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_NEAT_Smoke_Test_Suite');
+function tableData_NEAT_Smoke_Test_Suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(32);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'addRemarks')
+data.setCell(0, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(0, 3, 192175);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'commitQuote')
+data.setCell(1, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(1, 3, 183230);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'verifyOptions')
+data.setCell(2, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(2, 3, 161519);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'addNotes')
+data.setCell(3, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(3, 3, 134908);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'goToHomeEvaluationTab')
+data.setCell(4, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(4, 3, 117088);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'riskDetails')
+data.setCell(5, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(5, 3, 71305);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'addInsured')
+data.setCell(6, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(6, 3, 49283);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'goToAssetsTab')
+data.setCell(7, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(7, 3, 47346);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'editInsured')
+data.setCell(8, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(8, 3, 46855);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'searchQuotePolicy')
+data.setCell(9, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(9, 3, 22478);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'createDraftQuote')
+data.setCell(10, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(10, 3, 21365);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'logInToNEAT')
+data.setCell(11, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(11, 3, 3672);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'BCAA_3976')
+data.setCell(12, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(12, 3, 0);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'BCAA_3955_WithOutEPP')
+data.setCell(13, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(13, 3, 0);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'BCAA_3964')
+data.setCell(14, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(14, 3, 0);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'BCAA_3950_Home')
+data.setCell(15, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(15, 3, 0);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'BCAA_4013')
+data.setCell(16, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(16, 3, 0);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'BCAA_4015')
+data.setCell(17, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(17, 3, 0);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'BCAA_3950_Tenant')
+data.setCell(18, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(18, 3, 0);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'BCAA_3981')
+data.setCell(19, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(19, 3, 0);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'BCAA_3968')
+data.setCell(20, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(20, 3, 0);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'BCAA_3962')
+data.setCell(21, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(21, 3, 0);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'BCAA_3965')
+data.setCell(22, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(22, 3, 0);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'BCAA_3950_Condo')
+data.setCell(23, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(23, 3, 0);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'BCAA_3960')
+data.setCell(24, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(24, 3, 0);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'BCAA_3971')
+data.setCell(25, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(25, 3, 0);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'BCAA_3973')
+data.setCell(26, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(26, 3, 0);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'BCAA_4009')
+data.setCell(27, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(27, 3, 0);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'BCAA_3946')
+data.setCell(28, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(28, 3, 0);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'BCAA_4018')
+data.setCell(29, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(29, 3, 0);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'BCAA_3955_WithEPP')
+data.setCell(30, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(30, 3, 0);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'BCAA_3953')
+data.setCell(31, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(31, 3, 0);
+window.suiteTableData['NEAT_Smoke_Test_Suite']= { tableData: data, tableDiv: 'times-div-NEAT_Smoke_Test_Suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 17 minutes</span>
+              <div id="times-div-NEAT_Smoke_Test_Suite">
+              </div> <!-- times-div-NEAT_Smoke_Test_Suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-NEAT_Smoke_Test_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for NEAT Smoke Test Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">searchQuotePolicy</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><div style='width: 100px; float: left;'><a style='padding:20px' href='C:\Users\optimus154.OPTIMUSDOM\Desktop\Optimus-repository\BCAA Test Automation Framework\Screenshot\searchQuotePolicy16-05-2016 11-30-33.png'><img src='C:\Users\optimus154.OPTIMUSDOM\Desktop\Optimus-repository\BCAA Test Automation Framework\Screenshot\searchQuotePolicy16-05-2016 11-30-33.png' width='200px' /> </a></div></div></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">addNotes</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><div style='width: 100px; float: left;'><a style='padding:20px' href='C:\Users\optimus154.OPTIMUSDOM\Desktop\Optimus-repository\BCAA Test Automation Framework\Screenshot\searchQuotePolicy16-05-2016 11-30-33.pngaddNotes16-05-2016 11-44-06.png'><img src='C:\Users\optimus154.OPTIMUSDOM\Desktop\Optimus-repository\BCAA Test Automation Framework\Screenshot\searchQuotePolicy16-05-2016 11-30-33.pngaddNotes16-05-2016 11-44-06.png' width='200px' /> </a></div></div></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-NEAT_Smoke_Test_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-NEAT_Smoke_Test_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.BCAA.neat.testcases.HabitationalTests</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setLogger</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3946</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3950_Condo</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3950_Home</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3950_Tenant</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3953</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3955_WithEPP</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3955_WithOutEPP</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3960</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3962</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3964</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3965</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3968</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3971</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3973</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3976</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_3981</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_4009</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_4013</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_4015</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">BCAA_4018</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">logInToNEAT</span>
+                <span class="method-start">23876 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">createDraftQuote</span>
+                <span class="method-start">27548 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">searchQuotePolicy</span>
+                <span class="method-start">48913 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">goToAssetsTab</span>
+                <span class="method-start">72231 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">addInsured</span>
+                <span class="method-start">119577 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">editInsured</span>
+                <span class="method-start">168860 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">goToHomeEvaluationTab</span>
+                <span class="method-start">215715 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">riskDetails</span>
+                <span class="method-start">332803 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyOptions</span>
+                <span class="method-start">404108 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">commitQuote</span>
+                <span class="method-start">565627 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">addNotes</span>
+                <span class="method-start">748857 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">addRemarks</span>
+                <span class="method-start">884577 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">closeBrowser</span>
+                <span class="method-start">1076752 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

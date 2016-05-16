@@ -1,0 +1,19 @@
+2016-05-16 19:11:42 INFO  Browser:47 - Starting Firefox Browser
+2016-05-16 19:11:57 INFO  Browser:79 - Opening URL: http://tneat-sql:7777/neat/c/portal_public/layout?p_l_id=52.1
+2016-05-16 19:11:57 INFO  LoginPage:38 - Inside signIn method in LoginPage class
+2016-05-16 19:11:57 INFO  Browser:98 - Entering text into TextBox: misharp
+2016-05-16 19:11:58 INFO  Browser:98 - Entering text into TextBox: MaCHu8es
+2016-05-16 19:11:58 INFO  Browser:102 - Clicking on button
+2016-05-16 19:11:58 INFO  FindQuotesOrPolicyPage:113 - Inside searchQuotePolicywithQuoteNumber method in FindQuotesOrPolicyPage Class
+2016-05-16 19:11:58 INFO  HomePage:48 - Inside selectInsurance method in HomePage Class
+2016-05-16 19:12:04 INFO  Browser:102 - Clicking on button
+2016-05-16 19:12:09 INFO  Browser:102 - Clicking on button
+2016-05-16 19:12:09 INFO  Browser:98 - Entering text into TextBox: G7141442
+2016-05-16 19:12:11 INFO  Browser:102 - Clicking on button
+2016-05-16 19:12:11 INFO  Browser:102 - Clicking on button
+2016-05-16 19:12:14 INFO  Browser:102 - Clicking on button
+2016-05-16 19:12:14 INFO  Browser:209 - Retrieved value is: Select Insurance Plan
+2016-05-16 19:12:22 INFO  Browser:102 - Clicking on button
+2016-05-16 19:12:22 INFO  Browser:209 - Retrieved value is: Edit Quote/Policy
+2016-05-16 19:12:22 INFO  LoginPage:46 - Inside signOut method in LoginPage class
+2016-05-16 19:12:22 INFO  Browser:102 - Clicking on button

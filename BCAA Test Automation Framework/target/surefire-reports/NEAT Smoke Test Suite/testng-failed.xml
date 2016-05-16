@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [NEAT Smoke Test Suite]">
+  <listeners>
+    <listener class-name="com.BCAA.neat.utils.TestListener"/>
+  </listeners>
+  <test name="NEAT Tests">
+    <classes>
+      <class name="com.BCAA.neat.testcases.HabitationalTests"/>
+    </classes>
+  </test> <!-- NEAT Tests -->
+  <test name="NEAT Tests(failed)">
+    <classes>
+      <class name="com.BCAA.neat.testcases.HabitationalTests">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="searchQuotePolicy"/>
+          <include name="addNotes"/>
+          <include name="setLogger"/>
+        </methods>
+      </class> <!-- com.BCAA.neat.testcases.HabitationalTests -->
+    </classes>
+  </test> <!-- NEAT Tests(failed) -->
+</suite> <!-- Failed suite [NEAT Smoke Test Suite] -->

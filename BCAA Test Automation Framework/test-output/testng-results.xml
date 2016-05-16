@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="18013" started-at="2016-05-04T11:13:34Z" finished-at="2016-05-04T11:13:52Z">
+  <suite name="Default suite" duration-ms="45717" started-at="2016-05-16T13:41:37Z" finished-at="2016-05-16T13:42:23Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="18013" started-at="2016-05-04T11:13:34Z" finished-at="2016-05-04T11:13:52Z">
-      <class name="com.BCAA.testcases.VerifyValidLogin">
-        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.BCAA.testcases.VerifyValidLogin@9629756]" name="openBrowser" is-config="true" duration-ms="9997" started-at="2016-05-04T16:43:34Z" finished-at="2016-05-04T16:43:44Z">
+    <test name="Default test" duration-ms="45717" started-at="2016-05-16T13:41:37Z" finished-at="2016-05-16T13:42:23Z">
+      <class name="com.BCAA.neat.testcases.HabitationalTests">
+        <test-method status="PASS" signature="setLogger()[pri:0, instance:com.BCAA.neat.testcases.HabitationalTests@14bf9759]" name="setLogger" is-config="true" duration-ms="20489" started-at="2016-05-16T19:11:37Z" finished-at="2016-05-16T19:11:58Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- openBrowser -->
-        <test-method status="PASS" signature="checkValidUser()[pri:0, instance:com.BCAA.testcases.VerifyValidLogin@9629756]" name="checkValidUser" duration-ms="7343" started-at="2016-05-04T16:43:44Z" finished-at="2016-05-04T16:43:52Z">
+        </test-method> <!-- setLogger -->
+        <test-method status="PASS" signature="EndorsePolicy()[pri:12, instance:com.BCAA.neat.testcases.HabitationalTests@14bf9759]" name="EndorsePolicy" duration-ms="24274" started-at="2016-05-16T19:11:58Z" description="BCAA-3914: EndorsePolicy" finished-at="2016-05-16T19:12:22Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkValidUser -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.BCAA.testcases.VerifyValidLogin@9629756]" name="closeBrowser" is-config="true" duration-ms="673" started-at="2016-05-04T16:43:52Z" finished-at="2016-05-04T16:43:52Z">
+        </test-method> <!-- EndorsePolicy -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.BCAA.neat.testcases.HabitationalTests@14bf9759]" name="closeBrowser" is-config="true" duration-ms="954" started-at="2016-05-16T19:12:22Z" finished-at="2016-05-16T19:12:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-      </class> <!-- com.BCAA.testcases.VerifyValidLogin -->
+      </class> <!-- com.BCAA.neat.testcases.HabitationalTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
