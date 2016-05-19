@@ -1,14 +1,17 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 32, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 1,083.374 sec <<< FAILURE! - in TestSuite
-searchQuotePolicy(com.BCAA.neat.testcases.HabitationalTests)  Time elapsed: 22.493 sec  <<< FAILURE!
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 141.925 sec <<< FAILURE! - in TestSuite
+voidPolicy(com.BCAA.neat.testcases.HabitationalTests)  Time elapsed: 15.391 sec  <<< FAILURE!
 java.lang.AssertionError: null
-	at com.BCAA.neat.testcases.HabitationalTests.searchQuotePolicy(HabitationalTests.java:664)
+	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:733)
+	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:753)
+	at com.BCAA.neat.testcases.HabitationalTests.addRemarks(HabitationalTests.java:779)
+	at com.BCAA.neat.testcases.HabitationalTests.voidPolicy(HabitationalTests.java:899)
 
-addNotes(com.BCAA.neat.testcases.HabitationalTests)  Time elapsed: 134.908 sec  <<< FAILURE!
+addNotes(com.BCAA.neat.testcases.HabitationalTests)  Time elapsed: 33.911 sec  <<< FAILURE!
 java.lang.AssertionError: null
-	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:762)
-	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:774)
-	at com.BCAA.neat.testcases.HabitationalTests.addNotes(HabitationalTests.java:786)
+	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:733)
+	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:753)
+	at com.BCAA.neat.testcases.HabitationalTests.addNotes(HabitationalTests.java:765)
 

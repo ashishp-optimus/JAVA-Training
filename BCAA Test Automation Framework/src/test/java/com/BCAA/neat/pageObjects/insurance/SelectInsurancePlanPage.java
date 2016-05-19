@@ -97,12 +97,12 @@ public class SelectInsurancePlanPage {
 		browser.verifyText(successMessageBox);
 	}
 	
-	public void selectEndorsePolicy() {
+	/*public void selectEndorsePolicy() {
 		FindQuotesOrPolicyPage findQuotesOrPolicyObj = new FindQuotesOrPolicyPage();
 		findQuotesOrPolicyObj.searchQuotePolicywithQuoteNumber(ACTIVE_POLICY_NUM);
 		browser.getText(verifyInsurancePlanHeader);
 		browser.setElement(clickOkBtn);
 		browser.getText(verifyEditQuoteHeader);
-	}
+	}*/
 
 }

@@ -14,8 +14,8 @@
       <class name="com.BCAA.neat.testcases.HabitationalTests">
         <methods>
           <include name="closeBrowser"/>
-          <include name="searchQuotePolicy"/>
           <include name="addNotes"/>
+          <include name="voidPolicy"/>
           <include name="setLogger"/>
         </methods>
       </class> <!-- com.BCAA.neat.testcases.HabitationalTests -->

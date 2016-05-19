@@ -22,6 +22,9 @@ public class PosReceiptPage {
 	private final String POS_RECEIPT_SUCCESS_MESSAGE = "New POS receipt is successfully created. ";
 	private final String RECEIPT_PAYMENT_SUCCESS_MESSAGE = "New receipt payment has been added successfully. ";
 	private final String VALUE = "value";
+	private final String TYPE_CASH = "Cash";
+	private final String TYPE_VISA = "Visa";
+	private final String LOADING_MONERIS_MESSAGE = "Loading Moneris credit card transaction page, please wait ...";
 
 	By paymentMethodCodeDropdownId = By.id("paymentMethodCode");
 	By successMessageId = By.id("msgbox");
@@ -37,10 +40,13 @@ public class PosReceiptPage {
 	By okButtonId = By.id("btnIDInformatinOk");
 	By idInformationBoxId = By.id("TB_window");
 	By idInformationBoxFrameId = By.name("TB_iframeContent");
+	By useMonerisCheckBoxId = By.id("useMonerisFlagCheckBox");
+	By monerisMessageXpath = By.xpath("//*[@id='body']/center/b");
 	
 
 	PageElement posSuccessMessage = new PageElement(successMessageId, POS_RECEIPT_SUCCESS_MESSAGE);
-	PageElement paymentMethodCodeDropdown = new PageElement(paymentMethodCodeDropdownId,PropertiesReader.readProperty("type"),InputType.DROPDOWN);
+	PageElement cashPaymentMethodDropdown = new PageElement(paymentMethodCodeDropdownId,TYPE_CASH,InputType.DROPDOWN);
+	PageElement visaPaymentMethodDropdown = new PageElement(paymentMethodCodeDropdownId,TYPE_VISA,InputType.DROPDOWN);
 	PageElement addPaymentButton = new PageElement(addPaymentButtonId, null, InputType.BUTTON);
 	PageElement checkPrintReceiptCheckbox = new PageElement(printReceiptCheckboxId,null,InputType.CHECK_CHECKBOX);
 	PageElement selectPrinter = new PageElement(printerId,PropertiesReader.readProperty("printer"),InputType.DROPDOWN);
@@ -53,13 +59,14 @@ public class PosReceiptPage {
 	PageElement okButton = new PageElement(okButtonId,null,InputType.BUTTON);
 	PageElement idInformationBox = new PageElement(idInformationBoxId);
 	PageElement idInformationBoxFrame = new PageElement(idInformationBoxFrameId);
+	PageElement useMonerisCheckBox = new PageElement(useMonerisCheckBoxId,null,InputType.CHECK_CHECKBOX);
+	PageElement monerisMessage = new PageElement(monerisMessageXpath,LOADING_MONERIS_MESSAGE);
 	
 	
 	public void createReceipt(){
 		logger.info("Inside createReceipt method in POS Receipt Page");
 		browser.verifyText(posSuccessMessage);
-		browser.setElement(paymentMethodCodeDropdown);
-		browser.setElement(addPaymentButton);
+		addPayment(PropertiesReader.readProperty("type"));
 		browser.verifyText(paymentSuccessMessage);
 		browser.setElement(checkPrintReceiptCheckbox);
 		//browser.setElement(selectPrinter); - Commented since printer is shown as Not A Real Printer
@@ -84,6 +91,20 @@ public class PosReceiptPage {
 		browser.verifyText(currentPrintSuccessMessage);
 		*/
 		
+	}
+	
+	public void addPayment(String paymentType){
+		if (paymentType == "Cash"){
+			browser.setElement(cashPaymentMethodDropdown);
+			browser.setElement(addPaymentButton);
+		}
+		else if(paymentType == "Visa"){
+			browser.setElement(visaPaymentMethodDropdown);
+			browser.setElement(useMonerisCheckBox);
+			browser.setElement(addPaymentButton);
+			browser.waitUntilTextIsPresent(monerisMessage);
+			//TODO: Further code yet to be written since moneris website is displaying error and we are unable to proceed
+		}
 	}
 		
 		

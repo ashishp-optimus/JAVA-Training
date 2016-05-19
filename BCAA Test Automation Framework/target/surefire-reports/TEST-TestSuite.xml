@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="1,083.374" tests="32" errors="0" skipped="0" failures="2">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="141.925" tests="3" errors="0" skipped="0" failures="2">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_91\jre\bin"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
-    <property name="classworlds.conf" value="C:\Automation Workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf3938077575402007904.tmp"/>
+    <property name="classworlds.conf" value="C:\Automation Workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf110610287956355665.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_91\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_91/bin/server;C:/Program Files/Java/jre1.8.0_91/bin;C:/Program Files/Java/jre1.8.0_91/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\RSA SecurID Token Common;C:\Program Files\RSA SecurID Token Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Java\jdk1.8.0_91\bin;C:\Program Files\Apache Software Foundation\apache-maven-3.3.9\bin;C:\Program Files\TortoiseSVN\bin;C:\IEDRIVER;;C:\Software\eclipse-jee-mars-2-win32-x86_64\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -43,7 +43,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_91\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -60,229 +60,99 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="BCAA_3946" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3950_Condo" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3950_Home" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3950_Tenant" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3953" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3955_WithEPP" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3955_WithOutEPP" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3960" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3962" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3964" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3965" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3968" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3971" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3973" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3976" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_3981" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_4009" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_4013" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_4015" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="BCAA_4018" classname="com.BCAA.neat.testcases.HabitationalTests" time="0"/>
-  <testcase name="logInToNEAT" classname="com.BCAA.neat.testcases.HabitationalTests" time="3.672"/>
-  <testcase name="createDraftQuote" classname="com.BCAA.neat.testcases.HabitationalTests" time="21.365"/>
-  <testcase name="searchQuotePolicy" classname="com.BCAA.neat.testcases.HabitationalTests" time="22.493">
+  <testcase name="voidPolicy" classname="com.BCAA.neat.testcases.HabitationalTests" time="15.391">
     <failure type="java.lang.AssertionError:">java.lang.AssertionError: null
-	at com.BCAA.neat.testcases.HabitationalTests.searchQuotePolicy(HabitationalTests.java:664)
+	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:733)
+	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:753)
+	at com.BCAA.neat.testcases.HabitationalTests.addRemarks(HabitationalTests.java:779)
+	at com.BCAA.neat.testcases.HabitationalTests.voidPolicy(HabitationalTests.java:899)
 </failure>
-    <system-out><![CDATA[Starting test case searchQuotePolicy*****
-Priority of this method is 3*****
-2016-05-16 11:30:10 INFO  HabitationalTests:661 - BCAA-3931: Find Quote
-2016-05-16 11:30:10 INFO  FindQuotesOrPolicyPage:65 - Inside searchQuotePolicy method in FindQuotesOrPolicyPage Class
-2016-05-16 11:30:10 INFO  HomePage:48 - Inside selectInsurance method in HomePage Class
-2016-05-16 11:30:12 INFO  Browser:98 - Clicking on button
-2016-05-16 11:30:15 INFO  Browser:98 - Clicking on button
-2016-05-16 11:30:15 INFO  FindQuotesOrPolicyPage:51 - Inside createQuote method in FindQuotesOrPolicyPage Class
-2016-05-16 11:30:16 INFO  Browser:94 - Entering text into TextBox: 9416789
-2016-05-16 11:30:17 INFO  Browser:94 - Entering text into TextBox: 01
-2016-05-16 11:30:21 INFO  Browser:98 - Clicking on button
-2016-05-16 11:30:22 INFO  Browser:144 - actual value is: Select Insurance Plan
-2016-05-16 11:30:22 INFO  Browser:145 - expected value is: Select Insurance Plan
-2016-05-16 11:30:22 INFO  SelectInsurancePlanPage:81 - Inside selectInsurancePlan method in SelectInsurancePlanPage Class
-2016-05-16 11:30:22 INFO  Browser:102 - Selecting DropDown Value: Habitational
-2016-05-16 11:30:22 INFO  Browser:144 - actual value is: Homeowner
-2016-05-16 11:30:22 INFO  Browser:145 - expected value is: Homeowner
-2016-05-16 11:30:22 INFO  Browser:144 - actual value is: Home Insurance
-2016-05-16 11:30:22 INFO  Browser:145 - expected value is: Home Insurance
-2016-05-16 11:30:22 INFO  Browser:98 - Clicking on button
-2016-05-16 11:30:33 WARN  Browser:126 - org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //td[contains(@class,'today selectable')] (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 10.25 seconds
+    <system-out><![CDATA[2016-05-19 10:34:14 INFO  Browser:60 - Starting Internet Explorer Browser
+2016-05-19 10:34:27 INFO  Browser:80 - Opening URL: http://tneat-sql:7777/neat/c/portal_public/layout?p_l_id=52.1
+2016-05-19 10:34:27 INFO  LoginPage:40 - Inside signIn method in LoginPage class
+2016-05-19 10:34:27 INFO  Browser:99 - Entering text into TextBox: misharp
+2016-05-19 10:34:28 INFO  Browser:99 - Entering text into TextBox: MaCHu8es
+2016-05-19 10:34:29 INFO  Browser:103 - Clicking on button
+Starting test case voidPolicy*****
+Priority of this method is 1*****
+2016-05-19 10:34:29 INFO  HabitationalTests:778 - BCAA-3908: Add Remarks
+2016-05-19 10:34:29 INFO  HabitationalTests:752 - BCAA-3905: Commit Quote
+2016-05-19 10:34:29 INFO  HabitationalTests:725 - BCAA-3916: Verify Options
+2016-05-19 10:34:29 INFO  EditQuotesOrPolicyPage:65 - Inside searchAndEditAPolicy method in EditQuotesOrPolicyPage Class
+2016-05-19 10:34:29 INFO  FindQuotesOrPolicyPage:83 - Inside searchQuotePolicy method in FindQuotesOrPolicyPage Class
+2016-05-19 10:34:29 INFO  HomePage:48 - Inside selectInsurance method in HomePage Class
+2016-05-19 10:34:34 INFO  Browser:103 - Clicking on button
+2016-05-19 10:34:44 WARN  Browser:132 - org.openqa.selenium.NoSuchElementException: Unable to find element with link text == Quotes and Policies (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 10.03 seconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
 System info: host: 'optimus-154', ip: '192.197.48.154', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_91'
 Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=true, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:40895/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: d84ec1ab-b4b7-4fe1-9c08-835c4f416938
-*** Element info: {Using=xpath, value=//td[contains(@class,'today selectable')]}
+Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=true, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:43464/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 89e2fa41-1749-4739-936f-09ac45773ff1
+*** Element info: {Using=link text, value=Quotes and Policies}
 ]]></system-out>
+    <system-err><![CDATA[Started InternetExplorerDriver server (64-bit)
+2.43.0.0
+Listening on port 43464
+]]></system-err>
   </testcase>
-  <testcase name="goToAssetsTab" classname="com.BCAA.neat.testcases.HabitationalTests" time="47.346"/>
-  <testcase name="addInsured" classname="com.BCAA.neat.testcases.HabitationalTests" time="49.283"/>
-  <testcase name="editInsured" classname="com.BCAA.neat.testcases.HabitationalTests" time="46.855"/>
-  <testcase name="goToHomeEvaluationTab" classname="com.BCAA.neat.testcases.HabitationalTests" time="117.088"/>
-  <testcase name="riskDetails" classname="com.BCAA.neat.testcases.HabitationalTests" time="71.305"/>
-  <testcase name="verifyOptions" classname="com.BCAA.neat.testcases.HabitationalTests" time="161.519"/>
-  <testcase name="commitQuote" classname="com.BCAA.neat.testcases.HabitationalTests" time="183.23"/>
-  <testcase name="addNotes" classname="com.BCAA.neat.testcases.HabitationalTests" time="134.908">
+  <testcase name="riskDetails" classname="com.BCAA.neat.testcases.HabitationalTests" time="58.378"/>
+  <testcase name="addNotes" classname="com.BCAA.neat.testcases.HabitationalTests" time="33.911">
     <failure type="java.lang.AssertionError:">java.lang.AssertionError: null
-	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:762)
-	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:774)
-	at com.BCAA.neat.testcases.HabitationalTests.addNotes(HabitationalTests.java:786)
+	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:733)
+	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:753)
+	at com.BCAA.neat.testcases.HabitationalTests.addNotes(HabitationalTests.java:765)
 </failure>
     <system-out><![CDATA[Starting test case addNotes*****
 Priority of this method is 11*****
-2016-05-16 11:41:50 INFO  HabitationalTests:785 - BCAA-3909: Add Notes
-2016-05-16 11:41:50 INFO  HabitationalTests:773 - BCAA-3905: Commit Quote
-2016-05-16 11:41:50 INFO  HabitationalTests:746 - BCAA-3916: Verify Options
-2016-05-16 11:41:50 INFO  EditQuotesOrPolicyPage:46 - Inside searchAndEditAPolicy method in EditQuotesOrPolicyPage Class
-2016-05-16 11:41:50 INFO  FindQuotesOrPolicyPage:65 - Inside searchQuotePolicy method in FindQuotesOrPolicyPage Class
-2016-05-16 11:41:50 INFO  HomePage:48 - Inside selectInsurance method in HomePage Class
-2016-05-16 11:41:52 INFO  Browser:98 - Clicking on button
-2016-05-16 11:41:54 INFO  Browser:98 - Clicking on button
-2016-05-16 11:41:54 INFO  FindQuotesOrPolicyPage:51 - Inside createQuote method in FindQuotesOrPolicyPage Class
-2016-05-16 11:41:55 INFO  Browser:94 - Entering text into TextBox: 9416789
-2016-05-16 11:41:56 INFO  Browser:94 - Entering text into TextBox: 01
-2016-05-16 11:41:59 INFO  Browser:98 - Clicking on button
-2016-05-16 11:41:59 INFO  Browser:144 - actual value is: Select Insurance Plan
-2016-05-16 11:41:59 INFO  Browser:145 - expected value is: Select Insurance Plan
-2016-05-16 11:41:59 INFO  SelectInsurancePlanPage:81 - Inside selectInsurancePlan method in SelectInsurancePlanPage Class
-2016-05-16 11:41:59 INFO  Browser:102 - Selecting DropDown Value: Habitational
-2016-05-16 11:41:59 INFO  Browser:144 - actual value is: Homeowner
-2016-05-16 11:41:59 INFO  Browser:145 - expected value is: Homeowner
-2016-05-16 11:42:00 INFO  Browser:144 - actual value is: Home Insurance
-2016-05-16 11:42:00 INFO  Browser:145 - expected value is: Home Insurance
-2016-05-16 11:42:00 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:01 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:01 INFO  SelectInsurancePlanPage:58 - Inside verifyExpiryDate method in SelectInsurancePlanPage Class
-2016-05-16 11:42:01 INFO  Browser:285 - Expected is: 2017/05/16
-2016-05-16 11:42:01 INFO  Browser:286 - Actual is: 2017/05/16
-2016-05-16 11:42:10 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:11 INFO  Browser:144 - actual value is: Draft Quote has been successfully created.
-2016-05-16 11:42:11 INFO  Browser:145 - expected value is: Draft Quote has been successfully created.
-2016-05-16 11:42:11 INFO  EditQuotesOrPolicyPage:64 - Inside retrieveQuoteNumber method in EditQuotesOrPolicyPage Class
-2016-05-16 11:42:11 INFO  Browser:205 - Retrieved value is: QG1482591 ver 1
-Actual quote number is: QG1482591
-2016-05-16 11:42:11 INFO  HomePage:48 - Inside selectInsurance method in HomePage Class
-2016-05-16 11:42:12 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:14 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:15 INFO  Browser:94 - Entering text into TextBox: QG1482591
-2016-05-16 11:42:17 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:17 INFO  Browser:144 - actual value is: QG1482591
-2016-05-16 11:42:17 INFO  Browser:145 - expected value is: QG1482591
-2016-05-16 11:42:18 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:26 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:26 INFO  Browser:144 - actual value is: Edit Quote/Policy
-2016-05-16 11:42:26 INFO  Browser:145 - expected value is: Edit Quote/Policy
-2016-05-16 11:42:26 INFO  InsuredsTabPage:68 - Inside insuredTab method in InsuredsTabPage Class
-2016-05-16 11:42:27 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:27 INFO  InsuredsTabPage:79 - Inside editInsured method in InsuredsTabPage Class
-2016-05-16 11:42:27 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:31 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:32 INFO  Browser:144 - actual value is: Edit Insured
-2016-05-16 11:42:32 INFO  Browser:145 - expected value is: Edit Insured
-2016-05-16 11:42:32 INFO  Browser:102 - Selecting DropDown Value: No
-2016-05-16 11:42:33 INFO  Browser:94 - Entering text into TextBox: Economist
-2016-05-16 11:42:33 INFO  Browser:102 - Selecting DropDown Value: No - Consent was not provided
-2016-05-16 11:42:42 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:42 INFO  Browser:144 - actual value is: Policy Insured has been saved successfully.
-2016-05-16 11:42:42 INFO  Browser:145 - expected value is: Policy Insured has been saved successfully.
-2016-05-16 11:42:43 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:43 INFO  AssetsTabPage:64 - Inside addAsset method in AssetsTabPage Class
-2016-05-16 11:42:43 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:44 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:56 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:56 INFO  Browser:144 - actual value is: Add Home
-2016-05-16 11:42:56 INFO  Browser:145 - expected value is: Add Home
-2016-05-16 11:42:57 INFO  Browser:107 - Checking the CheckBox
-2016-05-16 11:42:57 INFO  Browser:109 - CheckBox is already checked
-2016-05-16 11:42:57 INFO  Browser:102 - Selecting DropDown Value: H5 ADVANTAGE HOME
-2016-05-16 11:42:57 INFO  Browser:98 - Clicking on button
-2016-05-16 11:42:58 INFO  Browser:285 - Expected is: 4567
-2016-05-16 11:42:58 INFO  Browser:286 - Actual is: 4567
-2016-05-16 11:42:58 INFO  Browser:285 - Expected is: Burnaby
-2016-05-16 11:42:58 INFO  Browser:286 - Actual is: Burnaby
-2016-05-16 11:42:58 INFO  Browser:285 - Expected is: Canada Way
-2016-05-16 11:42:58 INFO  Browser:286 - Actual is: Canada Way
-2016-05-16 11:42:58 INFO  Browser:285 - Expected is: V5G4T1
-2016-05-16 11:42:58 INFO  Browser:286 - Actual is: V5G4T1
-2016-05-16 11:42:58 INFO  Browser:265 - Expected is: British Columbia
-2016-05-16 11:42:58 INFO  Browser:266 - Actual is: British Columbia
-2016-05-16 11:43:00 INFO  Browser:265 - Expected is: Canada
-2016-05-16 11:43:00 INFO  Browser:266 - Actual is: Canada
-2016-05-16 11:43:00 INFO  RiskDetailsTabPage:100 - Inside addRiskDetails method in RiskDetailsTabPage Class
-2016-05-16 11:43:00 INFO  Browser:144 - actual value is: Risk Details
-2016-05-16 11:43:00 INFO  Browser:145 - expected value is: Risk Details
-2016-05-16 11:43:00 INFO  Browser:102 - Selecting DropDown Value: No
-2016-05-16 11:43:00 INFO  Browser:102 - Selecting DropDown Value: No
-2016-05-16 11:43:01 INFO  Browser:102 - Selecting DropDown Value: Principal
-2016-05-16 11:43:01 INFO  Browser:102 - Selecting DropDown Value: Yes
-2016-05-16 11:43:01 INFO  Browser:265 - Expected is: 
-2016-05-16 11:43:01 INFO  Browser:266 - Actual is: 
-2016-05-16 11:43:02 INFO  Browser:265 - Expected is: 
-2016-05-16 11:43:02 INFO  Browser:266 - Actual is: 
-2016-05-16 11:43:02 INFO  Browser:102 - Selecting DropDown Value: 200 amp or greater
-2016-05-16 11:43:02 INFO  Browser:102 - Selecting DropDown Value: Copper
-2016-05-16 11:43:03 INFO  Browser:102 - Selecting DropDown Value: Yes
-2016-05-16 11:43:03 INFO  Browser:102 - Selecting DropDown Value: Pit Bull or any 'bull' breed
-2016-05-16 11:43:03 INFO  Browser:102 - Selecting DropDown Value: 1
-2016-05-16 11:43:04 INFO  Browser:102 - Selecting DropDown Value: 1
-2016-05-16 11:43:04 INFO  Browser:102 - Selecting DropDown Value: 0
-2016-05-16 11:43:04 INFO  Browser:102 - Selecting DropDown Value: 0
-2016-05-16 11:43:05 INFO  Browser:102 - Selecting DropDown Value: No Rental Units
-2016-05-16 11:43:05 INFO  Browser:102 - Selecting DropDown Value: No
-2016-05-16 11:43:05 INFO  Browser:102 - Selecting DropDown Value: Single family
-2016-05-16 11:43:06 INFO  Browser:102 - Selecting DropDown Value: None
-2016-05-16 11:43:06 INFO  Browser:98 - Clicking on button
-2016-05-16 11:43:12 INFO  Browser:144 - actual value is: Policy Home Asset was saved successfully.
-2016-05-16 11:43:12 INFO  Browser:145 - expected value is: Policy Home Asset was saved successfully.
-2016-05-16 11:43:17 INFO  Browser:265 - Expected is: Within 300m by Road
-2016-05-16 11:43:17 INFO  Browser:266 - Actual is: Within 300m by Road
-2016-05-16 11:43:18 INFO  Browser:265 - Expected is: Within 8km by Road
-2016-05-16 11:43:18 INFO  Browser:266 - Actual is: Within 8km by Road
-2016-05-16 11:43:18 INFO  Browser:285 - Expected is: Protected
-2016-05-16 11:43:18 INFO  Browser:286 - Actual is: Protected
-2016-05-16 11:43:18 INFO  Browser:102 - Selecting DropDown Value: No
-2016-05-16 11:43:18 INFO  Browser:305 - Verify if the element is Disable
-2016-05-16 11:43:29 INFO  Browser:98 - Clicking on button
-2016-05-16 11:43:29 INFO  Browser:144 - actual value is: Policy Home Asset was saved successfully.
-2016-05-16 11:43:29 INFO  Browser:145 - expected value is: Policy Home Asset was saved successfully.
-2016-05-16 11:43:29 INFO  AssetsTabPage:90 - Inside verifyUpdatedAddress method in AssetsTabPage Class
-2016-05-16 11:43:30 INFO  Browser:285 - Expected is: 4567
-2016-05-16 11:43:30 INFO  Browser:286 - Actual is: 4567
-2016-05-16 11:43:30 INFO  HomeEvaluationTabPage:75 - Inside addHomeEvaluation method in HomeEvaluationTabPage Class
-2016-05-16 11:43:30 INFO  Browser:98 - Clicking on button
-2016-05-16 11:43:30 INFO  Browser:98 - Clicking on button
-2016-05-16 11:43:33 INFO  Browser:144 - actual value is: There are no properties matching your search criteria. Please check the address spelling. If you still cannot locate the address, please provide Year Built, Style, Number of Stories, Finished Living Area and click the "Populate" button to load approximate construction details. These details must be verified by the customer.
-2016-05-16 11:43:33 INFO  Browser:145 - expected value is: There are no properties matching your search criteria. Please check the address spelling. If you still cannot locate the address, please provide Year Built, Style, Number of Stories, Finished Living Area and click the "Populate" button to load approximate construction details. These details must be verified by the customer.
-2016-05-16 11:43:34 INFO  Browser:94 - Entering text into TextBox: 2000
-2016-05-16 11:43:35 INFO  Browser:102 - Selecting DropDown Value: 1.5 Storey
-2016-05-16 11:43:35 INFO  Browser:102 - Selecting DropDown Value: 1.5
-2016-05-16 11:43:36 INFO  Browser:94 - Entering text into TextBox: 1835
-2016-05-16 11:43:36 INFO  Browser:98 - Clicking on button
-2016-05-16 11:43:39 INFO  Browser:144 - actual value is: MSB Values populated successfully.
-2016-05-16 11:43:39 INFO  Browser:145 - expected value is: MSB Values populated successfully.
-2016-05-16 11:43:39 INFO  Browser:102 - Selecting DropDown Value: Concrete
-2016-05-16 11:43:39 INFO  Browser:98 - Clicking on button
-2016-05-16 11:43:42 INFO  Browser:98 - Clicking on button
-2016-05-16 11:43:43 INFO  Browser:144 - actual value is: Verified
-2016-05-16 11:43:43 INFO  Browser:145 - expected value is: Verified
-2016-05-16 11:43:54 INFO  Browser:98 - Clicking on button
-2016-05-16 11:43:54 INFO  Browser:144 - actual value is: Policy Home Asset was saved successfully.
-2016-05-16 11:43:54 INFO  Browser:145 - expected value is: Policy Home Asset was saved successfully.
-2016-05-16 11:43:55 INFO  Browser:98 - Clicking on button
-2016-05-16 11:43:55 INFO  Browser:144 - actual value is: Policy Home Asset was saved successfully.
-2016-05-16 11:43:55 INFO  Browser:145 - expected value is: Policy Home Asset was saved successfully.
-2016-05-16 11:44:05 WARN  Browser:126 - org.openqa.selenium.NoSuchElementException: Unable to find element with id == btnAssetsTabDeleteId (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 10.10 seconds
+2016-05-19 10:35:44 INFO  HabitationalTests:764 - BCAA-3909: Add Notes
+2016-05-19 10:35:44 INFO  HabitationalTests:752 - BCAA-3905: Commit Quote
+2016-05-19 10:35:44 INFO  HabitationalTests:725 - BCAA-3916: Verify Options
+2016-05-19 10:35:44 INFO  EditQuotesOrPolicyPage:65 - Inside searchAndEditAPolicy method in EditQuotesOrPolicyPage Class
+2016-05-19 10:35:44 INFO  FindQuotesOrPolicyPage:83 - Inside searchQuotePolicy method in FindQuotesOrPolicyPage Class
+2016-05-19 10:35:44 INFO  HomePage:48 - Inside selectInsurance method in HomePage Class
+2016-05-19 10:35:45 INFO  Browser:103 - Clicking on button
+2016-05-19 10:35:47 INFO  Browser:103 - Clicking on button
+2016-05-19 10:35:47 INFO  FindQuotesOrPolicyPage:69 - Inside createQuote method in FindQuotesOrPolicyPage Class
+2016-05-19 10:35:48 INFO  Browser:99 - Entering text into TextBox: 9416789
+2016-05-19 10:35:48 INFO  Browser:99 - Entering text into TextBox: 01
+2016-05-19 10:35:51 INFO  Browser:103 - Clicking on button
+2016-05-19 10:35:51 INFO  Browser:150 - actual value is: Select Insurance Plan
+2016-05-19 10:35:51 INFO  Browser:151 - expected value is: Select Insurance Plan
+2016-05-19 10:35:51 INFO  SelectInsurancePlanPage:85 - Inside selectInsurancePlan method in SelectInsurancePlanPage Class
+2016-05-19 10:35:51 INFO  Browser:106 - Selecting DropDown Value: Habitational
+2016-05-19 10:35:52 INFO  Browser:150 - actual value is: Homeowner
+2016-05-19 10:35:52 INFO  Browser:151 - expected value is: Homeowner
+2016-05-19 10:35:52 INFO  Browser:150 - actual value is: Home Insurance
+2016-05-19 10:35:52 INFO  Browser:151 - expected value is: Home Insurance
+2016-05-19 10:35:52 INFO  Browser:103 - Clicking on button
+2016-05-19 10:35:53 INFO  Browser:103 - Clicking on button
+2016-05-19 10:35:53 INFO  SelectInsurancePlanPage:63 - Inside verifyExpiryDate method in SelectInsurancePlanPage Class
+2016-05-19 10:35:53 INFO  Browser:317 - Expected is: 2017/05/19
+2016-05-19 10:35:53 INFO  Browser:318 - Actual is: 2017/05/19
+2016-05-19 10:36:00 INFO  Browser:103 - Clicking on button
+2016-05-19 10:36:00 INFO  Browser:150 - actual value is: Draft Quote has been successfully created.
+2016-05-19 10:36:00 INFO  Browser:151 - expected value is: Draft Quote has been successfully created.
+2016-05-19 10:36:00 INFO  EditQuotesOrPolicyPage:81 - Inside retrieveQuoteNumber method in EditQuotesOrPolicyPage Class
+2016-05-19 10:36:01 INFO  Browser:235 - Retrieved value is: QG1482801 ver 1
+Actual quote number is: QG1482801
+2016-05-19 10:36:01 INFO  HomePage:48 - Inside selectInsurance method in HomePage Class
+2016-05-19 10:36:02 INFO  Browser:103 - Clicking on button
+2016-05-19 10:36:04 INFO  Browser:103 - Clicking on button
+2016-05-19 10:36:05 INFO  Browser:99 - Entering text into TextBox: QG1482801
+2016-05-19 10:36:05 INFO  Browser:103 - Clicking on button
+2016-05-19 10:36:07 INFO  Browser:103 - Clicking on button
+2016-05-19 10:36:07 INFO  Browser:103 - Clicking on button
+2016-05-19 10:36:17 WARN  Browser:154 - org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //*[@id='policy_detail']/h2/span (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 10.17 seconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
 System info: host: 'optimus-154', ip: '192.197.48.154', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_91'
 Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=true, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:40895/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: d84ec1ab-b4b7-4fe1-9c08-835c4f416938
-*** Element info: {Using=id, value=btnAssetsTabDeleteId}
+Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=true, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:43464/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 89e2fa41-1749-4739-936f-09ac45773ff1
+*** Element info: {Using=xpath, value=//*[@id='policy_detail']/h2/span}
 ]]></system-out>
   </testcase>
-  <testcase name="addRemarks" classname="com.BCAA.neat.testcases.HabitationalTests" time="192.175"/>
 </testsuite>

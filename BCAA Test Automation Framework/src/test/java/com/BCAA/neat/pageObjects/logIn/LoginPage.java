@@ -5,6 +5,8 @@ package com.BCAA.neat.pageObjects.logIn;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
+import com.BCAA.neat.baseElementClass.Button;
+import com.BCAA.neat.baseElementClass.TextBox;
 import com.BCAA.neat.executor.Browser;
 import com.BCAA.neat.executor.PageElement;
 import com.BCAA.neat.utils.InputType;
@@ -19,14 +21,14 @@ public class LoginPage {
 	Logger logger = Logger.getLogger(LoginPage.class);
 	Browser browser = new Browser();
 
-	By userNameFieldId = By.id("userNameField");
-	By passwordFieldId = By.id("passwordField");
+	By userNameTextboxId = By.id("userNameField");
+	By passwordTextboxId = By.id("passwordField");
 	By signInButtonId = By.id("btnSignInId");
 	By logOutButtonId = By.id("btnSignOutId");
 
-	PageElement userName = new PageElement(userNameFieldId, PropertiesReader.readProperty("userId"),
+	PageElement userNameTextbox = new PageElement(userNameTextboxId, PropertiesReader.readProperty("userId"),
 			InputType.TEXT_BOX);
-	PageElement password = new PageElement(passwordFieldId, PropertiesReader.readProperty("password"),
+	PageElement passwordTextbox = new PageElement(passwordTextboxId, PropertiesReader.readProperty("password"),
 			InputType.TEXT_BOX);
 	PageElement logInButton = new PageElement(signInButtonId, null, InputType.BUTTON);
 	PageElement logOutButton = new PageElement(logOutButtonId, null, InputType.BUTTON);
@@ -37,14 +39,24 @@ public class LoginPage {
 	public void signIn() {
 		logger.info("Inside signIn method in LoginPage class");
 		
-		browser.setElement(userName);
-		browser.setElement(password);
-		browser.setElement(logInButton);
+		Button button = new Button();
+		TextBox textBox = new TextBox();
+		
+		textBox.enterTextInField(userNameTextbox);
+		textBox.enterTextInField(passwordTextbox);
+		
+		button.click(logInButton);
+	
 	}
 	
+	/**
+	 * This method sign
+	 */
 	public void signOut(){
 		logger.info("Inside signOut method in LoginPage class");
 		
-		browser.setElement(logOutButton);
+		Button button = new Button();
+		
+		button.click(logOutButton);
 	}
 }

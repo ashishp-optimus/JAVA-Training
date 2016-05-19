@@ -17,6 +17,8 @@ public class FindQuotesOrPolicyPage {
 	private final String SELECT_INSURANCE_PLAN_PAGE_TEXT = "Select Insurance Plan";
 	private String quotePolicyNo;
 	private final String COPY_QUOTE_SUCESS_MESSAGE="Successfully copied the quote.";
+	private final String CANCELLED_SUCESS_MESSAGE="Policy is cancelled successfully. The following list shows the cancelled version.";
+	private final String VOID_POLICY_STATUS="Void Policy - New";
 
 	By memberNumberFieldId = By.id("txtbxFindPolicyMemberNumberId");
 	By associateNumberFieldId = By.id("txtbxFindPolicyAssociateNumberId");
@@ -33,6 +35,7 @@ public class FindQuotesOrPolicyPage {
 	By msbsucessboxID=By.id("msgbox");
 	By quotePolicyNumberAndVersion =By.id("policyNumberAndVersion");
 	By selectInsurancePlanOkId=By.id("btnSelectInsurancePlanOkId");
+	By voidPolicyStatus = By.id("insuranceQuotePolicy_1_9");
 
 
 
@@ -54,6 +57,8 @@ public class FindQuotesOrPolicyPage {
 	PageElement assetSuccessMsgBox = new PageElement(msbsucessboxID, COPY_QUOTE_SUCESS_MESSAGE);
 	PageElement retreivePolicy=new PageElement(quotePolicyNumberAndVersion);
 	PageElement selectInsurancePlan=new PageElement(selectInsurancePlanOkId, null, InputType.BUTTON);
+	PageElement cancelMsgBox = new PageElement(msbsucessboxID, CANCELLED_SUCESS_MESSAGE);
+	PageElement voidStatus = new PageElement(voidPolicyStatus, VOID_POLICY_STATUS);
 
 
 	/**
@@ -97,8 +102,8 @@ public class FindQuotesOrPolicyPage {
 		
 		browser.setElement(searchQuotePolicyField);
 		browser.setElement(searchButton);
-		
-		browser.verifyText(quotePolicyResult);
+		browser.waitForVisibility(quotePolicyResult);
+		//browser.verifyText(quotePolicyResult);
 	}
 
 	/**
@@ -109,36 +114,55 @@ public class FindQuotesOrPolicyPage {
 	 *            The quote number to be searched
 	 */
 
-	public void searchQuotePolicywithQuoteNumber(String quoteNumber) {
+	public void searchQuotePolicywithQuoteNumber(PageElement pageElementObj) {
 		logger.info("Inside searchQuotePolicywithQuoteNumber method in FindQuotesOrPolicyPage Class");
 		HomePage homePage = new HomePage();
 		InsurancePage insurancePage = new InsurancePage();
-
 		homePage.selectInsurance();
 		insurancePage.quotesAndPoliciesTab();
-		searchQuotePolicyField = new PageElement(searchQuotePolicyFieldId, quoteNumber, InputType.TEXT_BOX);
+		
+		searchQuotePolicyField = new PageElement(searchQuotePolicyFieldId, pageElementObj.getOutValue(), InputType.TEXT_BOX);
 		browser.setElement(searchQuotePolicyField);
 		browser.setElement(searchButton);
+		//browser.waitForVisibility(selectActiveStatus);
+		//browser.setElement(selectActiveStatus);
+		//browser.setElement(endorsePolicyBtn);
+	}
+	/**
+	 * 
+	 */
+	public void selectActivePolicy() {
 		browser.waitForVisibility(selectActiveStatus);
 		browser.setElement(selectActiveStatus);
+	}
+	
+	/**
+	 * Click on Endorse Policy Button, when you have already selected Active policy
+	 */
+	public void clickOnEndorsePolicyBtn() {
 		browser.setElement(endorsePolicyBtn);
 	}
+	
+	/**
+	 * Click on Edit Button, when you have already selected Find Results
+	 */
+	public void clickEditBtn() {
+		browser.setElement(editQuoteButton);
+	}
+	
+	
 	
 	/**
 	 * To search an quote with Policy for Copy Quote
 	 *   The Quote number for committed quote to be searched
 	 */
-	public void searchQuoteCopyPolicy()
+	public void searchCopiedPolicy()
 	{
-		logger.info("Inside searchQuoteCopyPolicy method in FindQuotesOrPolicyPage Class");
-		HomePage homePage = new HomePage();
-		InsurancePage insurancePage = new InsurancePage();
-		browser.retreiveQuote(retreivePolicy);
-		homePage.selectInsurance();
-		insurancePage.quotesAndPoliciesTab();
-		browser.setElement(searchButton);	
-		
+		logger.info("Inside searchCopiedPolicy method in FindQuotesOrPolicyPage Class");
+		PageElement pageElementObj = browser.retreiveQuote(retreivePolicy);
+		searchQuotePolicywithQuoteNumber(pageElementObj);
 	}
+	
 	/**
 	 * To select the Copy Quote option for a policy
 	 * 
@@ -151,6 +175,20 @@ public class FindQuotesOrPolicyPage {
 		browser.setElement(copyQuoteTab);
 		browser.verifyText(assetSuccessMsgBox);
 		browser.setElement(selectInsurancePlan);
+	}
+	
+	/**
+	 * 
+	 */
+	public void verifyCancelledMessage() {
+		browser.verifyText(cancelMsgBox);
+	}
+	
+	/**
+	 * 
+	 */
+	public void verifyVoidPolicyStatus() {
+		browser.verifyText(voidStatus);
 	}
 
 }

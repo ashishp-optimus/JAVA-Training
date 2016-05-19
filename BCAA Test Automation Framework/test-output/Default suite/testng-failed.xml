@@ -6,4 +6,15 @@
       <class name="com.BCAA.neat.testcases.HabitationalTests"/>
     </classes>
   </test> <!-- Default test -->
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.BCAA.neat.testcases.HabitationalTests">
+        <methods>
+          <include name="riskDetails"/>
+          <include name="closeBrowser"/>
+          <include name="setLogger"/>
+        </methods>
+      </class> <!-- com.BCAA.neat.testcases.HabitationalTests -->
+    </classes>
+  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

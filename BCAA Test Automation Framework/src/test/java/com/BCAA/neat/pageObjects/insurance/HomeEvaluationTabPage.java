@@ -16,6 +16,7 @@ public class HomeEvaluationTabPage {
 	private final String MSB_SUCCESS_MSG = "MSB Values populated successfully.";
 	private final String DATA_STATUS = "Verified";
 	private final String ASSET_SUCCESS_MSG = "Policy Home Asset was saved successfully.";
+	private final String EDIT_QUOTE_POLICY_TEXT = "Edit Quote/Policy";
 
 	By homeEvaluationTabId = By.id("homeEvaluationTab_lnk");
 	By yearBuiltTextboxId = By.id("yearBuiltHomeEval");
@@ -34,6 +35,17 @@ public class HomeEvaluationTabPage {
 	By okButtonHomeXpath = By.xpath(".//*[@id='btnAddHomeOkId']");
 	By msbSuccessMsgBoxXpath = By.xpath("//*[@id='msgbox']");
 	By deleteButtonId = By.id("btnAssetsTabDeleteId");
+	By bathTypeValue1DropdownID=By.id("msbBathTypeValue1");
+	By msbBathType2DropdownID=By.id("msbBathType2");
+	By msbBathCode2DropDownID=By.id("msbBathCode2");
+	By msbBathTypeValue2DropdownID=By.id("msbBathTypeValue2");
+	By msbPoolType1DropdownID=By.id("msbPoolType1");
+	By msbPoolTypeValue1DropdownID=By.id("msbPoolTypeValue1");
+	By msbCentralFireAlarmCheckedID=By.id("msbCentralFireAlarm");
+	By msbSecurityCameraCheckedID=By.id("msbSecurityCamera");
+	By msbElevatorCheckedID=By.id("msbElevator");
+	By msbCentralAcCheckedID=By.id("msbCentralAc");
+	By verifyEditQuoteOrPolicy=By.xpath(".//*[@id='policy_detail']/h2/span");
 
 	PageElement homeEvaluationTab = new PageElement(homeEvaluationTabId, null, InputType.BUTTON);
 	PageElement yearBuiltTextbox = new PageElement(yearBuiltTextboxId, PropertiesReader.readProperty("yearBuilt"),
@@ -60,6 +72,26 @@ public class HomeEvaluationTabPage {
 	PageElement okButtonHomeSelect = new PageElement(okButtonHomeXpath, null, InputType.BUTTON);
 	PageElement assetSuccessMsgBox = new PageElement(msbSuccessMsgBoxXpath, ASSET_SUCCESS_MSG);
 	PageElement deleteButton = new PageElement(deleteButtonId, null, InputType.BUTTON);
+	
+	PageElement bathTypeValue1 = new PageElement(bathTypeValue1DropdownID,
+			PropertiesReader.readProperty("selectBathType"), InputType.DROPDOWN);
+	PageElement msbBathType2 = new PageElement(msbBathType2DropdownID,
+			PropertiesReader.readProperty("selectmsbBathType"), InputType.DROPDOWN);
+	PageElement msbBathCode2 = new PageElement(msbBathCode2DropDownID,
+			PropertiesReader.readProperty("selectmsbBathCode"), InputType.DROPDOWN);
+	PageElement msbBathTypeValue2 = new PageElement(msbBathTypeValue2DropdownID,
+			PropertiesReader.readProperty("selectmsbBathTypeValue"), InputType.DROPDOWN);
+	PageElement msbPoolType1 = new PageElement(msbPoolType1DropdownID,
+			PropertiesReader.readProperty("selectmsbPoolType1"), InputType.DROPDOWN);
+	PageElement msbPoolTypeValue1 = new PageElement(msbPoolTypeValue1DropdownID,
+			PropertiesReader.readProperty("selectmsbPoolTypeValue1"), InputType.DROPDOWN);
+	PageElement msbCentralFireAlarmChecked = new PageElement(msbCentralFireAlarmCheckedID, null, InputType.CHECK_CHECKBOX);
+	PageElement msbSecurityCameraChecked = new PageElement(msbSecurityCameraCheckedID, null, InputType.CHECK_CHECKBOX);
+	PageElement msbElevatorChecked = new PageElement(msbElevatorCheckedID, null, InputType.CHECK_CHECKBOX);
+	PageElement msbCentralAcChecked = new PageElement(msbCentralAcCheckedID, null, InputType.CHECK_CHECKBOX);
+	PageElement VerifyEditQuotePolicyText = new PageElement(verifyEditQuoteOrPolicy, EDIT_QUOTE_POLICY_TEXT);
+	
+	
 	
 	/**
 	 * Add a new Home evaluation asset
@@ -91,5 +123,29 @@ public class HomeEvaluationTabPage {
 		browser.setElement(okButtonHomeSelect);
 		browser.verifyText(assetSuccessMsgBox);
 		browser.setElement(deleteButton);
+	}
+	
+	public void editHomeEvaluation()
+	{
+		logger.info("Inside editHomeEvaluation method in HomeEvaluationTabPage Class");
+		browser.setElement(homeEvaluationTab);
+		browser.setElement(bathTypeValue1);
+		browser.setElement(msbBathType2);
+		browser.setElement(msbBathCode2);
+		browser.setElement(msbBathTypeValue2);
+		browser.setElement(msbPoolType1);
+		browser.setElement(msbPoolTypeValue1);
+		browser.setElement(msbCentralFireAlarmChecked);
+		browser.setElement(msbSecurityCameraChecked);
+		browser.setElement(msbElevatorChecked);
+		browser.setElement(msbCentralFireAlarmChecked);
+		browser.setElement(msbCentralAcChecked);
+		browser.waitTillElementIsClickable(calculateBuildingValueButton);
+		browser.setElement(calculateBuildingValueButton);
+		browser.waitTillElementIsClickable(okButtonHomeSelect);
+		browser.setElement(okButtonHomeSelect);
+		browser.verifyText(VerifyEditQuotePolicyText);
+		
+		
 	}
 }

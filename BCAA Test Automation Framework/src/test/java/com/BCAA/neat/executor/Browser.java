@@ -1,6 +1,5 @@
 package com.BCAA.neat.executor;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -74,7 +73,7 @@ public class Browser {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		try {
-			//TODO:: use a variable for url
+			// TODO:: use a variable for url
 			driver.get(PropertiesReader.readProperty("testsiteBaseURL"));
 			logger.info("Opening URL: " + PropertiesReader.readProperty("testsiteBaseURL"));
 		} catch (Exception exception) {
@@ -86,12 +85,12 @@ public class Browser {
 	/**
 	 * 
 	 * @param pageElement
-	 * contains locator and input value
+	 *            contains locator and input value
 	 */
 	public void setElement(PageElement pageElement) {
 		try {
 			switch (pageElement.getElementType()) {
-			case TEXT_BOX:				
+			case TEXT_BOX:
 				driver.findElement(pageElement.getLocatorType()).click();
 				driver.findElement(pageElement.getLocatorType()).clear();
 				driver.findElement(pageElement.getLocatorType()).sendKeys(pageElement.getInValue());
@@ -102,8 +101,10 @@ public class Browser {
 				logger.info("Clicking on button");
 				break;
 			case DROPDOWN:
-				new Select(driver.findElement(pageElement.getLocatorType())).selectByVisibleText(pageElement.getInValue());
 				logger.info("Selecting DropDown Value: " + pageElement.getInValue());
+				new Select(driver.findElement(pageElement.getLocatorType()))
+						.selectByVisibleText(pageElement.getInValue());
+
 				break;
 			case CHECK_CHECKBOX:
 				if (!driver.findElement(pageElement.getLocatorType()).isSelected()) {
@@ -129,8 +130,6 @@ public class Browser {
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-	//TODO:: remove print stack trace if already logged
-			exception.printStackTrace();
 		}
 
 	}
@@ -151,59 +150,62 @@ public class Browser {
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-			exception.printStackTrace();
+
 		}
 	}
-    
+
 	/**
 	 * 
-	 * @param object
+	 * @param pageElementObj
 	 */
-	//TODO :: change the argument name.
-	public void waitForVisibility(PageElement object) {
+	// TODO :: change the argument name.
+	public void waitForVisibility(PageElement pageElementObj) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 15);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(object.getLocatorType()));
+			WebDriverWait waitFor = new WebDriverWait(driver, Integer.parseInt(PropertiesReader.readProperty("wait")));
+			waitFor.until(ExpectedConditions.visibilityOfElementLocated(pageElementObj.getLocatorType()));
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-			exception.printStackTrace();
+
 		}
 
 	}
 
-	public void waitForInvisibility(PageElement object) {
+	public void waitForInvisibility(PageElement pageElementObj) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 30);
-			wait.until(ExpectedConditions.invisibilityOfElementWithText(object.getLocatorType(), object.getInValue()));
+			WebDriverWait wait = new WebDriverWait(driver, Integer.parseInt(PropertiesReader.readProperty("wait")));
+			wait.until(ExpectedConditions.invisibilityOfElementWithText(pageElementObj.getLocatorType(),
+					pageElementObj.getInValue()));
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-			exception.printStackTrace();
+
 		}
 
 	}
-	
-	public void switchToFrame(PageElement object) {
+
+	public void switchToFrame(PageElement pageElementObj) {
 		try {
-			String frame = driver.findElement(object.getLocatorType()).toString();
+			String frame = driver.findElement(pageElementObj.getLocatorType()).toString();
 			driver.switchTo().frame(frame);
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-			exception.printStackTrace();
 		}
 
 	}
-	
-	public void waitUntilTextIsPresent(PageElement object) {
+
+	public void waitUntilTextIsPresent(PageElement pageElementObj) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 15);
-			wait.until(ExpectedConditions.textToBePresentInElementLocated(object.getLocatorType(), object.getInValue()));
+
+			WebDriverWait wait = new WebDriverWait(driver, Integer.parseInt(PropertiesReader.readProperty("wait")));
+			wait.until(ExpectedConditions.textToBePresentInElementLocated(pageElementObj.getLocatorType(),
+					pageElementObj.getInValue()));
+
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-			exception.printStackTrace();
+
 		}
 
 	}
@@ -215,177 +217,221 @@ public class Browser {
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-			exception.printStackTrace();
+
 		}
 	}
 
 	/**
-	 * @param object
+	 * @param pageElementObj
 	 *            Contains locator
 	 * @return PageElement object with the output value of the retrieved text
 	 */
 
-	public PageElement getText(PageElement object) {
+	public PageElement getText(PageElement pageElementObj) {
 		String retrievedText;
 		try {
-			retrievedText = driver.findElement(object.getLocatorType()).getText().toString().trim();
-			object.setOutValue(retrievedText);
-			logger.info("Retrieved value is: " + object.getOutValue());
+			retrievedText = driver.findElement(pageElementObj.getLocatorType()).getText().toString().trim();
+			pageElementObj.setOutValue(retrievedText);
+			logger.info("Retrieved value is: " + pageElementObj.getOutValue());
 
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-			exception.printStackTrace();
+
 		}
-		return object;
+		return pageElementObj;
 	}
 
 	/**
 	 * To get text of an element by desired attribute (value, href, name, etc)
 	 * 
-	 * @param object
+	 * @param pageElementObj
 	 *            Contains locator
 	 * @return PageElement object with the output value of the retrieved text
 	 */
-	public PageElement getTextByAttribute(PageElement object) {
+	public PageElement getTextByAttribute(PageElement pageElementObj) {
 		try {
-			String retrievedText = 
-					driver.findElement(object.getLocatorType()).getAttribute(object.getInValue());
-			object.setOutValue(retrievedText.trim());
-			logger.info(object.getOutValue());
+			String retrievedText = driver.findElement(pageElementObj.getLocatorType())
+					.getAttribute(pageElementObj.getInValue());
+			pageElementObj.setOutValue(retrievedText.trim());
+			logger.info(pageElementObj.getOutValue());
+
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-			exception.printStackTrace();
+
 		}
-		return object;
+		return pageElementObj;
 	}
 
 	/**
 	 * To wait till an element is visible
 	 * 
-	 * @param object
+	 * @param pageElementObj
 	 *            Page element to be verified
 	 * 
 	 */
 
-	public void waitTillElementIsClickable(PageElement object) {
+	public void waitTillElementIsClickable(PageElement pageElementObj) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 30);
-			wait.until(ExpectedConditions.elementToBeClickable(object.getLocatorType()));
+			WebDriverWait wait = new WebDriverWait(driver, Integer.parseInt(PropertiesReader.readProperty("wait")));
+			wait.until(ExpectedConditions.elementToBeClickable(pageElementObj.getLocatorType()));
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-			exception.printStackTrace();
+
 		}
 	}
 
-	/**
-	 * 
-	 * @param object
-	 *            Contains locator and expected value as inValue
-	 */
-	public void verifyFirstSelectedOption(PageElement object) {
-		try {
-			String actual = 
-					new Select(driver.findElement(object.getLocatorType())).getFirstSelectedOption().getText();
-			object.setOutValue(actual.trim());
-			
-			logger.info("Expected is: " + object.getInValue().trim());
-			logger.info("Actual is: " + object.getOutValue());
-			
-			Assert.assertEquals(object.getOutValue(), object.getInValue().trim());
-		} catch (Exception exception) {
-			logger.warn(exception);
-			Assert.fail();
-			exception.printStackTrace();
-		}
-	}
-
-	/**
-	 * 
-	 * @param object
-	 *            contains locator, AttributeValue(HTML attribute
-	 *            value,name,href etc) and inValue
-	 */
-	public void verifyTextByAttributeValue(PageElement object) {
-		try {
-			String actual = driver.findElement(object.getLocatorType()).getAttribute(object.getAttributeType());
-			object.setOutValue(actual.trim());
-			logger.info("Expected is: " + object.getInValue().trim());
-			logger.info("Actual is: " + object.getOutValue());
-			Assert.assertEquals(object.getOutValue(), object.getInValue().trim());
-		} catch (Exception exception) {
-			logger.warn(exception);
-			Assert.fail();
-			exception.printStackTrace();
-		}
-
-	}
-	
 	/**
 	 * 
 	 * @param pageElementObj
-	 * 
+	 *            Contains locator and expected value as inValue
 	 */
-	
-	public String retreiveQuote(PageElement pageElementObj)
-	{
-		String[] Retreivequote = null;
-		pageElementObj.setOutValue(driver.findElement(pageElementObj.getLocatorType()).getText());
-		Retreivequote = pageElementObj.getOutValue().split(" ");
-		logger.info("Actual quote number is: " + Retreivequote[0]);
-		return Retreivequote[0];
+	public void verifyFirstSelectedOption(PageElement pageElementObj) {
+		try {
+
+			String actual = new Select(driver.findElement(pageElementObj.getLocatorType())).getFirstSelectedOption()
+					.getText();
+			pageElementObj.setOutValue(actual.trim());
+
+			logger.info("Expected is: " + pageElementObj.getInValue().trim());
+			logger.info("Actual is: " + pageElementObj.getOutValue());
+
+			Assert.assertEquals(pageElementObj.getOutValue(), pageElementObj.getInValue().trim());
+		} catch (Exception exception) {
+			logger.warn(exception);
+			Assert.fail();
+
+		}
+	}
+
+	/**
+	 * 
+	 * @param pageElementObj
+	 *            contains locator, AttributeValue(HTML attribute
+	 *            value,name,href etc) and inValue
+	 */
+	public void verifyTextByAttributeValue(PageElement pageElementObj) {
+		try {
+			String actual = driver.findElement(pageElementObj.getLocatorType())
+					.getAttribute(pageElementObj.getAttributeType());
+			pageElementObj.setOutValue(actual.trim());
+			logger.info("Expected is: " + pageElementObj.getInValue().trim());
+			logger.info("Actual is: " + pageElementObj.getOutValue());
+			Assert.assertEquals(pageElementObj.getOutValue(), pageElementObj.getInValue().trim());
+		} catch (Exception exception) {
+			logger.warn(exception);
+			Assert.fail();
+
+		}
+
+	}
+
+	/**
+	 * To retrieve the Quote/Policy number from a draft policy
+	 * 
+	 * @return actualQuoteNumber[0] Quote Number
+	 */
+
+	public PageElement retreiveQuote(PageElement pageElementObj) {
+		String[] retreivequote = null;
+		try {
+			pageElementObj.setOutValue(driver.findElement(pageElementObj.getLocatorType()).getText());
+			retreivequote = pageElementObj.getOutValue().split(" ");
+			logger.info("Actual quote number is: " + retreivequote[0]);
+			pageElementObj.setOutValue(retreivequote[0].trim());
+		} catch (Exception exception) {
+			logger.warn(exception);
+
+		}
+		return pageElementObj;
 	}
 
 	/**
 	 * To verify an element is disabled
 	 * 
-	 * @param object
+	 * @param pageElementObj
 	 *            Page element to be verified
 	 */
 
-	public void verifyElementDisabled(PageElement object) {
+	public void verifyElementDisabled(PageElement pageElementObj) {
 		try {
 			logger.info("Verify if the element is Disable");
-			Assert.assertEquals(false, driver.findElement(object.getLocatorType()).isEnabled());
+			Assert.assertEquals(false, driver.findElement(pageElementObj.getLocatorType()).isEnabled());
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-			exception.printStackTrace();
+
 		}
 	}
-	
+
 	/**
 	 * To verify premium is not null under Premium column
 	 * 
-	 * @param option
+	 * @param pageElementObj
 	 *            Page element to be verified
 	 */
 
-	
-	public void verifyPremium(PageElement option) {
+	public void verifyPremium(PageElement pageElementObj) {
 		logger.info("Inside removePolicyWithNoPremium method in OptionsTabPage Class");
-		List <WebElement> Element = new ArrayList<WebElement>();
+		List<WebElement> Element = new ArrayList<WebElement>();
 		try {
-			Element =  driver.findElements(option.getLocatorType());
-			for(int counter=0;counter<Element.size();counter++){
+
+			Element = driver.findElements(pageElementObj.getLocatorType());
+			for (int counter = 0; counter < Element.size(); counter++) {
+
 				String text = Element.get(counter).getText();
-				logger.info("text is: "+text);
-				Assert.assertNotEquals(text, option.getInValue());
+				logger.info("text is: " + text);
+				Assert.assertNotEquals(text, pageElementObj.getInValue());
 			}
-			
-		}catch (Exception exception) {
+
+		} catch (Exception exception) {
 			logger.info(exception);
 			Assert.fail();
 		}
-		
+
+	}
+
+	/**
+	 * 
+	 * @param pageElementObj
+	 */
+	public void verifyTextIsNotNull(PageElement pageElementObj) {
+		logger.info("Verifying text is not null");
+		String retrievedText = driver.findElement(pageElementObj.getLocatorType()).getText().toString();
+		try {
+			Assert.assertNotNull(retrievedText);
+		} catch (Exception exception) {
+			logger.warn(exception);
+			Assert.fail();
+
+		}
+	}
+
+	/**
+	 * 
+	 * @param pageElementObj
+	 * @return
+	 */
+	public PageElement verifyAttributeValueNotNull(PageElement pageElementObj) {
+		try {
+
+			String retrievedText = driver.findElement(pageElementObj.getLocatorType())
+					.getAttribute(pageElementObj.getInValue());
+			logger.info("Retrieved value: " + retrievedText);
+
+			Assert.assertNotNull(retrievedText);
+		} catch (Exception exception) {
+			logger.warn(exception);
+			Assert.fail();
+
+		}
+		return pageElementObj;
 	}
 
 	public void closeBrowser() {
 		driver.quit();
 	}
-	
-	
 
 }

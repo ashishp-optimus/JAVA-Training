@@ -36,7 +36,7 @@ public class OptionsTabPage {
 	PageElement annualPremiumAmount = new PageElement(annualPremiumAmountId, VALUE);
 	PageElement policyOptions = new PageElement(policyOptionsXpath, VALUE);
 	PageElement deletingPolicyOptionBox = new PageElement(deletingPolicyOptionBoxId, DELETING_OPTION);
-	PageElement policyOptions1 = new PageElement(productOptionActive, null);
+	PageElement activePolicyOptions = new PageElement(productOptionActive, null);
 	
 	public void navigateToOptionsTab() {
 		logger.info("Inside navigateToOptionsTab method in OptionsTabPage Class");
@@ -90,7 +90,7 @@ public class OptionsTabPage {
 	
 	public void verifyPremiums() {
 		logger.info("Inside verifyPremiums method in OptionsTabPage Class");
-		browser.verifyPremium(policyOptions1);
+		browser.verifyPremium(activePolicyOptions);
 		
 	}
 
