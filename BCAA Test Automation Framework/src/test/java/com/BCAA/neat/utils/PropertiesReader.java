@@ -19,9 +19,9 @@ public class PropertiesReader {
 
 	/**
 	 * 
-	 * @param propertyKey
-	 *            it store the variable whoes value needs to be fetch
-	 * @return
+	 * @param propertyKey	
+	 *            it store the variable whose value needs to be fetch
+	 * @return it return the value that is fetch from the key
 	 */
 	public static String readProperty(String propertyKey) {
 		logger.info("Inside readProperty method in PropertiesReader Class");

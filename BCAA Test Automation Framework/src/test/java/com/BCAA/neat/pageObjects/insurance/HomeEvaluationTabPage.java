@@ -3,96 +3,92 @@ package com.BCAA.neat.pageObjects.insurance;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
+import com.BCAA.neat.baseElementClass.Button;
+import com.BCAA.neat.baseElementClass.CheckBox;
+import com.BCAA.neat.baseElementClass.DropDown;
+import com.BCAA.neat.baseElementClass.TextBox;
 import com.BCAA.neat.executor.Browser;
 import com.BCAA.neat.executor.PageElement;
-import com.BCAA.neat.utils.InputType;
 import com.BCAA.neat.utils.PropertiesReader;
 
 public class HomeEvaluationTabPage {
 	Logger logger = Logger.getLogger(HomeEvaluationTabPage.class);
-	Browser browser = new Browser();
 
-	private final String ERROR_MSG = "There are no properties matching your search criteria. Please check the address spelling. If you still cannot locate the address, please provide Year Built, Style, Number of Stories, Finished Living Area and click the \"Populate\" button to load approximate construction details. These details must be verified by the customer.";
-	private final String MSB_SUCCESS_MSG = "MSB Values populated successfully.";
-	private final String DATA_STATUS = "Verified";
-	private final String ASSET_SUCCESS_MSG = "Policy Home Asset was saved successfully.";
-	private final String EDIT_QUOTE_POLICY_TEXT = "Edit Quote/Policy";
+	private final static String ERROR_MSG = "There are no properties matching your search criteria. Please check the address spelling. If you still cannot locate the address, please provide Year Built, Style, Number of Stories, Finished Living Area and click the \"Populate\" button to load approximate construction details. These details must be verified by the customer.";
+	private final static String MSB_SUCCESS_MSG = "MSB Values populated successfully.";
+	private final static String DATA_STATUS = "Verified";
+	private final static String ASSET_SUCCESS_MSG = "Policy Home Asset was saved successfully.";
+	private final static String EDIT_QUOTE_POLICY_TEXT = "Edit Quote/Policy";
 
-	By homeEvaluationTabId = By.id("homeEvaluationTab_lnk");
-	By yearBuiltTextboxId = By.id("yearBuiltHomeEval");
-	By styleDropdownId = By.id("msbStyle");
-	By numberOfStoreysDropdownId = By.id("msbNumberOfStoreys");
-	By copyMailingAddressButtonId = By.id("btnAddHomeCopyMailingAddressId");
-	By findPropertyButtonId = By.id("findPropertyButton");
-	By noPropertyErrorMessageXpath = By.xpath("//*[@id='errorMsgBox']/span/ul/li");
-	By finishedLivingAreaTextboxId = By.id("msbFinishedLivingArea");
-	By populateButtonId = By.id("populateButton");
-	By constructionDropdownId = By.id("msbConstruction");
-	By calculateBuildingValueButtonId = By.id("btnHomeEvaluationTabCalculateBuildingValueId");
-	By alertRCTDataStatusButtonId = By.id("yui-gen8-button");
-	By verifiedDataStatusXpath = By.xpath("//*[@id='msbReviewdWithUser']/option[2]");
-	By saveButtonXpath = By.xpath(".//*[@id='btnHomeEvaluationTabSaveId']");
-	By okButtonHomeXpath = By.xpath(".//*[@id='btnAddHomeOkId']");
-	By msbSuccessMsgBoxXpath = By.xpath("//*[@id='msgbox']");
-	By deleteButtonId = By.id("btnAssetsTabDeleteId");
-	By bathTypeValue1DropdownID=By.id("msbBathTypeValue1");
-	By msbBathType2DropdownID=By.id("msbBathType2");
-	By msbBathCode2DropDownID=By.id("msbBathCode2");
-	By msbBathTypeValue2DropdownID=By.id("msbBathTypeValue2");
-	By msbPoolType1DropdownID=By.id("msbPoolType1");
-	By msbPoolTypeValue1DropdownID=By.id("msbPoolTypeValue1");
-	By msbCentralFireAlarmCheckedID=By.id("msbCentralFireAlarm");
-	By msbSecurityCameraCheckedID=By.id("msbSecurityCamera");
-	By msbElevatorCheckedID=By.id("msbElevator");
-	By msbCentralAcCheckedID=By.id("msbCentralAc");
-	By verifyEditQuoteOrPolicy=By.xpath(".//*[@id='policy_detail']/h2/span");
+	
+	private By yearBuiltTextboxId = By.id("yearBuiltHomeEval");
+	private By styleDropdownId = By.id("msbStyle");
+	private By numberOfStoreysDropdownId = By.id("msbNumberOfStoreys");
+	private By copyMailingAddressBtnId = By.id("btnAddHomeCopyMailingAddressId");
+	private By findPropertyBtnId = By.id("findPropertyButton");
+	private By noPropertyErrorMessageXpath = By.xpath("//*[@id='errorMsgBox']/span/ul/li");
+	private By finishedLivingAreaTextboxId = By.id("msbFinishedLivingArea");
+	private By populateBtnId = By.id("populateButton");
+	private By constructionDropdownId = By.id("msbConstruction");
+	private By calculateBuildingValueBtnId = By.id("btnHomeEvaluationTabCalculateBuildingValueId");
+	private By alertRctDataStatusBtnId = By.id("yui-gen8-button");
+	private By verifiedDataStatusXpath = By.xpath("//*[@id='msbReviewdWithUser']/option[2]");
+	private By saveBtnXpath = By.xpath(".//*[@id='btnHomeEvaluationTabSaveId']");
+	private By okButtonHomeXpath = By.xpath(".//*[@id='btnAddHomeOkId']");
+	private By msbSuccessMsgBoxXpath = By.xpath("//*[@id='msgbox']");
+	private By deleteBtnId = By.id("btnAssetsTabDeleteId");
+	private By bathTypeValue1DropdownId = By.id("msbBathTypeValue1");
+	private By msbBathType2DropdownId = By.id("msbBathType2");
+	private By msbBathCode2DropDownId = By.id("msbBathCode2");
+	private By msbBathTypeValue2DropdownId = By.id("msbBathTypeValue2");
+	private By msbPoolType1DropdownId = By.id("msbPoolType1");
+	private By msbPoolTypeValue1DropdownId = By.id("msbPoolTypeValue1");
+	private By msbCentralFireAlarmCheckedId = By.id("msbCentralFireAlarm");
+	private By msbSecurityCameraCheckedId = By.id("msbSecurityCamera");
+	private By msbElevatorCheckedId = By.id("msbElevator");
+	private By msbCentralAcCheckedId = By.id("msbCentralAc");
+	private By verifyEditQuoteOrPolicyTextXpath = By.xpath(".//*[@id='policy_detail']/h2/span");
 
-	PageElement homeEvaluationTab = new PageElement(homeEvaluationTabId, null, InputType.BUTTON);
-	PageElement yearBuiltTextbox = new PageElement(yearBuiltTextboxId, PropertiesReader.readProperty("yearBuilt"),
-			InputType.TEXT_BOX);
-	PageElement styleDropdown = new PageElement(styleDropdownId, PropertiesReader.readProperty("mbStyles"),
-			InputType.DROPDOWN);
-	PageElement numberOfStoreysDropdown = new PageElement(numberOfStoreysDropdownId,
-			PropertiesReader.readProperty("storeyNumber"), InputType.DROPDOWN);
-	PageElement copyMailingAddressButton = new PageElement(copyMailingAddressButtonId, null, InputType.BUTTON);
-	PageElement findPropertyButton = new PageElement(findPropertyButtonId, null, InputType.BUTTON);
+	Button copyMailingAddressBtn = new Button(copyMailingAddressBtnId);
+	Button findPropertyBtn = new Button(findPropertyBtnId);
+	Button populateBtnSelect = new Button(populateBtnId);
+	Button populateBtn = new Button(populateBtnId);
+	Button calculateBuildingValueBtn = new Button(calculateBuildingValueBtnId);
+	Button alertRCTDataStatusBtnSelect = new Button(alertRctDataStatusBtnId);
+	Button saveBtnSelect = new Button(saveBtnXpath);
+	Button okBtnHomeSelect = new Button(okButtonHomeXpath);
+	Button deleteBtn = new Button(deleteBtnId);
+
+	CheckBox msbCentralFireAlarmChecked = new CheckBox(msbCentralFireAlarmCheckedId);
+	CheckBox msbSecurityCameraChecked = new CheckBox(msbSecurityCameraCheckedId);
+	CheckBox msbElevatorChecked = new CheckBox(msbElevatorCheckedId);
+	CheckBox msbCentralAcChecked = new CheckBox(msbCentralAcCheckedId);
+
+	DropDown styleDropdown = new DropDown(styleDropdownId, PropertiesReader.readProperty("mbStyles"));
+	DropDown numberOfStoreysDropdown = new DropDown(numberOfStoreysDropdownId,
+			PropertiesReader.readProperty("storeyNumber"));
+	DropDown constructionDropdown = new DropDown(constructionDropdownId,
+			PropertiesReader.readProperty("selectConcrete"));
+	DropDown bathTypeValue = new DropDown(bathTypeValue1DropdownId, PropertiesReader.readProperty("selectBathType"));
+	DropDown msbBathType = new DropDown(msbBathType2DropdownId, PropertiesReader.readProperty("selectmsbBathType"));
+	DropDown msbBathCode = new DropDown(msbBathCode2DropDownId, PropertiesReader.readProperty("selectmsbBathCode"));
+	DropDown msbBathTypeValue = new DropDown(msbBathTypeValue2DropdownId,
+			PropertiesReader.readProperty("selectmsbBathTypeValue"));
+	DropDown msbPoolType = new DropDown(msbPoolType1DropdownId, PropertiesReader.readProperty("selectmsbPoolType1"));
+	DropDown msbPoolTypeValue = new DropDown(msbPoolTypeValue1DropdownId,
+			PropertiesReader.readProperty("selectmsbPoolTypeValue1"));
+
 	PageElement noPropertyErrorMessage = new PageElement(noPropertyErrorMessageXpath, ERROR_MSG);
-	PageElement finishedLivingAreaTextbox = new PageElement(finishedLivingAreaTextboxId,
-			PropertiesReader.readProperty("livingArea"), InputType.TEXT_BOX);
-	PageElement populateButtonSelect = new PageElement(populateButtonId, null, InputType.BUTTON);
-	PageElement constructionDropdown = new PageElement(constructionDropdownId,
-			PropertiesReader.readProperty("selectConcrete"), InputType.DROPDOWN);
 	PageElement msbSuccessMsgBox = new PageElement(msbSuccessMsgBoxXpath, MSB_SUCCESS_MSG);
-	PageElement populateButton = new PageElement(populateButtonId, null, InputType.BUTTON);
-	PageElement calculateBuildingValueButton = new PageElement(calculateBuildingValueButtonId, null, InputType.BUTTON);
-	PageElement alertRCTDataStatusButton = new PageElement(alertRCTDataStatusButtonId);
-	PageElement alertRCTDataStatusButtonSelect = new PageElement(alertRCTDataStatusButtonId, null, InputType.BUTTON);
+	PageElement alertRCTDataStatusButton = new PageElement(alertRctDataStatusBtnId);
 	PageElement verifiedDataStatus = new PageElement(verifiedDataStatusXpath, DATA_STATUS);
-	PageElement saveButtonSelect = new PageElement(saveButtonXpath, null, InputType.BUTTON);
-	PageElement okButtonHomeSelect = new PageElement(okButtonHomeXpath, null, InputType.BUTTON);
 	PageElement assetSuccessMsgBox = new PageElement(msbSuccessMsgBoxXpath, ASSET_SUCCESS_MSG);
-	PageElement deleteButton = new PageElement(deleteButtonId, null, InputType.BUTTON);
-	
-	PageElement bathTypeValue1 = new PageElement(bathTypeValue1DropdownID,
-			PropertiesReader.readProperty("selectBathType"), InputType.DROPDOWN);
-	PageElement msbBathType2 = new PageElement(msbBathType2DropdownID,
-			PropertiesReader.readProperty("selectmsbBathType"), InputType.DROPDOWN);
-	PageElement msbBathCode2 = new PageElement(msbBathCode2DropDownID,
-			PropertiesReader.readProperty("selectmsbBathCode"), InputType.DROPDOWN);
-	PageElement msbBathTypeValue2 = new PageElement(msbBathTypeValue2DropdownID,
-			PropertiesReader.readProperty("selectmsbBathTypeValue"), InputType.DROPDOWN);
-	PageElement msbPoolType1 = new PageElement(msbPoolType1DropdownID,
-			PropertiesReader.readProperty("selectmsbPoolType1"), InputType.DROPDOWN);
-	PageElement msbPoolTypeValue1 = new PageElement(msbPoolTypeValue1DropdownID,
-			PropertiesReader.readProperty("selectmsbPoolTypeValue1"), InputType.DROPDOWN);
-	PageElement msbCentralFireAlarmChecked = new PageElement(msbCentralFireAlarmCheckedID, null, InputType.CHECK_CHECKBOX);
-	PageElement msbSecurityCameraChecked = new PageElement(msbSecurityCameraCheckedID, null, InputType.CHECK_CHECKBOX);
-	PageElement msbElevatorChecked = new PageElement(msbElevatorCheckedID, null, InputType.CHECK_CHECKBOX);
-	PageElement msbCentralAcChecked = new PageElement(msbCentralAcCheckedID, null, InputType.CHECK_CHECKBOX);
-	PageElement VerifyEditQuotePolicyText = new PageElement(verifyEditQuoteOrPolicy, EDIT_QUOTE_POLICY_TEXT);
-	
-	
-	
+	PageElement VerifyEditQuotePolicyText = new PageElement(verifyEditQuoteOrPolicyTextXpath, EDIT_QUOTE_POLICY_TEXT);
+
+	TextBox yearBuiltTextbox = new TextBox(yearBuiltTextboxId, PropertiesReader.readProperty("yearBuilt"));
+	TextBox finishedLivingAreaTextbox = new TextBox(finishedLivingAreaTextboxId,
+			PropertiesReader.readProperty("livingArea"));
+
 	/**
 	 * Add a new Home evaluation asset
 	 * 
@@ -100,52 +96,84 @@ public class HomeEvaluationTabPage {
 
 	public void addHomeEvaluation() {
 		logger.info("Inside addHomeEvaluation method in HomeEvaluationTabPage Class");
-		browser.setElement(homeEvaluationTab);
-		browser.setElement(findPropertyButton);
+
+		Browser browser = new Browser();
+
+		
+		findPropertyBtn.click();
+
 		browser.verifyText(noPropertyErrorMessage);
-		browser.waitTillElementIsClickable(populateButton);
-		browser.setElement(yearBuiltTextbox);
-		browser.setElement(styleDropdown);
-		browser.setElement(numberOfStoreysDropdown);
-		browser.setElement(finishedLivingAreaTextbox);
-		browser.setElement(populateButtonSelect);
+		browser.waitTillElementIsClickable(populateBtn);
+
+		yearBuiltTextbox.enterTextInField();
+
+		styleDropdown.selectValue();
+		numberOfStoreysDropdown.selectValue();
+
+		finishedLivingAreaTextbox.enterTextInField();
+
+		populateBtnSelect.click();
+
 		browser.verifyText(msbSuccessMsgBox);
-		browser.setElement(constructionDropdown);
-		browser.waitTillElementIsClickable(calculateBuildingValueButton);
-		browser.setElement(calculateBuildingValueButton);
+
+		constructionDropdown.selectValue();
+
+		browser.waitTillElementIsClickable(calculateBuildingValueBtn);
+
+		calculateBuildingValueBtn.click();
+
 		browser.waitTillElementIsClickable(alertRCTDataStatusButton);
-		browser.setElement(alertRCTDataStatusButtonSelect);
+
+		alertRCTDataStatusBtnSelect.click();
+
 		browser.verifyText(verifiedDataStatus);
-		browser.waitTillElementIsClickable(saveButtonSelect);
-		browser.setElement(saveButtonSelect);
+
+		browser.waitTillElementIsClickable(saveBtnSelect);
+
+		saveBtnSelect.click();
+
 		browser.verifyText(assetSuccessMsgBox);
-		browser.waitTillElementIsClickable(okButtonHomeSelect);
-		browser.setElement(okButtonHomeSelect);
+
+		browser.waitTillElementIsClickable(okBtnHomeSelect);
+
+		okBtnHomeSelect.click();
+
 		browser.verifyText(assetSuccessMsgBox);
-		browser.setElement(deleteButton);
+
+		deleteBtn.click();
 	}
-	
-	public void editHomeEvaluation()
-	{
+
+	/**
+	 * Edit an existing Home evaluation asset
+	 * 
+	 */
+	public void editHomeEvaluation() {
 		logger.info("Inside editHomeEvaluation method in HomeEvaluationTabPage Class");
-		browser.setElement(homeEvaluationTab);
-		browser.setElement(bathTypeValue1);
-		browser.setElement(msbBathType2);
-		browser.setElement(msbBathCode2);
-		browser.setElement(msbBathTypeValue2);
-		browser.setElement(msbPoolType1);
-		browser.setElement(msbPoolTypeValue1);
-		browser.setElement(msbCentralFireAlarmChecked);
-		browser.setElement(msbSecurityCameraChecked);
-		browser.setElement(msbElevatorChecked);
-		browser.setElement(msbCentralFireAlarmChecked);
-		browser.setElement(msbCentralAcChecked);
-		browser.waitTillElementIsClickable(calculateBuildingValueButton);
-		browser.setElement(calculateBuildingValueButton);
-		browser.waitTillElementIsClickable(okButtonHomeSelect);
-		browser.setElement(okButtonHomeSelect);
+
+		Browser browser = new Browser();
+
+		bathTypeValue.selectValue();
+		msbBathType.selectValue();
+		msbBathCode.selectValue();
+		msbBathTypeValue.selectValue();
+		msbPoolType.selectValue();
+		msbPoolTypeValue.selectValue();
+
+		msbCentralFireAlarmChecked.selectCheckbox();
+		msbSecurityCameraChecked.selectCheckbox();
+		msbElevatorChecked.selectCheckbox();
+		msbCentralFireAlarmChecked.selectCheckbox();
+		msbCentralAcChecked.selectCheckbox();
+
+		browser.waitTillElementIsClickable(calculateBuildingValueBtn);
+
+		calculateBuildingValueBtn.click();
+
+		browser.waitTillElementIsClickable(okBtnHomeSelect);
+
+		okBtnHomeSelect.click();
+
 		browser.verifyText(VerifyEditQuotePolicyText);
-		
-		
+
 	}
 }

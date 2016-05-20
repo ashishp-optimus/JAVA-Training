@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test verbose="2" name="Default test">
-    <classes>
-      <class name="com.BCAA.neat.testcases.HabitationalTests"/>
-    </classes>
-  </test> <!-- Default test -->
   <test name="Default test(failed)">
     <classes>
       <class name="com.BCAA.neat.testcases.HabitationalTests">
         <methods>
-          <include name="riskDetails"/>
-          <include name="closeBrowser"/>
+          <include name="logInToNEAT"/>
           <include name="setLogger"/>
         </methods>
       </class> <!-- com.BCAA.neat.testcases.HabitationalTests -->

@@ -1,17 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 141.925 sec <<< FAILURE! - in TestSuite
-voidPolicy(com.BCAA.neat.testcases.HabitationalTests)  Time elapsed: 15.391 sec  <<< FAILURE!
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 3, Time elapsed: 31.118 sec <<< FAILURE! - in TestSuite
+setLogger(com.BCAA.neat.testcases.HabitationalTests)  Time elapsed: 30.981 sec  <<< FAILURE!
 java.lang.AssertionError: null
-	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:733)
-	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:753)
-	at com.BCAA.neat.testcases.HabitationalTests.addRemarks(HabitationalTests.java:779)
-	at com.BCAA.neat.testcases.HabitationalTests.voidPolicy(HabitationalTests.java:899)
-
-addNotes(com.BCAA.neat.testcases.HabitationalTests)  Time elapsed: 33.911 sec  <<< FAILURE!
-java.lang.AssertionError: null
-	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:733)
-	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:753)
-	at com.BCAA.neat.testcases.HabitationalTests.addNotes(HabitationalTests.java:765)
+	at com.BCAA.neat.testcases.HabitationalTests.setLogger(HabitationalTests.java:63)
 

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>NEAT Tests</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/2/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/2</td>
 </tr><tr>
-<td>Started on:</td><td>Thu May 19 10:34:01 IST 2016</td>
+<td>Started on:</td><td>Thu May 19 16:30:45 IST 2016</td>
 </tr>
-<tr><td>Total time:</td><td>141 seconds (141609 ms)</td>
+<tr><td>Total time:</td><td>30 seconds (30738 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -68,57 +68,48 @@ function toggleAllBoxes() {
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
 <table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.BCAA.neat.testcases.HabitationalTests.addNotes()'><b>addNotes</b><br>Test class: com.BCAA.neat.testcases.HabitationalTests<br>Test method: BCAA-3909: Add Notes<br/>
-<a href="#Output-1182908789" onClick='toggleBox("Output-1182908789", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1182908789" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1182908789">
-<div style='width: 100px; float: left;'><a style='padding:20px' href='C:\Users\optimus154.OPTIMUSDOM\Desktop\Optimus-repository\BCAA Test Automation Framework\Screenshot\voidPolicy_19-05-2016 10-34-45.png'><img src='C:\Users\optimus154.OPTIMUSDOM\Desktop\Optimus-repository\BCAA Test Automation Framework\Screenshot\voidPolicy_19-05-2016 10-34-45.png' width='200px' /> </a></div></div><br/>
-</div>
-</td>
+<td title='com.BCAA.neat.testcases.HabitationalTests.setLogger()'><b>setLogger</b><br>Test class: com.BCAA.neat.testcases.HabitationalTests</td>
 <td><div><pre>java.lang.AssertionError: null
-	at com.BCAA.neat.executor.Browser.verifyText(Browser.java:155)
-	at com.BCAA.neat.pageObjects.insurance.EditQuotesOrPolicyPage.searchAndEditAPolicy(EditQuotesOrPolicyPage.java:71)
-	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:733)
-	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:753)
-	at com.BCAA.neat.testcases.HabitationalTests.addNotes(HabitationalTests.java:765)
-... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1182908789", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1182908789'><pre>java.lang.AssertionError: null
+	at com.BCAA.neat.executor.Browser.setElement(Browser.java:132)
+	at com.BCAA.neat.baseElementClass.TextBox.enterTextInField(TextBox.java:24)
+	at com.BCAA.neat.pageObjects.logIn.LoginPage.signIn(LoginPage.java:40)
+	at com.BCAA.neat.testcases.HabitationalTests.setLogger(HabitationalTests.java:63)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace671046933", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace671046933'><pre>java.lang.AssertionError: null
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.fail(Assert.java:101)
-	at com.BCAA.neat.executor.Browser.verifyText(Browser.java:155)
-	at com.BCAA.neat.pageObjects.insurance.EditQuotesOrPolicyPage.searchAndEditAPolicy(EditQuotesOrPolicyPage.java:71)
-	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:733)
-	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:753)
-	at com.BCAA.neat.testcases.HabitationalTests.addNotes(HabitationalTests.java:765)
+	at com.BCAA.neat.executor.Browser.setElement(Browser.java:132)
+	at com.BCAA.neat.baseElementClass.TextBox.enterTextInField(TextBox.java:24)
+	at com.BCAA.neat.pageObjects.logIn.LoginPage.signIn(LoginPage.java:40)
+	at com.BCAA.neat.testcases.HabitationalTests.setLogger(HabitationalTests.java:63)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:782)
-	at org.testng.TestRunner.run(TestRunner.java:632)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:510)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:211)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:170)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:104)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
 	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
 	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
 	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
@@ -126,81 +117,39 @@ function toggleAllBoxes() {
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
 </pre></div></td>
-<td>33</td>
-<td>com.BCAA.neat.testcases.HabitationalTests@2cb4c3ab</td></tr>
-<tr>
-<td title='com.BCAA.neat.testcases.HabitationalTests.voidPolicy()'><b>voidPolicy</b><br>Test class: com.BCAA.neat.testcases.HabitationalTests<br>Test method: TA-3961: Void a Policy<br/>
-<a href="#Output-285133380" onClick='toggleBox("Output-285133380", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-285133380" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-285133380">
-<div style='width: 100px; float: left;'><a style='padding:20px' href='C:\Users\optimus154.OPTIMUSDOM\Desktop\Optimus-repository\BCAA Test Automation Framework\Screenshot\voidPolicy_19-05-2016 10-34-45.png'><img src='C:\Users\optimus154.OPTIMUSDOM\Desktop\Optimus-repository\BCAA Test Automation Framework\Screenshot\voidPolicy_19-05-2016 10-34-45.png' width='200px' /> </a></div></div><br/>
-</div>
-</td>
-<td><div><pre>java.lang.AssertionError: null
-	at com.BCAA.neat.executor.Browser.setElement(Browser.java:133)
-	at com.BCAA.neat.pageObjects.navigation.InsurancePage.quotesAndPoliciesTab(InsurancePage.java:24)
-	at com.BCAA.neat.pageObjects.insurance.FindQuotesOrPolicyPage.searchQuotePolicy(FindQuotesOrPolicyPage.java:91)
-	at com.BCAA.neat.pageObjects.insurance.EditQuotesOrPolicyPage.searchAndEditAPolicy(EditQuotesOrPolicyPage.java:68)
-	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:733)
-	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:753)
-	at com.BCAA.neat.testcases.HabitationalTests.addRemarks(HabitationalTests.java:779)
-	at com.BCAA.neat.testcases.HabitationalTests.voidPolicy(HabitationalTests.java:899)
-... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace285133380", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace285133380'><pre>java.lang.AssertionError: null
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.fail(Assert.java:101)
-	at com.BCAA.neat.executor.Browser.setElement(Browser.java:133)
-	at com.BCAA.neat.pageObjects.navigation.InsurancePage.quotesAndPoliciesTab(InsurancePage.java:24)
-	at com.BCAA.neat.pageObjects.insurance.FindQuotesOrPolicyPage.searchQuotePolicy(FindQuotesOrPolicyPage.java:91)
-	at com.BCAA.neat.pageObjects.insurance.EditQuotesOrPolicyPage.searchAndEditAPolicy(EditQuotesOrPolicyPage.java:68)
-	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:733)
-	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:753)
-	at com.BCAA.neat.testcases.HabitationalTests.addRemarks(HabitationalTests.java:779)
-	at com.BCAA.neat.testcases.HabitationalTests.voidPolicy(HabitationalTests.java:899)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:782)
-	at org.testng.TestRunner.run(TestRunner.java:632)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-	at org.testng.TestNG.run(TestNG.java:1064)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
-	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
-	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
-</pre></div></td>
-<td>15</td>
-<td>com.BCAA.neat.testcases.HabitationalTests@2cb4c3ab</td></tr>
+<td>0</td>
+<td>com.BCAA.neat.testcases.HabitationalTests@7946e1f4</td></tr>
 </table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
+<tr>
+<td title='com.BCAA.neat.testcases.HabitationalTests.closeBrowser()'><b>closeBrowser</b><br>Test class: com.BCAA.neat.testcases.HabitationalTests</td>
+<td></td>
+<td>0</td>
+<td>com.BCAA.neat.testcases.HabitationalTests@7946e1f4</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.BCAA.neat.testcases.HabitationalTests.createDraftQuote()'><b>createDraftQuote</b><br>Test class: com.BCAA.neat.testcases.HabitationalTests<br>Test method: BCAA-3986: Create Habitational Draft Quote</td>
+<td></td>
+<td>0</td>
+<td>com.BCAA.neat.testcases.HabitationalTests@7946e1f4</td></tr>
 <tr>
 <td title='com.BCAA.neat.testcases.HabitationalTests.riskDetails()'><b>riskDetails</b><br>Test class: com.BCAA.neat.testcases.HabitationalTests<br>Test method: BCAA-3930: Add Home Asset - Risk Details</td>
 <td></td>
-<td>58</td>
-<td>com.BCAA.neat.testcases.HabitationalTests@2cb4c3ab</td></tr>
+<td>0</td>
+<td>com.BCAA.neat.testcases.HabitationalTests@7946e1f4</td></tr>
 </table><p>
 </body>
 </html>

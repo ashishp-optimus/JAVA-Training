@@ -1,7 +1,9 @@
 package com.BCAA.neat.baseElementClass;
 
-import com.BCAA.neat.executor.Browser;
+import org.openqa.selenium.By;
+
 import com.BCAA.neat.executor.PageElement;
+import com.BCAA.neat.utils.InputType;
 
 /**
  * This class is used defining behaviour of element type Radio button
@@ -9,11 +11,14 @@ import com.BCAA.neat.executor.PageElement;
  * @author Optimus
  */
 
+public class RadioButton extends PageElement {
 
-public class RadioButton {
-		
-	public void selectRadioButton(PageElement pageElementobj){
-		Browser browser = new Browser();
-		browser.setElement(pageElementobj);
+	public RadioButton(By locatorType) {
+		super(locatorType, InputType.RADIOBUTTON);
+
+	}
+
+	public void selectRadioButton() {
+		browser.setElement(this);
 	}
 }

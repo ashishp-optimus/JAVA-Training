@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="141.925" tests="3" errors="0" skipped="0" failures="2">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="31.118" tests="4" errors="0" skipped="3" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_91\jre\bin"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
-    <property name="classworlds.conf" value="C:\Automation Workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf110610287956355665.tmp"/>
+    <property name="classworlds.conf" value="C:\Automation Workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf2199187396941224616.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_91\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_91/bin/server;C:/Program Files/Java/jre1.8.0_91/bin;C:/Program Files/Java/jre1.8.0_91/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\RSA SecurID Token Common;C:\Program Files\RSA SecurID Token Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Java\jdk1.8.0_91\bin;C:\Program Files\Apache Software Foundation\apache-maven-3.3.9\bin;C:\Program Files\TortoiseSVN\bin;C:\IEDRIVER;;C:\Software\eclipse-jee-mars-2-win32-x86_64\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -43,7 +43,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_91\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -60,99 +60,53 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="voidPolicy" classname="com.BCAA.neat.testcases.HabitationalTests" time="15.391">
+  <testcase name="setLogger" classname="com.BCAA.neat.testcases.HabitationalTests" time="30.981">
     <failure type="java.lang.AssertionError:">java.lang.AssertionError: null
-	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:733)
-	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:753)
-	at com.BCAA.neat.testcases.HabitationalTests.addRemarks(HabitationalTests.java:779)
-	at com.BCAA.neat.testcases.HabitationalTests.voidPolicy(HabitationalTests.java:899)
+	at com.BCAA.neat.testcases.HabitationalTests.setLogger(HabitationalTests.java:63)
 </failure>
-    <system-out><![CDATA[2016-05-19 10:34:14 INFO  Browser:60 - Starting Internet Explorer Browser
-2016-05-19 10:34:27 INFO  Browser:80 - Opening URL: http://tneat-sql:7777/neat/c/portal_public/layout?p_l_id=52.1
-2016-05-19 10:34:27 INFO  LoginPage:40 - Inside signIn method in LoginPage class
-2016-05-19 10:34:27 INFO  Browser:99 - Entering text into TextBox: misharp
-2016-05-19 10:34:28 INFO  Browser:99 - Entering text into TextBox: MaCHu8es
-2016-05-19 10:34:29 INFO  Browser:103 - Clicking on button
-Starting test case voidPolicy*****
-Priority of this method is 1*****
-2016-05-19 10:34:29 INFO  HabitationalTests:778 - BCAA-3908: Add Remarks
-2016-05-19 10:34:29 INFO  HabitationalTests:752 - BCAA-3905: Commit Quote
-2016-05-19 10:34:29 INFO  HabitationalTests:725 - BCAA-3916: Verify Options
-2016-05-19 10:34:29 INFO  EditQuotesOrPolicyPage:65 - Inside searchAndEditAPolicy method in EditQuotesOrPolicyPage Class
-2016-05-19 10:34:29 INFO  FindQuotesOrPolicyPage:83 - Inside searchQuotePolicy method in FindQuotesOrPolicyPage Class
-2016-05-19 10:34:29 INFO  HomePage:48 - Inside selectInsurance method in HomePage Class
-2016-05-19 10:34:34 INFO  Browser:103 - Clicking on button
-2016-05-19 10:34:44 WARN  Browser:132 - org.openqa.selenium.NoSuchElementException: Unable to find element with link text == Quotes and Policies (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 10.03 seconds
+    <system-out><![CDATA[2016-05-19 16:30:45 INFO  PropertiesReader:27 - Inside readProperty method in PropertiesReader Class
+2016-05-19 16:30:45 INFO  PropertiesReader:27 - Inside readProperty method in PropertiesReader Class
+2016-05-19 16:30:45 INFO  PropertiesReader:27 - Inside readProperty method in PropertiesReader Class
+2016-05-19 16:30:53 INFO  Browser:58 - Starting Internet Explorer Browser
+2016-05-19 16:30:53 INFO  PropertiesReader:27 - Inside readProperty method in PropertiesReader Class
+2016-05-19 16:31:06 INFO  PropertiesReader:27 - Inside readProperty method in PropertiesReader Class
+2016-05-19 16:31:06 INFO  Browser:78 - Opening URL: http://tneat-sql:7777/neat/c/portal_public/layout?p_l_id=52.1
+2016-05-19 16:31:06 INFO  LoginPage:38 - Inside signIn method in LoginPage class
+2016-05-19 16:31:16 WARN  Browser:131 - org.openqa.selenium.NoSuchElementException: Unable to find element with id == userNameField (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 10.16 seconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
 System info: host: 'optimus-154', ip: '192.197.48.154', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_91'
 Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=true, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:43464/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: 89e2fa41-1749-4739-936f-09ac45773ff1
-*** Element info: {Using=link text, value=Quotes and Policies}
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=true, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:32518/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: fe076c00-a808-44bb-985d-d9e3628553d4
+*** Element info: {Using=id, value=userNameField}
 ]]></system-out>
-    <system-err><![CDATA[Started InternetExplorerDriver server (64-bit)
-2.43.0.0
-Listening on port 43464
+    <system-err><![CDATA[log4j:WARN No appenders could be found for logger (com.BCAA.neat.utils.PropertiesReader).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Started InternetExplorerDriver server (64-bit)
+2.53.1.0
+Listening on port 32518
+Only local connections are allowed
 ]]></system-err>
   </testcase>
-  <testcase name="riskDetails" classname="com.BCAA.neat.testcases.HabitationalTests" time="58.378"/>
-  <testcase name="addNotes" classname="com.BCAA.neat.testcases.HabitationalTests" time="33.911">
-    <failure type="java.lang.AssertionError:">java.lang.AssertionError: null
-	at com.BCAA.neat.testcases.HabitationalTests.verifyOptions(HabitationalTests.java:733)
-	at com.BCAA.neat.testcases.HabitationalTests.commitQuote(HabitationalTests.java:753)
-	at com.BCAA.neat.testcases.HabitationalTests.addNotes(HabitationalTests.java:765)
-</failure>
-    <system-out><![CDATA[Starting test case addNotes*****
-Priority of this method is 11*****
-2016-05-19 10:35:44 INFO  HabitationalTests:764 - BCAA-3909: Add Notes
-2016-05-19 10:35:44 INFO  HabitationalTests:752 - BCAA-3905: Commit Quote
-2016-05-19 10:35:44 INFO  HabitationalTests:725 - BCAA-3916: Verify Options
-2016-05-19 10:35:44 INFO  EditQuotesOrPolicyPage:65 - Inside searchAndEditAPolicy method in EditQuotesOrPolicyPage Class
-2016-05-19 10:35:44 INFO  FindQuotesOrPolicyPage:83 - Inside searchQuotePolicy method in FindQuotesOrPolicyPage Class
-2016-05-19 10:35:44 INFO  HomePage:48 - Inside selectInsurance method in HomePage Class
-2016-05-19 10:35:45 INFO  Browser:103 - Clicking on button
-2016-05-19 10:35:47 INFO  Browser:103 - Clicking on button
-2016-05-19 10:35:47 INFO  FindQuotesOrPolicyPage:69 - Inside createQuote method in FindQuotesOrPolicyPage Class
-2016-05-19 10:35:48 INFO  Browser:99 - Entering text into TextBox: 9416789
-2016-05-19 10:35:48 INFO  Browser:99 - Entering text into TextBox: 01
-2016-05-19 10:35:51 INFO  Browser:103 - Clicking on button
-2016-05-19 10:35:51 INFO  Browser:150 - actual value is: Select Insurance Plan
-2016-05-19 10:35:51 INFO  Browser:151 - expected value is: Select Insurance Plan
-2016-05-19 10:35:51 INFO  SelectInsurancePlanPage:85 - Inside selectInsurancePlan method in SelectInsurancePlanPage Class
-2016-05-19 10:35:51 INFO  Browser:106 - Selecting DropDown Value: Habitational
-2016-05-19 10:35:52 INFO  Browser:150 - actual value is: Homeowner
-2016-05-19 10:35:52 INFO  Browser:151 - expected value is: Homeowner
-2016-05-19 10:35:52 INFO  Browser:150 - actual value is: Home Insurance
-2016-05-19 10:35:52 INFO  Browser:151 - expected value is: Home Insurance
-2016-05-19 10:35:52 INFO  Browser:103 - Clicking on button
-2016-05-19 10:35:53 INFO  Browser:103 - Clicking on button
-2016-05-19 10:35:53 INFO  SelectInsurancePlanPage:63 - Inside verifyExpiryDate method in SelectInsurancePlanPage Class
-2016-05-19 10:35:53 INFO  Browser:317 - Expected is: 2017/05/19
-2016-05-19 10:35:53 INFO  Browser:318 - Actual is: 2017/05/19
-2016-05-19 10:36:00 INFO  Browser:103 - Clicking on button
-2016-05-19 10:36:00 INFO  Browser:150 - actual value is: Draft Quote has been successfully created.
-2016-05-19 10:36:00 INFO  Browser:151 - expected value is: Draft Quote has been successfully created.
-2016-05-19 10:36:00 INFO  EditQuotesOrPolicyPage:81 - Inside retrieveQuoteNumber method in EditQuotesOrPolicyPage Class
-2016-05-19 10:36:01 INFO  Browser:235 - Retrieved value is: QG1482801 ver 1
-Actual quote number is: QG1482801
-2016-05-19 10:36:01 INFO  HomePage:48 - Inside selectInsurance method in HomePage Class
-2016-05-19 10:36:02 INFO  Browser:103 - Clicking on button
-2016-05-19 10:36:04 INFO  Browser:103 - Clicking on button
-2016-05-19 10:36:05 INFO  Browser:99 - Entering text into TextBox: QG1482801
-2016-05-19 10:36:05 INFO  Browser:103 - Clicking on button
-2016-05-19 10:36:07 INFO  Browser:103 - Clicking on button
-2016-05-19 10:36:07 INFO  Browser:103 - Clicking on button
-2016-05-19 10:36:17 WARN  Browser:154 - org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //*[@id='policy_detail']/h2/span (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 10.17 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
-System info: host: 'optimus-154', ip: '192.197.48.154', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_91'
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=true, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:43464/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: 89e2fa41-1749-4739-936f-09ac45773ff1
-*** Element info: {Using=xpath, value=//*[@id='policy_detail']/h2/span}
+  <testcase name="createDraftQuote" classname="com.BCAA.neat.testcases.HabitationalTests" time="0">
+    <skipped/>
+    <system-out><![CDATA[Starting test case createDraftQuote*****
+Priority of this method is 1*****
+]]></system-out>
+  </testcase>
+  <testcase name="riskDetails" classname="com.BCAA.neat.testcases.HabitationalTests" time="0">
+    <skipped/>
+    <system-out><![CDATA[Test 'createDraftQuote'SKIPPED*****
+Starting test case riskDetails*****
+Priority of this method is 8*****
+]]></system-out>
+  </testcase>
+  <testcase name="closeBrowser" classname="com.BCAA.neat.testcases.HabitationalTests" time="0">
+    <skipped/>
+    <system-out><![CDATA[Test 'riskDetails'SKIPPED*****
 ]]></system-out>
   </testcase>
 </testsuite>

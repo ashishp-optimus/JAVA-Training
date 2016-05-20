@@ -4,18 +4,12 @@
   <listeners>
     <listener class-name="com.BCAA.neat.utils.TestListener"/>
   </listeners>
-  <test name="NEAT Tests">
-    <classes>
-      <class name="com.BCAA.neat.testcases.HabitationalTests"/>
-    </classes>
-  </test> <!-- NEAT Tests -->
   <test name="NEAT Tests(failed)">
     <classes>
       <class name="com.BCAA.neat.testcases.HabitationalTests">
         <methods>
-          <include name="closeBrowser"/>
-          <include name="addNotes"/>
-          <include name="voidPolicy"/>
+          <include name="riskDetails"/>
+          <include name="createDraftQuote"/>
           <include name="setLogger"/>
         </methods>
       </class> <!-- com.BCAA.neat.testcases.HabitationalTests -->

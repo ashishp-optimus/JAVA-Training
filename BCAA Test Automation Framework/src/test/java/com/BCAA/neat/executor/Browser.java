@@ -104,7 +104,6 @@ public class Browser {
 				logger.info("Selecting DropDown Value: " + pageElement.getInValue());
 				new Select(driver.findElement(pageElement.getLocatorType()))
 						.selectByVisibleText(pageElement.getInValue());
-
 				break;
 			case CHECK_CHECKBOX:
 				if (!driver.findElement(pageElement.getLocatorType()).isSelected()) {
@@ -171,7 +170,7 @@ public class Browser {
 
 	}
 
-	public void waitForInvisibility(PageElement pageElementObj) {
+	public void waitForInvisibilityOfText(PageElement pageElementObj) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Integer.parseInt(PropertiesReader.readProperty("wait")));
 			wait.until(ExpectedConditions.invisibilityOfElementWithText(pageElementObj.getLocatorType(),
@@ -183,6 +182,20 @@ public class Browser {
 		}
 
 	}
+	
+	public void waitForInvisibilityOfElement(PageElement pageElementObj) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Integer.parseInt(PropertiesReader.readProperty("wait")));
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(pageElementObj.getLocatorType()));
+		} catch (Exception exception) {
+			logger.warn(exception);
+			Assert.fail();
+
+		}
+
+	}
+	
+	
 
 	public void switchToFrame(PageElement pageElementObj) {
 		try {
@@ -259,7 +272,6 @@ public class Browser {
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-
 		}
 		return pageElementObj;
 	}
@@ -279,7 +291,6 @@ public class Browser {
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-
 		}
 	}
 
@@ -390,7 +401,6 @@ public class Browser {
 			logger.info(exception);
 			Assert.fail();
 		}
-
 	}
 
 	/**
@@ -405,7 +415,6 @@ public class Browser {
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-
 		}
 	}
 
@@ -420,12 +429,10 @@ public class Browser {
 			String retrievedText = driver.findElement(pageElementObj.getLocatorType())
 					.getAttribute(pageElementObj.getInValue());
 			logger.info("Retrieved value: " + retrievedText);
-
 			Assert.assertNotNull(retrievedText);
 		} catch (Exception exception) {
 			logger.warn(exception);
 			Assert.fail();
-
 		}
 		return pageElementObj;
 	}

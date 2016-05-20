@@ -5,9 +5,7 @@ import org.openqa.selenium.By;
 import com.BCAA.neat.utils.InputType;
 
 /**
- * 
  * @author Optimus
- *
  */
 public class PageElement {
 
@@ -16,10 +14,16 @@ public class PageElement {
 	private String outValue;
 	private String attributeType;
 	private InputType elementType;
+	protected Browser browser = new Browser();
 
 	public PageElement(By locatorType, String inValue, InputType elementType) {
 		this.locator = locatorType;
 		this.inValue = inValue;
+		this.elementType = elementType;
+	}
+
+	public PageElement(By locatorType, InputType elementType) {
+		this.locator = locatorType;
 		this.elementType = elementType;
 	}
 

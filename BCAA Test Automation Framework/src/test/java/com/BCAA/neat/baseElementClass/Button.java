@@ -1,7 +1,11 @@
 package com.BCAA.neat.baseElementClass;
 
-import com.BCAA.neat.executor.Browser;
+import org.openqa.selenium.By;
+
 import com.BCAA.neat.executor.PageElement;
+import com.BCAA.neat.utils.InputType;
+
+
 
 /**
  * This class is used defining behaviour of element type Button
@@ -9,12 +13,14 @@ import com.BCAA.neat.executor.PageElement;
  * @author Optimus
  */
 
+public class Button extends PageElement {
 
-public class Button {
+	public Button(By locatorType) {
+		super(locatorType, InputType.BUTTON);
 
-	public void click(PageElement pageElementobj){
+	}
 
-		Browser browser = new Browser();
-		browser.setElement(pageElementobj);
+	public void click() {
+		browser.setElement(this);
 	}
 }

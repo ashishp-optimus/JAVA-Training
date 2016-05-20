@@ -8,6 +8,7 @@ import com.BCAA.neat.baseElementClass.DropDown;
 import com.BCAA.neat.executor.Browser;
 import com.BCAA.neat.executor.PageElement;
 import com.BCAA.neat.utils.InputType;
+import com.BCAA.neat.utils.PropertiesReader;
 
 /**
  * This Class fills all the required fields in RiskDetails Tab and verify the
@@ -63,100 +64,94 @@ public class RiskDetailsTabPage {
 	private By quotePolicyheaderId = By.id("miniQuoteAndPolicyHeader");
 	private By processingRequestBoxId = By.id("request_processing_layer_content");
 
+	Button saveButton = new Button(saveButtonId);
+
+	DropDown selectDaycareDropdown = new DropDown(dayCareInHouseDropdownId, NO);
+	DropDown selectBusinessActivityDropdown = new DropDown(businessActivityOrLocDropdownId, NO);
+	DropDown selectRiskTypeDropdown = new DropDown(riskTypeDropdownId, PRINCIPAL);
+	DropDown selectPrincipalResidenceDropdown = new DropDown(principalResidenceDropdownId, YES);
+	DropDown selectElectricalSystemDropdown = new DropDown(electricalSystemDropdownId, AMP_GREATER_200);
+	DropDown selectTabPlumbingSystemDropdown = new DropDown(plumbingSystemDropdownId, COPPER);
+	DropDown selectPetFlagFieldDropdown = new DropDown(petFlagDropdownId, YES);
+	DropDown selectPetTypeDropdown = new DropDown(petTypeDropdownId, petBreed);
+	DropDown selectNumberOfFamiliesDropdown = new DropDown(numberOfFamiliesDropdownId, value1);
+	DropDown selectNumberOfAdultsDropdown = new DropDown(numberOfAdultsDropdownId, value1);
+	DropDown selectNumberOfChildrenDropdown = new DropDown(numberOfChildrenDropdownId, value0);
+	DropDown selectNumberOfRoomersDropdown = new DropDown(numberOfRoomersDropdownId, value0);
+	DropDown selectRentalUnitsDropdown = new DropDown(rentalUnitsDropdownId, NO_RENTAL);
+	DropDown selectCommercialOccupancyDropdown = new DropDown(commercialOccupancyDropdownId, NO);
+	DropDown selectDwellingTypeDropdown = new DropDown(dwellingTypeDropdownId, SINGLE_FAMILY);
+	DropDown selectAlarmDropdown = new DropDown(alarmDropdownId, NONE);
+	DropDown changePetFlagFieldDropdown = new DropDown(petFlagDropdownId, NO);
+
 	PageElement verifyRiskDetailTab = new PageElement(riskDetailTabOpenXpath, RISK_DETAIL);
-	PageElement selectDaycareDropdown = new PageElement(dayCareInHouseDropdownId, NO, InputType.DROPDOWN);
-	PageElement selectBusinessActivityDropdown = new PageElement(businessActivityOrLocDropdownId, NO,
-			InputType.DROPDOWN);
-	PageElement selectRiskTypeDropdown = new PageElement(riskTypeDropdownId, PRINCIPAL, InputType.DROPDOWN);
-	PageElement selectPrincipalResidenceDropdown = new PageElement(principalResidenceDropdownId, YES,
-			InputType.DROPDOWN);
 	PageElement verifyHydrantEmpty = new PageElement(hydrantDropdownId, EMPTY);
 	PageElement verifyFirehallEmpty = new PageElement(firehallDropdownId, EMPTY);
-	PageElement selectElectricalSystemDropdown = new PageElement(electricalSystemDropdownId, AMP_GREATER_200,
-			InputType.DROPDOWN);
-	PageElement selectTabPlumbingSystemDropdown = new PageElement(plumbingSystemDropdownId, COPPER, InputType.DROPDOWN);
-	PageElement selectPetFlagFieldDropdown = new PageElement(petFlagDropdownId, YES, InputType.DROPDOWN);
-	PageElement selectPetTypeDropdown = new PageElement(petTypeDropdownId, petBreed, InputType.DROPDOWN);
-	PageElement selectNumberOfFamiliesDropdown = new PageElement(numberOfFamiliesDropdownId, value1,
-			InputType.DROPDOWN);
-	PageElement selectNumberOfAdultsDropdown = new PageElement(numberOfAdultsDropdownId, value1, InputType.DROPDOWN);
-	PageElement selectNumberOfChildrenDropdown = new PageElement(numberOfChildrenDropdownId, value0,
-			InputType.DROPDOWN);
-	PageElement selectNumberOfRoomersDropdown = new PageElement(numberOfRoomersDropdownId, value0, InputType.DROPDOWN);
-	PageElement selectRentalUnitsDropdown = new PageElement(rentalUnitsDropdownId, NO_RENTAL, InputType.DROPDOWN);
-	PageElement selectCommercialOccupancyDropdown = new PageElement(commercialOccupancyDropdownId, NO,
-			InputType.DROPDOWN);
-	PageElement selectDwellingTypeDropdown = new PageElement(dwellingTypeDropdownId, SINGLE_FAMILY, InputType.DROPDOWN);
-	PageElement selectAlarmDropdown = new PageElement(alarmDropdownId, NONE, InputType.DROPDOWN);
-	PageElement saveButton = new PageElement(saveButtonId, null, InputType.BUTTON);
 	PageElement verifyPolicyHomeText = new PageElement(msgboxId, MSG_BOX);
 	PageElement verifySelectedHydrantOption = new PageElement(hydrantDropdownId, hydrantOption);
 	PageElement verifySelectedFirehallOption = new PageElement(firehallDropdownId, firehallOption);
 	PageElement verifyAttributeValueFireProtected = new PageElement(fireProtectedTextboxId, protectedText,
 			ATTRIBUTE_TYPE_VALUE);
-	PageElement changePetFlagFieldDropdown = new PageElement(petFlagDropdownId, NO, InputType.DROPDOWN);
 	PageElement verifyPetType = new PageElement(petTypeDropdownId);
 	PageElement waitTillMsgVisible = new PageElement(msgboxId);
 	PageElement waitTillSelectSaveButtonVisible = new PageElement(saveButtonId, null, InputType.BUTTON);
-	PageElement processingRequest = new PageElement(processingRequestBoxId, null);
+	PageElement processingRequest = new PageElement(processingRequestBoxId);
 
 	/**
 	 * To fill all the required fields of Risk Details Tab
-	 *
+	 * TA- 3930
 	 * 
 	 */
 	public void addRiskDetails() {
 		logger.info("Inside addRiskDetails method in RiskDetailsTabPage Class");
 
 		Browser browser = new Browser();
-		Button button = new Button();
-		DropDown dropDown = new DropDown();
 
 		browser.verifyText(verifyRiskDetailTab);
 
-		dropDown.selectValue(selectDaycareDropdown);
-		dropDown.selectValue(selectBusinessActivityDropdown);
-		dropDown.selectValue(selectRiskTypeDropdown);
-		dropDown.selectValue(selectPrincipalResidenceDropdown);
+		selectDaycareDropdown.selectValue();
+		selectBusinessActivityDropdown.selectValue();
+		selectRiskTypeDropdown.selectValue();
+		selectPrincipalResidenceDropdown.selectValue();
 
 		browser.verifyFirstSelectedOption(verifyHydrantEmpty);
 		browser.verifyFirstSelectedOption(verifyFirehallEmpty);
 
-		dropDown.selectValue(selectElectricalSystemDropdown);
-		dropDown.selectValue(selectTabPlumbingSystemDropdown);
-		dropDown.selectValue(selectPetFlagFieldDropdown);
-		dropDown.selectValue(selectPetTypeDropdown);
-		dropDown.selectValue(selectNumberOfFamiliesDropdown);
-		dropDown.selectValue(selectNumberOfAdultsDropdown);
-		dropDown.selectValue(selectNumberOfChildrenDropdown);
-		dropDown.selectValue(selectNumberOfRoomersDropdown);
-		dropDown.selectValue(selectRentalUnitsDropdown);
-		dropDown.selectValue(selectCommercialOccupancyDropdown);
-		dropDown.selectValue(selectDwellingTypeDropdown);
-		dropDown.selectValue(selectAlarmDropdown);
+		selectElectricalSystemDropdown.selectValue();
+		selectTabPlumbingSystemDropdown.selectValue();
+		selectPetFlagFieldDropdown.selectValue();
+		selectPetTypeDropdown.selectValue();
+		selectNumberOfFamiliesDropdown.selectValue();
+		selectNumberOfAdultsDropdown.selectValue();
+		selectNumberOfChildrenDropdown.selectValue();
+		selectNumberOfRoomersDropdown.selectValue();
+		selectRentalUnitsDropdown.selectValue();
+		selectCommercialOccupancyDropdown.selectValue();
+		selectDwellingTypeDropdown.selectValue();
+		selectAlarmDropdown.selectValue();
 
-		browser.waitForInvisibility(processingRequest);
+		browser.waitForInvisibilityOfElement(processingRequest);
 
-		button.click(saveButton);
+		saveButton.click();
 
 		browser.verifyText(verifyPolicyHomeText);
 		browser.verifyFirstSelectedOption(verifySelectedHydrantOption);
 		browser.verifyFirstSelectedOption(verifySelectedFirehallOption);
 		browser.verifyTextByAttributeValue(verifyAttributeValueFireProtected);
 
-		dropDown.selectValue(changePetFlagFieldDropdown);
+		changePetFlagFieldDropdown.selectValue();
 
 		browser.verifyElementDisabled(verifyPetType);
 
 		// Added sleep since an unhandled application error message is displayed
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(Integer.parseInt(PropertiesReader.readProperty("sleep")));
 		} catch (InterruptedException exception) {
-			logger.info(exception);
+			logger.warn(exception);
 		}
-		button.click(saveButton);
+		saveButton.click();
 
-		browser.waitForInvisibility(processingRequest);
+		browser.waitForInvisibilityOfText(processingRequest);
 		browser.waitForVisibility(waitTillMsgVisible);
 
 		browser.verifyText(verifyPolicyHomeText);

@@ -3,63 +3,59 @@ package com.BCAA.neat.pageObjects.insurance;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
+import com.BCAA.neat.baseElementClass.Button;
+import com.BCAA.neat.baseElementClass.TextBox;
 import com.BCAA.neat.executor.Browser;
 import com.BCAA.neat.executor.PageElement;
 import com.BCAA.neat.pageObjects.navigation.HomePage;
 import com.BCAA.neat.pageObjects.navigation.InsurancePage;
-import com.BCAA.neat.utils.InputType;
 import com.BCAA.neat.utils.PropertiesReader;
 
 public class FindQuotesOrPolicyPage {
 	Logger logger = Logger.getLogger(FindQuotesOrPolicyPage.class);
-	Browser browser = new Browser();
 
-	private final String SELECT_INSURANCE_PLAN_PAGE_TEXT = "Select Insurance Plan";
+	private final static String SELECT_INSURANCE_PLAN_TEXT = "Select Insurance Plan";
+	private final static String COPY_QUOTE_SUCESS_MESSAGE = "Successfully copied the quote.";
+	private final static String CANCELLED_SUCESS_MESSAGE = "Policy is cancelled successfully. The following list shows the cancelled version.";
+	private final static String VOID_POLICY_STATUS = "Void Policy - New";
 	private String quotePolicyNo;
-	private final String COPY_QUOTE_SUCESS_MESSAGE="Successfully copied the quote.";
-	private final String CANCELLED_SUCESS_MESSAGE="Policy is cancelled successfully. The following list shows the cancelled version.";
-	private final String VOID_POLICY_STATUS="Void Policy - New";
 
-	By memberNumberFieldId = By.id("txtbxFindPolicyMemberNumberId");
-	By associateNumberFieldId = By.id("txtbxFindPolicyAssociateNumberId");
-	By searchButtonId = By.id("btnFindPolicySearchId");
-	By createQuoteButtonId = By.id("btnFindPolicyCreateQuoteId");
-	By selectInsurancePlanTextXpath = By.xpath("//*[@id='selectInsurancePlan']/h2/span");
-	By searchQuotePolicyFieldId = By.id("txtbxFindPolicyQuoteOrPolicyNumberId");
-	By quotePolicyResultId = By.id("insuranceQuotePolicy_1_3");
-	By editQuoteButtonId = By.id("btnFindPolicyEditId");
-	By selectActivePolicy = By.xpath("//td[contains(.,'Active Policy')]");
-	By endorsePolicy = By.id("btnFindPolicyEndorsePolicyId");
-	By copyQuotePolicyNumber=By.id("insuranceQuotePolicy_1_2");
-	By copyQuoteTabID=By.id("btnFindPolicyCopyQuoteId");
-	By msbsucessboxID=By.id("msgbox");
-	By quotePolicyNumberAndVersion =By.id("policyNumberAndVersion");
-	By selectInsurancePlanOkId=By.id("btnSelectInsurancePlanOkId");
-	By voidPolicyStatus = By.id("insuranceQuotePolicy_1_9");
+	private By memberNumberTextboxId = By.id("txtbxFindPolicyMemberNumberId");
+	private By associateNumberTextboxId = By.id("txtbxFindPolicyAssociateNumberId");
+	private By searchBtnId = By.id("btnFindPolicySearchId");
+	private By createQuoteBtnId = By.id("btnFindPolicyCreateQuoteId");
+	private By selectInsurancePlanTextXpath = By.xpath("//*[@id='selectInsurancePlan']/h2/span");
+	private By searchQuotePolicyFieldId = By.id("txtbxFindPolicyQuoteOrPolicyNumberId");
+	private By quotePolicyResultId = By.id("insuranceQuotePolicy_1_3");
+	private By editQuoteBtnId = By.id("btnFindPolicyEditId");
+	private By selectActivePolicyXpath = By.xpath("//td[contains(.,'Active Policy')]");
+	private By endorsePolicyBtnId = By.id("btnFindPolicyEndorsePolicyId");
+	private By copyQuotePolicyNumberId = By.id("insuranceQuotePolicy_1_2");
+	private By copyQuoteBtnId = By.id("btnFindPolicyCopyQuoteId");
+	private By msbSucessBoxID = By.id("msgbox");
+	private By quotePolicyNumberAndVersionId = By.id("policyNumberAndVersion");
+	private By selectInsurancePlanOkBtnId = By.id("btnSelectInsurancePlanOkId");
+	private By voidPolicyStatusId = By.id("insuranceQuotePolicy_1_9");
 
+	Button searchBtn = new Button(searchBtnId);
+	Button createQuoteBtn = new Button(createQuoteBtnId);
+	Button editQuoteBtn = new Button(editQuoteBtnId);
+	Button selectActiveStatus = new Button(selectActivePolicyXpath);
+	Button endorsePolicyBtn = new Button(endorsePolicyBtnId);
+	Button policyNumberPage = new Button(copyQuotePolicyNumberId);
+	Button copyQuoteTab = new Button(copyQuoteBtnId);
+	Button selectInsurancePlanBtn = new Button(selectInsurancePlanOkBtnId);
 
-
-	PageElement memberNumber = new PageElement(memberNumberFieldId, PropertiesReader.readProperty("memberNumber"),
-			InputType.TEXT_BOX);
-	PageElement associateNumber = new PageElement(associateNumberFieldId,
-			PropertiesReader.readProperty("associateNumber"), InputType.TEXT_BOX);
-	PageElement searchButton = new PageElement(searchButtonId, null, InputType.BUTTON);
-	PageElement createQuoteButton = new PageElement(createQuoteButtonId, null, InputType.BUTTON);
-	PageElement selectInsurancePlanText = new PageElement(selectInsurancePlanTextXpath,
-			SELECT_INSURANCE_PLAN_PAGE_TEXT);
-	PageElement searchQuotePolicyField;
+	PageElement selectInsurancePlanText = new PageElement(selectInsurancePlanTextXpath, SELECT_INSURANCE_PLAN_TEXT);
+	PageElement assetSuccessMsgBox = new PageElement(msbSucessBoxID, COPY_QUOTE_SUCESS_MESSAGE);
+	PageElement retreivePolicy = new PageElement(quotePolicyNumberAndVersionId);
+	PageElement cancelMsgBox = new PageElement(msbSucessBoxID, CANCELLED_SUCESS_MESSAGE);
+	PageElement voidStatus = new PageElement(voidPolicyStatusId, VOID_POLICY_STATUS);
 	PageElement quotePolicyResult;
-	PageElement editQuoteButton = new PageElement(editQuoteButtonId, null, InputType.BUTTON);
-	PageElement selectActiveStatus = new PageElement(selectActivePolicy, null, InputType.BUTTON);
-	PageElement endorsePolicyBtn = new PageElement(endorsePolicy, null, InputType.BUTTON);
-	PageElement policyNumberPage = new PageElement(copyQuotePolicyNumber, null, InputType.BUTTON);
-	PageElement copyQuoteTab = new PageElement(copyQuoteTabID, null, InputType.BUTTON);
-	PageElement assetSuccessMsgBox = new PageElement(msbsucessboxID, COPY_QUOTE_SUCESS_MESSAGE);
-	PageElement retreivePolicy=new PageElement(quotePolicyNumberAndVersion);
-	PageElement selectInsurancePlan=new PageElement(selectInsurancePlanOkId, null, InputType.BUTTON);
-	PageElement cancelMsgBox = new PageElement(msbsucessboxID, CANCELLED_SUCESS_MESSAGE);
-	PageElement voidStatus = new PageElement(voidPolicyStatus, VOID_POLICY_STATUS);
 
+	TextBox memberNumberTextbox = new TextBox(memberNumberTextboxId, PropertiesReader.readProperty("memberNumber"));
+	TextBox associateNumberTextbox = new TextBox(associateNumberTextboxId,
+			PropertiesReader.readProperty("associateNumber"));
 
 	/**
 	 * 
@@ -67,11 +63,14 @@ public class FindQuotesOrPolicyPage {
 	 */
 	public void createQuote() {
 		logger.info("Inside createQuote method in FindQuotesOrPolicyPage Class");
-		
-		browser.setElement(memberNumber);
-		browser.setElement(associateNumber);
-		browser.setElement(createQuoteButton);
-		
+
+		Browser browser = new Browser();
+
+		memberNumberTextbox.enterTextInField();
+		associateNumberTextbox.enterTextInField();
+
+		createQuoteBtn.click();
+
 		browser.verifyText(selectInsurancePlanText);
 	}
 
@@ -81,29 +80,27 @@ public class FindQuotesOrPolicyPage {
 	 */
 	public void searchQuotePolicy() {
 		logger.info("Inside searchQuotePolicy method in FindQuotesOrPolicyPage Class");
-		
+
+		Browser browser = new Browser();
 		HomePage homePage = new HomePage();
 		InsurancePage insurancePage = new InsurancePage();
 		SelectInsurancePlanPage selectInsurancePlan = new SelectInsurancePlanPage();
 		EditQuotesOrPolicyPage quotePolicyNumber = new EditQuotesOrPolicyPage();
 
-		homePage.selectInsurance();
-		insurancePage.quotesAndPoliciesTab();
-		
+		homePage.selectInsuranceTab();
+		insurancePage.navigateToQuotesAndPoliciesTab();
 		createQuote();
-		
 		selectInsurancePlan.selectInsurancePlan();
-		quotePolicyNo = quotePolicyNumber.retrieveQuoteNumber();
-		homePage.selectInsurance();
-		insurancePage.quotesAndPoliciesTab();
-		
-		searchQuotePolicyField = new PageElement(searchQuotePolicyFieldId, quotePolicyNo, InputType.TEXT_BOX);
+		quotePolicyNo = quotePolicyNumber.retrieveQuoteNumber().toString();
+		homePage.selectInsuranceTab();
+		insurancePage.navigateToQuotesAndPoliciesTab();
+
+		TextBox searchQuotePolicyField = new TextBox(searchQuotePolicyFieldId, quotePolicyNo);
 		quotePolicyResult = new PageElement(quotePolicyResultId, quotePolicyNo);
-		
-		browser.setElement(searchQuotePolicyField);
-		browser.setElement(searchButton);
+
+		searchQuotePolicyField.enterTextInField();
+		searchBtn.click();
 		browser.waitForVisibility(quotePolicyResult);
-		//browser.verifyText(quotePolicyResult);
 	}
 
 	/**
@@ -116,78 +113,91 @@ public class FindQuotesOrPolicyPage {
 
 	public void searchQuotePolicywithQuoteNumber(PageElement pageElementObj) {
 		logger.info("Inside searchQuotePolicywithQuoteNumber method in FindQuotesOrPolicyPage Class");
-		HomePage homePage = new HomePage();
-		InsurancePage insurancePage = new InsurancePage();
-		homePage.selectInsurance();
-		insurancePage.quotesAndPoliciesTab();
-		
-		searchQuotePolicyField = new PageElement(searchQuotePolicyFieldId, pageElementObj.getOutValue(), InputType.TEXT_BOX);
-		browser.setElement(searchQuotePolicyField);
-		browser.setElement(searchButton);
-		//browser.waitForVisibility(selectActiveStatus);
-		//browser.setElement(selectActiveStatus);
-		//browser.setElement(endorsePolicyBtn);
+
+		TextBox searchQuotePolicyField = new TextBox(searchQuotePolicyFieldId, pageElementObj.getOutValue());
+		searchQuotePolicyField.enterTextInField();
+		searchBtn.click();
+		// browser.waitForVisibility(selectActiveStatus);
+		// browser.setElement(selectActiveStatus);
+		// browser.setElement(endorsePolicyBtn);
 	}
+
 	/**
 	 * 
 	 */
 	public void selectActivePolicy() {
+		logger.info("Inside selectActivePolicy method in FindQuotesOrPolicyPage Class");
+
+		Browser browser = new Browser();
+
 		browser.waitForVisibility(selectActiveStatus);
-		browser.setElement(selectActiveStatus);
+		selectActiveStatus.click();
 	}
-	
+
 	/**
-	 * Click on Endorse Policy Button, when you have already selected Active policy
+	 * Click on Endorse Policy Button, when you have already selected Active
+	 * policy
 	 */
 	public void clickOnEndorsePolicyBtn() {
-		browser.setElement(endorsePolicyBtn);
+		logger.info("Inside clickOnEndorsePolicyBtn method in FindQuotesOrPolicyPage Class");
+
+		endorsePolicyBtn.click();
 	}
-	
+
 	/**
 	 * Click on Edit Button, when you have already selected Find Results
 	 */
 	public void clickEditBtn() {
-		browser.setElement(editQuoteButton);
+		logger.info("Inside clickEditBtn method in FindQuotesOrPolicyPage Class");
+
+		editQuoteBtn.click();
 	}
-	
-	
-	
+
 	/**
-	 * To search an quote with Policy for Copy Quote
-	 *   The Quote number for committed quote to be searched
+	 * To search an quote with Policy for Copy Quote The Quote number for
+	 * committed quote to be searched
 	 */
-	public void searchCopiedPolicy()
-	{
+	public void searchCopiedPolicy() {
 		logger.info("Inside searchCopiedPolicy method in FindQuotesOrPolicyPage Class");
+
+		Browser browser = new Browser();
+
 		PageElement pageElementObj = browser.retreiveQuote(retreivePolicy);
 		searchQuotePolicywithQuoteNumber(pageElementObj);
 	}
-	
+
 	/**
 	 * To select the Copy Quote option for a policy
 	 * 
 	 */
-	public void copyQuote()
-	{
+	public void copyQuote() {
 		logger.info("Inside copy quote method in FindQuotesOrPolicyPage Class");
-		
-		browser.setElement(policyNumberPage);
-		browser.setElement(copyQuoteTab);
+
+		Browser browser = new Browser();
+
+		policyNumberPage.click();
+		copyQuoteTab.click();
 		browser.verifyText(assetSuccessMsgBox);
-		browser.setElement(selectInsurancePlan);
+		selectInsurancePlanBtn.click();
 	}
-	
+
 	/**
-	 * 
+	 * To verify message when cancelling a policy
 	 */
 	public void verifyCancelledMessage() {
+		logger.info("Inside verifyCancelledMessage method in FindQuotesOrPolicyPage Class");
+		Browser browser = new Browser();
+
 		browser.verifyText(cancelMsgBox);
 	}
-	
+
 	/**
-	 * 
+	 * To verify status of a voided policy
 	 */
 	public void verifyVoidPolicyStatus() {
+		logger.info("Inside verifyVoidPolicyStatus method in FindQuotesOrPolicyPage Class");
+		Browser browser = new Browser();
+
 		browser.verifyText(voidStatus);
 	}
 

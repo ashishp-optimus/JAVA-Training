@@ -21,7 +21,8 @@ public class TestListener extends TestListenerAdapter {
 
 	Logger logger = Logger.getLogger(TestListener.class);
 	private String SCREENSHOTPATH = System.getProperty("user.dir") + "\\Screenshot\\";
-	private String DUMPSFILEPATH= System.getProperty("user.dir") +"\\log\\htmlDumps.txt";
+	private String HTMLDUMPS = System.getProperty("user.dir") + "\\htmlDumps\\";
+	private String timeStamp = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss").format(Calendar.getInstance().getTime());
 
 	/**
 	 * Capture Screenshot on test failure
@@ -34,6 +35,7 @@ public class TestListener extends TestListenerAdapter {
 		// to generate report in the browser Reporter Output
 		Reporter.log("<div style='width: 100px; float: left;'>" + "<a style='padding:20px' href='" + SCREENSHOTPATH
 				+ "'>" + "<img src='" + SCREENSHOTPATH + "' width='200px' /> " + "</a>" + "</div>" + "</div>");
+
 		storeHtmlDumps(Browser.driver.getPageSource());
 	}
 
@@ -70,7 +72,6 @@ public class TestListener extends TestListenerAdapter {
 			// to create directory
 			FileUtils.forceMkdir(scrFile);
 			scrFile = ((TakesScreenshot) Browser.driver).getScreenshotAs(OutputType.FILE);
-			String timeStamp = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss").format(Calendar.getInstance().getTime());
 			SCREENSHOTPATH = SCREENSHOTPATH + methodName + "_" + timeStamp + ".png";
 			FileUtils.copyFile(scrFile, new File(SCREENSHOTPATH));
 
@@ -85,9 +86,18 @@ public class TestListener extends TestListenerAdapter {
 	 * @param methodName
 	 */
 	public void storeHtmlDumps(String pagesource) {
+		logger.info("Html Dumps File");
 		try {
+			File scrFile = new File(HTMLDUMPS);
+			// to clean directory
+			FileUtils.cleanDirectory(scrFile);
+			// to delete directory
+			FileUtils.forceDelete(scrFile);
+			// to create directory
+			FileUtils.forceMkdir(scrFile);
 			Browser.driver.getPageSource();
-			File dumps = new File(DUMPSFILEPATH);
+			HTMLDUMPS = HTMLDUMPS + "htmldumps" + "_" + timeStamp;
+			File dumps = new File(HTMLDUMPS);
 			FileUtils.writeStringToFile(dumps, pagesource);
 		} catch (Exception exception) {
 			logger.warn(exception);

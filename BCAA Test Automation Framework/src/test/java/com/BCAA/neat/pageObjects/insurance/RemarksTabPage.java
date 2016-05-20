@@ -3,9 +3,10 @@ package com.BCAA.neat.pageObjects.insurance;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
+import com.BCAA.neat.baseElementClass.Button;
+import com.BCAA.neat.baseElementClass.TextBox;
 import com.BCAA.neat.executor.Browser;
 import com.BCAA.neat.executor.PageElement;
-import com.BCAA.neat.utils.InputType;
 
 /**
  * 
@@ -14,26 +15,22 @@ import com.BCAA.neat.utils.InputType;
  */
 public class RemarksTabPage {
 	Logger logger = Logger.getLogger(RemarksTabPage.class);
-	Browser browserFactory = new Browser();
+	Browser browser = new Browser();
 
-	private final String DECLARATION_PAGE_Remarks = "Testing Declaration page remarks";
-	private final String POLICY_REMARKS_TEXT = "Policy Remark has been updated successfully.";
+	private final static String DECLARATION_PAGE_Remarks = "Testing Declaration page remarks";
+	private final static String POLICY_REMARKS_TEXT = "Policy Remark has been updated successfully.";
 
-	By remarksTab = By.id("RemarksTab");
-	By txtAreaRemarks = By.id("txtareaRemarksTabRemarksId");
-	By saveBtn = By.id("btnRemarksTabSaveId");
-	By msgbox = By.id("msgbox");
+	
+	private By areaRemarksTextboxId = By.id("txtareaRemarksTabRemarksId");
+	private By saveBtnId = By.id("btnRemarksTabSaveId");
+	private By msgboxId = By.id("msgbox");
 
-	PageElement clickRemarksTab = new PageElement(remarksTab, null, InputType.BUTTON);
-	PageElement enterTextIntxtAreaRemarks = new PageElement(txtAreaRemarks, DECLARATION_PAGE_Remarks,
-			InputType.TEXT_BOX);
-	PageElement clickSaveBtn = new PageElement(saveBtn, null, InputType.BUTTON);
-	PageElement verifyPolicyRemarksText = new PageElement(msgbox, POLICY_REMARKS_TEXT);
+	
+	Button saveBtn = new Button(saveBtnId);
 
-	public void clickOnRemarksTab() {
-		logger.info("Inside clickOnRemarksTab method in RemarksTabPage Class");
-		browserFactory.setElement(clickRemarksTab);
-	}
+	PageElement verifyPolicyRemarksText = new PageElement(msgboxId, POLICY_REMARKS_TEXT);
+
+	TextBox txtAreaRemarksTextbox = new TextBox(areaRemarksTextboxId, DECLARATION_PAGE_Remarks);
 
 	/**
 	 * To add remarks to a policy
@@ -41,9 +38,12 @@ public class RemarksTabPage {
 	 */
 	public void addRemarks() {
 		logger.info("Inside addRemarks method in RemarksTabPage Class");
-		browserFactory.setElement(enterTextIntxtAreaRemarks);
-		browserFactory.setElement(clickSaveBtn);
-		browserFactory.verifyText(verifyPolicyRemarksText);
+
+		txtAreaRemarksTextbox.enterTextInField();
+
+		saveBtn.click();
+
+		browser.verifyText(verifyPolicyRemarksText);
 
 	}
 

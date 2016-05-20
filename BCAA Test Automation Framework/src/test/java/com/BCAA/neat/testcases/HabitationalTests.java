@@ -6,6 +6,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.BCAA.neat.baseInsurance.InsuranceLibrary;
 import com.BCAA.neat.executor.Browser;
 import com.BCAA.neat.executor.PageElement;
 import com.BCAA.neat.pageObjects.POS.PosReceiptPage;
@@ -33,6 +34,8 @@ import com.BCAA.neat.pageObjects.navigation.InsurancePage;
  * 
  * @author Optimus
  */
+
+//Please ignore this test file as this is not ready yet
 public class HabitationalTests {
 
 	Logger logger = Logger.getLogger(HabitationalTests.class);
@@ -63,6 +66,29 @@ public class HabitationalTests {
 		loginPage.signIn();
 	}
 
+	@Test
+	public void SmokeTest()
+	{
+		InsuranceLibrary insurance=new InsuranceLibrary();
+		insurance.verifyLogin();
+		insurance.selectInsuranceTab();
+		insurance.QuotesandPolicy();
+		insurance.createQuote();
+		insurance.SelectInsurancePlan();
+//		insurance.claimsTab();
+//		insurance.createExternalClaim();
+//		insurance.deleteExternalClaim();
+//		insurance.goToInsuredsTab();
+//		insurance.addInsuredsTab();
+//		insurance.editInsuredsTab();
+//		insurance.goToAssetsTab();
+//		insurance.addAssets();
+//		insurance.editAssets();
+//		insurance.addRiskDetails();
+//		insurance.addHomeEvaluation();
+//		
+		
+	}
 	/**
 	 * Habitational Regression Test Cases: These are the test scripts that
 	 * should be in this file
@@ -601,15 +627,29 @@ public class HabitationalTests {
 	/**
 	 * BCAA-3934: Log Into NEAT
 	 */
-	// @Test(priority = 1, description = "BCAA-3934: Log Into NEAT")
+	@Test(priority = 1, description = "BCAA-3934: Log Into NEAT")
 	public void logInToNEAT() {
 		homePage = new HomePage();
+		
 		homePage.verifyLogin();
 	}
 
 	/**
 	 * BCAA-3986: Create Habitational Draft Quote
 	 */
+<<<<<<< .mine
+//	@Test(priority = 1, description = "BCAA-3986: Create Habitational Draft Quote")
+//	public void createDraftQuote() {
+//		logger.info("BCAA-3986: Create Habitational Draft Quote");
+//
+//		insurancePage = new InsurancePage();
+//		selectInsurancePlan = new SelectInsurancePlanPage();
+//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
+//		homePage = new HomePage();
+//
+//		homePage.selectInsurance();
+//		insurancePage = new InsurancePage();
+||||||| .r124
 	@Test(priority = 1, description = "BCAA-3986: Create Habitational Draft Quote")
 	public void createDraftQuote() {
 		logger.info("BCAA-3986: Create Habitational Draft Quote");
@@ -621,12 +661,25 @@ public class HabitationalTests {
 
 		homePage.selectInsurance();
 		insurancePage = new InsurancePage();
+=======
+	//@Test(priority = 1, description = "BCAA-3986: Create Habitational Draft Quote")
+	public void createDraftQuote() {
+		logger.info("BCAA-3986: Create Habitational Draft Quote");
+
+		insurancePage = new InsurancePage();
+		selectInsurancePlan = new SelectInsurancePlanPage();
+		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
+		homePage = new HomePage();
+
+		homePage.selectInsurance();
+		insurancePage = new InsurancePage();
+>>>>>>> .r126
 		//insurancePage.quotesAndPoliciesTab();
 		//findQuotesAndPolicies = new FindQuotesOrPolicyPage();
 		//findQuotesAndPolicies.createQuote();
 		//selectInsurancePlan = new SelectInsurancePlanPage();
 		//selectInsurancePlan.selectInsurancePlan();
-	}
+//	}
 
 	/**
 	 * BCAA-3931: Find Quote
@@ -648,33 +701,851 @@ public class HabitationalTests {
 		assetPage = new AssetsTabPage();
 		assetPage.addAsset();
 
-	}
-
 	/**
-	 * 
-	 * BCAA-3935: Add Insured
+	 * BCAA-3990: Go To Assets Tab
 	 */
-	// @Test(priority = 5, description = "BCAA-3935: Add Insured")
-	public void addInsured() {
-		logger.info("BCAA-3935: Add Insured");
+	// @Test(priority = 4, description = "BCAA-3990: Go To Assets Tab")
+	public void goToAssetsTab() {
+		logger.info("BCAA-3990: Go To Assets Tab");
 		createDraftQuote();
-		insuredPage = new InsuredsTabPage();
-		insuredPage.insuredTab();
-		insuredPage.addInsured();
-	}
+		assetPage = new AssetsTabPage();
+		
+		assetPage.addAsset();
 
-	/**
-	 * 
-	 * BCAA-3901: Edit Insured
-	 * 
-	 * @throws InterruptedException
-	 */
-	// @Test(priority = 6, description = "BCAA-3901: Edit Insured")
-	public void editInsured() {
-		logger.info("BCAA-3901: Edit Insured");
-		createDraftQuote();
-		insuredPage = new InsuredsTabPage();
 
+//	/**
+//	 * BCAA-3990: Go To Assets Tab
+//	 */
+//	// @Test(priority = 4, description = "BCAA-3990: Go To Assets Tab")
+//	public void goToAssetsTab() {
+//		logger.info("BCAA-3990: Go To Assets Tab");
+//		createDraftQuote();
+//		assetPage = new AssetsTabPage();
+//		assetPage.addAsset();
+//
+//	}
+//
+//	/**
+//	 * 
+//	 * BCAA-3935: Add Insured
+//	 */
+//	// @Test(priority = 5, description = "BCAA-3935: Add Insured")
+//	public void addInsured() {
+//		logger.info("BCAA-3935: Add Insured");
+//		createDraftQuote();
+//		insuredPage = new InsuredsTabPage();
+//		insuredPage.insuredTab();
+//		insuredPage.addInsured();
+//	}
+//
+//	/**
+//	 * 
+//	 * BCAA-3901: Edit Insured
+//	 * 
+//	 * @throws InterruptedException
+//	 */
+//	// @Test(priority = 6, description = "BCAA-3901: Edit Insured")
+//	public void editInsured() {
+//		logger.info("BCAA-3901: Edit Insured");
+//		createDraftQuote();
+//		insuredPage = new InsuredsTabPage();
+//
+//		insuredPage.insuredTab();
+//		insuredPage.editInsured();
+//	}
+//
+//	/**
+//	 * BCAA-3992: Go To Home Evaluation Tab
+//	 *
+//	 */
+//	// @Test(priority = 7, description = "BCAA-3992: Go To Home Evaluation Tab")
+//	public void goToHomeEvaluationTab() {
+//		logger.info("BCAA-3992: Go To Home Evaluation Tab");
+//		createDraftQuote();
+//		assetPage = new AssetsTabPage();
+//		riskDetail = new RiskDetailsTabPage();
+//		homeEvaluationPage = new HomeEvaluationTabPage();
+//
+//		assetPage.addAsset();
+//		riskDetail.addRiskDetails();
+//		homeEvaluationPage.addHomeEvaluation();
+//	}
+//
+//	/**
+//	 * BCAA-3930: Add Home Asset - Risk Details
+//	 * 
+//	 */
+//	@Test(priority = 8, description = "BCAA-3930: Add Home Asset - Risk Details")
+//	public void riskDetails() {
+//		logger.info("BCAA-3930: Add Home Asset - Risk Details");
+//		assetPage = new AssetsTabPage();
+//		riskDetail = new RiskDetailsTabPage();
+//
+//		goToAssetsTab();
+//		riskDetail.addRiskDetails();
+//
+//		// Verify the address populated in asset page
+//		assetPage.verifyUpdatedAddress();
+//
+//	}
+//
+//	/**
+//	 * BCAA-3916: Verify Options
+//	 * 
+//	 * 
+//	 */
+//	// @Test(priority = 9, description = "BCAA-3916: Verify Options")
+//	public void verifyOptions() {
+//		logger.info("BCAA-3916: Verify Options");
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		assetPage = new AssetsTabPage();
+//		riskDetail = new RiskDetailsTabPage();
+//		homeEvaluationPage = new HomeEvaluationTabPage();
+//		optionsPage = new OptionsTabPage();
+//		insuredPage = new InsuredsTabPage();
+//
+//		editQuotesAndPolicies.searchAndEditAPolicy();
+//		insuredPage.insuredTab();
+//		insuredPage.editInsured();
+//		assetPage.addAsset();
+//
+//		riskDetail.addRiskDetails();
+//		// Verify the address populated in asset page
+//		assetPage.verifyUpdatedAddress();
+//		homeEvaluationPage.addHomeEvaluation();
+//
+//		optionsPage.verifyOptions();
+//	}
+//
+//	/**
+//	 * BCAA-3905: Commit Quote
+//	 * 
+//	 */
+//	// @Test(priority = 10, description = "BCAA-3905: Commit Quote")
+//	public void commitQuote() {
+//		logger.info("BCAA-3905: Commit Quote");
+//		verifyOptions();
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		editQuotesAndPolicies.commitQuote();
+//	}
+//
+//	/**
+//	 * BCAA-3909: Add Notes
+//	 * 
+//	 */
+//	//@Test(priority = 11, description = "BCAA-3909: Add Notes")
+//	public void addNotes() {
+//		logger.info("BCAA-3909: Add Notes");
+//		commitQuote();
+//		noteTabPage = new NotesTabPage();
+//		noteTabPage.clickOnNoteTab();
+//		noteTabPage.addNotes();
+//		noteTabPage.ViewNote();
+//	}
+//
+//	/**
+//	 * BCAA-3908: Add Remarks
+//	 * 
+//	 */
+//	// @Test(priority = 12, description = "BCAA-3908: Add Remarks")
+//	public void addRemarks() {
+//		logger.info("BCAA-3908: Add Remarks");
+//		commitQuote();
+//		remarksTabPage = new RemarksTabPage();
+//		remarksTabPage.clickOnRemarksTab();
+//		remarksTabPage.addRemarks();
+//	}
+//
+//	// @Test(priority = 13, description = "BCAA-3907: Copy Quote")
+//	public void copyQuote() {
+//		logger.info("BCAA-3907: Copy Quote");
+//		commitQuote();
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
+//		findQuotesAndPolicies.searchCopiedPolicy();
+//		findQuotesAndPolicies.copyQuote();
+//	}
+//
+//	// -----------------------------------SPRINT
+//	// 2----------------------------------------------
+//
+//	/**
+//	 * TA-3911: Issue Policy
+//	 *
+//	 */
+//	// @Test(priority = 1, description = "TA-3911: Issue Policy ")
+//	public void issuePolicy() {
+//		addRemarks();
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		editQuotesAndPolicies.issuePolicy();
+//
+//	}
+//
+//	/**
+//	 * TA-3912:Create Receipt
+//	 *
+//	 */
+//	//@Test(priority = 2, description = "TA-3912:Create Receipt")
+//	public void createReceipt() {
+//		posReceiptPage = new PosReceiptPage();
+//		createReceiptPage = new CreateReceiptPage();
+//		issuePolicy();
+//		createReceiptPage.selectCreateReceipt();
+//		posReceiptPage.createReceipt();
+//
+//	}
+//
+//
+//
+//	/**
+//	 * BCAA-3914: EndorsePolicy
+//	 *
+//	 */
+//
+//	// @Test(priority = 4, description = "BCAA-3914: EndorsePolicy")
+//	/*public void endorsePolicy() {
+//		SelectInsurancePlanPage selectInsurancePlanObj = new SelectInsurancePlanPage();
+//		selectInsurancePlanObj.selectEndorsePolicy();
+//
+//	}*/
+//
+//
+//
+//	/**
+//	 * TA-3957: Cancel Policy
+//	 * 
+//	 */
+//	//@Test(priority = 1, description = "TA-3957: Cancel Policy")
+//	public void cancelPolicy() {
+//		insurancePage = new InsurancePage();
+//		InsuranceQuotePolicy insuranceQuotePolicy = new InsuranceQuotePolicy();
+//		homePage = new HomePage();
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		createReceiptPage = new CreateReceiptPage();
+//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
+//
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//
+//		addRemarks();
+//
+//		editQuotesAndPolicies.issuePolicy();
+//		PageElement pageElementObj = createReceiptPage.getActivePolicyNum();
+//
+//		homePage.selectInsurance();
+//		insurancePage.quotesAndPoliciesTab();
+//		findQuotesAndPolicies.searchQuotePolicywithQuoteNumber(pageElementObj);
+//		findQuotesAndPolicies.selectActivePolicy();
+//		findQuotesAndPolicies.clickEditBtn();
+//
+//		editQuotesAndPolicies.verifyRetrivedQuote(pageElementObj);
+//		editQuotesAndPolicies.verifyEditQuotePolicyHeader();
+//		editQuotesAndPolicies.clickOnCancelPolicyBtn();
+//		
+//		insuranceQuotePolicy.verifyCancelPolicyHeader();
+//		
+//		insuranceQuotePolicy.selectDropDown();
+//		insuranceQuotePolicy.clickOnRecalcualteRefundBtn();
+//		insuranceQuotePolicy.verifyNoteData();
+//		insuranceQuotePolicy.clickOkBtn();
+//		insuranceQuotePolicy.verifyPopUp();
+//		
+//		findQuotesAndPolicies.verifyCancelledMessage();
+//
+//	}
+//	
+//	/**
+//	 * TA-3961: Void a Policy
+//	 * 
+//	 */
+//	//@Test(priority = 1, description = "TA-3961: Void a Policy")
+//	public void voidPolicy() {
+//		insurancePage = new InsurancePage();
+//		InsuranceQuotePolicy insuranceQuotePolicy = new InsuranceQuotePolicy();
+//		homePage = new HomePage();
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		createReceiptPage = new CreateReceiptPage();
+//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
+//
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//
+//		addRemarks();
+//
+//		editQuotesAndPolicies.issuePolicy();
+//		PageElement pageElementObj = createReceiptPage.getActivePolicyNum();
+//
+//		homePage.selectInsurance();
+//		insurancePage.quotesAndPoliciesTab();
+//		findQuotesAndPolicies.searchQuotePolicywithQuoteNumber(pageElementObj);
+//		findQuotesAndPolicies.selectActivePolicy();
+//		findQuotesAndPolicies.clickEditBtn();
+//
+//		editQuotesAndPolicies.verifyRetrivedQuote(pageElementObj);
+//		editQuotesAndPolicies.verifyEditQuotePolicyHeader();
+//		editQuotesAndPolicies.clickOnVoidPolicyBtn();
+//		
+//		//insuranceQuotePolicy.verifyVoidPolicyHeader();
+//		//insuranceQuotePolicy.sendYesInPolicyVoidTextBox();
+//		//insuranceQuotePolicy.clickOnVoidPolicyOkBtn();
+//		
+//		//findQuotesAndPolicies.verifyVoidPolicyStatus();
+//
+//	}
+//
+//
+//
+//	/**
+//	 * BCAA-4022: Verify Premiums
+//	 * 
+//	 */
+//
+//	// @Test(priority = 3, description = "BCAA-4022: Verify Premiums")
+//	public void verifyPremiums() {
+//		optionsPage = new OptionsTabPage();
+//		verifyOptions();
+//		optionsPage.verifyPremiums();
+//
+//	}
+//
+//	/**
+//	 * BCAA-3914: EndorsePolicy
+//	 * 
+//	 * @throws InterruptedException
+//	 * 
+//	 */
+//
+//	 //@Test(priority = 4, description = "BCAA-3914: EndorsePolicy")	
+//	  /*public void endorsePolicy() { SelectInsurancePlanPage
+//	  selectInsurancePlanObj = new SelectInsurancePlanPage();
+//	  selectInsurancePlanObj.selectEndorsePolicy();
+//	  
+//	  }*/
+//
+//	//@Test(priority = 1)
+//	public void openPaymentPlan(){
+//		issuePolicy();
+//		CreateReceiptPage createReceiptPage  = new CreateReceiptPage();
+//		createReceiptPage.selectOpenPaymentPlan();
+//		OpenPaymentPlanPage openPaymentPlan = new OpenPaymentPlanPage();
+//		openPaymentPlan.openPaymentPlan();
+//	}
+//
+////	@Test(priority=5, description= "BCAA-3938: Create External Claim")
+//	public void createExternalClaim()
+//	{
+//		logger.info("BCAA-3938: Create External Claim");
+//		createDraftQuote();
+//		claimsTabPage = new ClaimsTabPage();
+//		claimsTabPage.claimsTab();
+//		claimsTabPage.createExternalClaim();
+//
+//	}
+//	
+////	@Test(priority=6, description= "BCAA-3900: Delete External Claim")
+//	public void deleteExternalClaim()
+//	{
+//		logger.info("BCAA-3900: Delete External Claim");
+//		createDraftQuote();
+//		claimsTabPage = new ClaimsTabPage();
+//		claimsTabPage.claimsTab();
+//		claimsTabPage.createExternalClaim();
+//		claimsTabPage.deleteExternalClaim();
+//
+//	}
+//	
+////	@Test(priority=7, description= "BCAA-3920: Edit Home Asset - Home Evaluation")
+//	public void editHomeEvaluation()
+//	{
+//		logger.info("BCAA-3920: Edit Home Asset - Home Evaluation");
+//		goToHomeEvaluationTab();
+//		assetPage.editAsset();
+//		homeEvaluationPage.editHomeEvaluation();
+//		
+//	}
+
+//	/**
+//	 * BCAA-3990: Go To Assets Tab
+//	 */
+//	// @Test(priority = 4, description = "BCAA-3990: Go To Assets Tab")
+//	public void goToAssetsTab() {
+//		logger.info("BCAA-3990: Go To Assets Tab");
+//		createDraftQuote();
+//		assetPage = new AssetsTabPage();
+//		assetPage.addAsset();
+//
+//	}
+//
+//	/**
+//	 * 
+//	 * BCAA-3935: Add Insured
+//	 */
+//	// @Test(priority = 5, description = "BCAA-3935: Add Insured")
+//	public void addInsured() {
+//		logger.info("BCAA-3935: Add Insured");
+//		createDraftQuote();
+//		insuredPage = new InsuredsTabPage();
+//		insuredPage.insuredTab();
+//		insuredPage.addInsured();
+//	}
+//
+//	/**
+//	 * 
+//	 * BCAA-3901: Edit Insured
+//	 * 
+//	 * @throws InterruptedException
+//	 */
+//	// @Test(priority = 6, description = "BCAA-3901: Edit Insured")
+//	public void editInsured() {
+//		logger.info("BCAA-3901: Edit Insured");
+//		createDraftQuote();
+//		insuredPage = new InsuredsTabPage();
+//
+//		insuredPage.insuredTab();
+//		insuredPage.editInsured();
+//	}
+//
+//	/**
+//	 * BCAA-3992: Go To Home Evaluation Tab
+//	 *
+//	 */
+//	// @Test(priority = 7, description = "BCAA-3992: Go To Home Evaluation Tab")
+//	public void goToHomeEvaluationTab() {
+//		logger.info("BCAA-3992: Go To Home Evaluation Tab");
+//		createDraftQuote();
+//		assetPage = new AssetsTabPage();
+//		riskDetail = new RiskDetailsTabPage();
+//		homeEvaluationPage = new HomeEvaluationTabPage();
+//
+//		assetPage.addAsset();
+//		riskDetail.addRiskDetails();
+//		homeEvaluationPage.addHomeEvaluation();
+//	}
+//
+//	/**
+//	 * BCAA-3930: Add Home Asset - Risk Details
+//	 * 
+//	 */
+//	@Test(priority = 8, description = "BCAA-3930: Add Home Asset - Risk Details")
+//	public void riskDetails() {
+//		logger.info("BCAA-3930: Add Home Asset - Risk Details");
+//		assetPage = new AssetsTabPage();
+//		riskDetail = new RiskDetailsTabPage();
+//
+//		goToAssetsTab();
+//		riskDetail.addRiskDetails();
+//
+//		// Verify the address populated in asset page
+//		assetPage.verifyUpdatedAddress();
+//
+//	}
+//
+//	/**
+//	 * BCAA-3916: Verify Options
+//	 * 
+//	 * 
+//	 */
+//	// @Test(priority = 9, description = "BCAA-3916: Verify Options")
+//	public void verifyOptions() {
+//		logger.info("BCAA-3916: Verify Options");
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		assetPage = new AssetsTabPage();
+//		riskDetail = new RiskDetailsTabPage();
+//		homeEvaluationPage = new HomeEvaluationTabPage();
+//		optionsPage = new OptionsTabPage();
+//		insuredPage = new InsuredsTabPage();
+//
+//		editQuotesAndPolicies.searchAndEditAPolicy();
+//		insuredPage.insuredTab();
+//		insuredPage.editInsured();
+//		assetPage.addAsset();
+//
+//		riskDetail.addRiskDetails();
+//		// Verify the address populated in asset page
+//		assetPage.verifyUpdatedAddress();
+//		homeEvaluationPage.addHomeEvaluation();
+//
+//		optionsPage.verifyOptions();
+//	}
+//
+//	/**
+//	 * BCAA-3905: Commit Quote
+//	 * 
+//	 */
+//	// @Test(priority = 10, description = "BCAA-3905: Commit Quote")
+//	public void commitQuote() {
+//		logger.info("BCAA-3905: Commit Quote");
+//		verifyOptions();
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		editQuotesAndPolicies.commitQuote();
+//	}
+//
+//	/**
+//	 * BCAA-3909: Add Notes
+//	 * 
+//	 */
+//	//@Test(priority = 11, description = "BCAA-3909: Add Notes")
+//	public void addNotes() {
+//		logger.info("BCAA-3909: Add Notes");
+//		commitQuote();
+//		noteTabPage = new NotesTabPage();
+//		noteTabPage.clickOnNoteTab();
+//		noteTabPage.addNotes();
+//		noteTabPage.ViewNote();
+//	}
+//
+//	/**
+//	 * BCAA-3908: Add Remarks
+//	 * 
+//	 */
+//	// @Test(priority = 12, description = "BCAA-3908: Add Remarks")
+//	public void addRemarks() {
+//		logger.info("BCAA-3908: Add Remarks");
+//		commitQuote();
+//		remarksTabPage = new RemarksTabPage();
+//		remarksTabPage.clickOnRemarksTab();
+//		remarksTabPage.addRemarks();
+//	}
+//
+//	// @Test(priority = 13, description = "BCAA-3907: Copy Quote")
+//	public void copyQuote() {
+//		logger.info("BCAA-3907: Copy Quote");
+//		commitQuote();
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
+//		findQuotesAndPolicies.searchCopiedPolicy();
+//		findQuotesAndPolicies.copyQuote();
+//	}
+//
+//	// -----------------------------------SPRINT
+//	// 2----------------------------------------------
+//
+//	/**
+//	 * TA-3911: Issue Policy
+//	 *
+//	 */
+//	// @Test(priority = 1, description = "TA-3911: Issue Policy ")
+//	public void issuePolicy() {
+//		addRemarks();
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		editQuotesAndPolicies.issuePolicy();
+//
+//	}
+//
+//	/**
+//	 * TA-3912:Create Receipt
+//	 *
+//	 */
+//	//@Test(priority = 2, description = "TA-3912:Create Receipt")
+//	public void createReceipt() {
+//		posReceiptPage = new PosReceiptPage();
+//		createReceiptPage = new CreateReceiptPage();
+//		issuePolicy();
+//		createReceiptPage.selectCreateReceipt();
+//		posReceiptPage.createReceipt();
+//
+//	}
+//
+//
+//
+//	/**
+//	 * BCAA-3914: EndorsePolicy
+//	 *
+//	 */
+//
+//	// @Test(priority = 4, description = "BCAA-3914: EndorsePolicy")
+//	/*public void endorsePolicy() {
+//		SelectInsurancePlanPage selectInsurancePlanObj = new SelectInsurancePlanPage();
+//		selectInsurancePlanObj.selectEndorsePolicy();
+//
+//	}*/
+//
+//
+//
+//	/**
+//	 * TA-3957: Cancel Policy
+//	 * 
+//	 */
+//	//@Test(priority = 1, description = "TA-3957: Cancel Policy")
+//	public void cancelPolicy() {
+//		insurancePage = new InsurancePage();
+//		InsuranceQuotePolicy insuranceQuotePolicy = new InsuranceQuotePolicy();
+//		homePage = new HomePage();
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		createReceiptPage = new CreateReceiptPage();
+//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
+//
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//
+//		addRemarks();
+//
+//		editQuotesAndPolicies.issuePolicy();
+//		PageElement pageElementObj = createReceiptPage.getActivePolicyNum();
+//
+//		homePage.selectInsurance();
+//		insurancePage.quotesAndPoliciesTab();
+//		findQuotesAndPolicies.searchQuotePolicywithQuoteNumber(pageElementObj);
+//		findQuotesAndPolicies.selectActivePolicy();
+//		findQuotesAndPolicies.clickEditBtn();
+//
+//		editQuotesAndPolicies.verifyRetrivedQuote(pageElementObj);
+//		editQuotesAndPolicies.verifyEditQuotePolicyHeader();
+//		editQuotesAndPolicies.clickOnCancelPolicyBtn();
+//		
+//		insuranceQuotePolicy.verifyCancelPolicyHeader();
+//		
+//		insuranceQuotePolicy.selectDropDown();
+//		insuranceQuotePolicy.clickOnRecalcualteRefundBtn();
+//		insuranceQuotePolicy.verifyNoteData();
+//		insuranceQuotePolicy.clickOkBtn();
+//		insuranceQuotePolicy.verifyPopUp();
+//		
+//		findQuotesAndPolicies.verifyCancelledMessage();
+//
+//	}
+//
+//=======
+//	/**
+//	 * BCAA-3990: Go To Assets Tab
+//	 */
+//	// @Test(priority = 4, description = "BCAA-3990: Go To Assets Tab")
+//	public void goToAssetsTab() {
+//		logger.info("BCAA-3990: Go To Assets Tab");
+//		createDraftQuote();
+//		assetPage = new AssetsTabPage();
+//		assetPage.addAsset();
+//
+//	}
+//
+//	/**
+//	 * 
+//	 * BCAA-3935: Add Insured
+//	 */
+//	// @Test(priority = 5, description = "BCAA-3935: Add Insured")
+//	public void addInsured() {
+//		logger.info("BCAA-3935: Add Insured");
+//		createDraftQuote();
+//		insuredPage = new InsuredsTabPage();
+//		insuredPage.insuredTab();
+//		insuredPage.addInsured();
+//	}
+//
+//	/**
+//	 * 
+//	 * BCAA-3901: Edit Insured
+//	 * 
+//	 * @throws InterruptedException
+//	 */
+//	// @Test(priority = 6, description = "BCAA-3901: Edit Insured")
+//	public void editInsured() {
+//		logger.info("BCAA-3901: Edit Insured");
+//		createDraftQuote();
+//		insuredPage = new InsuredsTabPage();
+//
+//		insuredPage.insuredTab();
+//		insuredPage.editInsured();
+//	}
+//
+//	/**
+//	 * BCAA-3992: Go To Home Evaluation Tab
+//	 *
+//	 */
+//	// @Test(priority = 7, description = "BCAA-3992: Go To Home Evaluation Tab")
+//	public void goToHomeEvaluationTab() {
+//		logger.info("BCAA-3992: Go To Home Evaluation Tab");
+//		createDraftQuote();
+//		assetPage = new AssetsTabPage();
+//		riskDetail = new RiskDetailsTabPage();
+//		homeEvaluationPage = new HomeEvaluationTabPage();
+//
+//		assetPage.addAsset();
+//		riskDetail.addRiskDetails();
+//		homeEvaluationPage.addHomeEvaluation();
+//	}
+//
+//	/**
+//	 * BCAA-3930: Add Home Asset - Risk Details
+//	 * 
+//	 */
+//	@Test(priority = 8, description = "BCAA-3930: Add Home Asset - Risk Details")
+//	public void riskDetails() {
+//		logger.info("BCAA-3930: Add Home Asset - Risk Details");
+//		assetPage = new AssetsTabPage();
+//		riskDetail = new RiskDetailsTabPage();
+//
+//		goToAssetsTab();
+//		riskDetail.addRiskDetails();
+//
+//		// Verify the address populated in asset page
+//		assetPage.verifyUpdatedAddress();
+//
+//	}
+//
+//	/**
+//	 * BCAA-3916: Verify Options
+//	 * 
+//	 * 
+//	 */
+//	// @Test(priority = 9, description = "BCAA-3916: Verify Options")
+//	public void verifyOptions() {
+//		logger.info("BCAA-3916: Verify Options");
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		assetPage = new AssetsTabPage();
+//		riskDetail = new RiskDetailsTabPage();
+//		homeEvaluationPage = new HomeEvaluationTabPage();
+//		optionsPage = new OptionsTabPage();
+//		insuredPage = new InsuredsTabPage();
+//
+//		editQuotesAndPolicies.searchAndEditAPolicy();
+//		insuredPage.insuredTab();
+//		insuredPage.editInsured();
+//		assetPage.addAsset();
+//
+//		riskDetail.addRiskDetails();
+//		// Verify the address populated in asset page
+//		assetPage.verifyUpdatedAddress();
+//		homeEvaluationPage.addHomeEvaluation();
+//
+//		optionsPage.verifyOptions();
+//	}
+//
+//	/**
+//	 * BCAA-3905: Commit Quote
+//	 * 
+//	 */
+//	// @Test(priority = 10, description = "BCAA-3905: Commit Quote")
+//	public void commitQuote() {
+//		logger.info("BCAA-3905: Commit Quote");
+//		verifyOptions();
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		editQuotesAndPolicies.commitQuote();
+//	}
+//
+//	/**
+//	 * BCAA-3909: Add Notes
+//	 * 
+//	 */
+//	//@Test(priority = 11, description = "BCAA-3909: Add Notes")
+//	public void addNotes() {
+//		logger.info("BCAA-3909: Add Notes");
+//		commitQuote();
+//		noteTabPage = new NotesTabPage();
+//		noteTabPage.clickOnNoteTab();
+//		noteTabPage.addNotes();
+//		noteTabPage.ViewNote();
+//	}
+//
+//	/**
+//	 * BCAA-3908: Add Remarks
+//	 * 
+//	 */
+//	// @Test(priority = 12, description = "BCAA-3908: Add Remarks")
+//	public void addRemarks() {
+//		logger.info("BCAA-3908: Add Remarks");
+//		commitQuote();
+//		remarksTabPage = new RemarksTabPage();
+//		remarksTabPage.clickOnRemarksTab();
+//		remarksTabPage.addRemarks();
+//	}
+//
+//	// @Test(priority = 13, description = "BCAA-3907: Copy Quote")
+//	public void copyQuote() {
+//		logger.info("BCAA-3907: Copy Quote");
+//		commitQuote();
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
+//		findQuotesAndPolicies.searchCopiedPolicy();
+//		findQuotesAndPolicies.copyQuote();
+//	}
+//
+//	// -----------------------------------SPRINT
+//	// 2----------------------------------------------
+//
+//	/**
+//	 * TA-3911: Issue Policy
+//	 *
+//	 */
+//	// @Test(priority = 1, description = "TA-3911: Issue Policy ")
+//	public void issuePolicy() {
+//		addRemarks();
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		editQuotesAndPolicies.issuePolicy();
+//
+//	}
+//
+//	/**
+//	 * TA-3912:Create Receipt
+//	 *
+//	 */
+//	//@Test(priority = 2, description = "TA-3912:Create Receipt")
+//	public void createReceipt() {
+//		posReceiptPage = new PosReceiptPage();
+//		createReceiptPage = new CreateReceiptPage();
+//		issuePolicy();
+//		createReceiptPage.selectCreateReceipt();
+//		posReceiptPage.createReceipt();
+//
+//	}
+//
+//
+//
+//	/**
+//	 * BCAA-3914: EndorsePolicy
+//	 *
+//	 */
+//
+//	// @Test(priority = 4, description = "BCAA-3914: EndorsePolicy")
+//	/*public void endorsePolicy() {
+//		SelectInsurancePlanPage selectInsurancePlanObj = new SelectInsurancePlanPage();
+//		selectInsurancePlanObj.selectEndorsePolicy();
+//
+//	}*/
+//
+//
+//
+//	/**
+//	 * TA-3957: Cancel Policy
+//	 * 
+//	 */
+//	//@Test(priority = 1, description = "TA-3957: Cancel Policy")
+//	public void cancelPolicy() {
+//		insurancePage = new InsurancePage();
+//		InsuranceQuotePolicy insuranceQuotePolicy = new InsuranceQuotePolicy();
+//		homePage = new HomePage();
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//		createReceiptPage = new CreateReceiptPage();
+//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
+//
+//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+//
+//		addRemarks();
+//
+//		editQuotesAndPolicies.issuePolicy();
+//		PageElement pageElementObj = createReceiptPage.getActivePolicyNum();
+//
+//		homePage.selectInsurance();
+//		insurancePage.quotesAndPoliciesTab();
+//		findQuotesAndPolicies.searchQuotePolicywithQuoteNumber(pageElementObj);
+//		findQuotesAndPolicies.selectActivePolicy();
+//		findQuotesAndPolicies.clickEditBtn();
+//
+//		editQuotesAndPolicies.verifyRetrivedQuote(pageElementObj);
+//		editQuotesAndPolicies.verifyEditQuotePolicyHeader();
+//		editQuotesAndPolicies.clickOnCancelPolicyBtn();
+//		
+//		insuranceQuotePolicy.verifyCancelPolicyHeader();
+//		
+//		insuranceQuotePolicy.selectDropDown();
+//		insuranceQuotePolicy.clickOnRecalcualteRefundBtn();
+//		insuranceQuotePolicy.verifyNoteData();
+//		insuranceQuotePolicy.clickOkButton();
+//		insuranceQuotePolicy.verifyPopUp();
+//		
+//		findQuotesAndPolicies.verifyCancelledMessage();
+//
+//	}
+
+
+<<<<<<< .mine
+||||||| .r124
 		insuredPage.insuredTab();
 		insuredPage.editInsured();
 	}
@@ -871,21 +1742,181 @@ public class HabitationalTests {
 		insuranceQuotePolicy.selectDropDown();
 		insuranceQuotePolicy.clickOnRecalcualteRefundBtn();
 		insuranceQuotePolicy.verifyNoteData();
-		insuranceQuotePolicy.clickOkBtn();
+		insuranceQuotePolicy.clickOkButton();
 		insuranceQuotePolicy.verifyPopUp();
 		
 		findQuotesAndPolicies.verifyCancelledMessage();
 
 	}
 
-	
+=======
+		insuredPage.insuredTab();
+		insuredPage.editInsured();
+	}
 
 	/**
-	 * TA-3961: Void a Policy
+	 * BCAA-3992: Go To Home Evaluation Tab
+	 *
+	 */
+	// @Test(priority = 7, description = "BCAA-3992: Go To Home Evaluation Tab")
+	public void goToHomeEvaluationTab() {
+		logger.info("BCAA-3992: Go To Home Evaluation Tab");
+		createDraftQuote();
+		assetPage = new AssetsTabPage();
+		riskDetail = new RiskDetailsTabPage();
+		homeEvaluationPage = new HomeEvaluationTabPage();
+
+		assetPage.addAsset();
+		riskDetail.addRiskDetails();
+		homeEvaluationPage.addHomeEvaluation();
+	}
+
+	/**
+	 * BCAA-3930: Add Home Asset - Risk Details
 	 * 
 	 */
-	//@Test(priority = 1, description = "TA-3961: Void a Policy")
-	public void voidPolicy() {
+	//@Test(priority = 8, description = "BCAA-3930: Add Home Asset - Risk Details")
+	public void riskDetails() {
+		logger.info("BCAA-3930: Add Home Asset - Risk Details");
+		assetPage = new AssetsTabPage();
+		riskDetail = new RiskDetailsTabPage();
+
+		goToAssetsTab();
+		riskDetail.addRiskDetails();
+
+		// Verify the address populated in asset page
+		assetPage.verifyUpdatedAddress();
+
+	}
+
+	/**
+	 * BCAA-3916: Verify Options
+	 * 
+	 * 
+	 */
+	// @Test(priority = 9, description = "BCAA-3916: Verify Options")
+	public void verifyOptions() {
+		logger.info("BCAA-3916: Verify Options");
+		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+		assetPage = new AssetsTabPage();
+		riskDetail = new RiskDetailsTabPage();
+		homeEvaluationPage = new HomeEvaluationTabPage();
+		optionsPage = new OptionsTabPage();
+		insuredPage = new InsuredsTabPage();
+
+		editQuotesAndPolicies.searchAndEditAPolicy();
+		insuredPage.insuredTab();
+		insuredPage.editInsured();
+		assetPage.addAsset();
+
+		riskDetail.addRiskDetails();
+		// Verify the address populated in asset page
+		assetPage.verifyUpdatedAddress();
+		homeEvaluationPage.addHomeEvaluation();
+
+		optionsPage.verifyOptions();
+	}
+
+	/**
+	 * BCAA-3905: Commit Quote
+	 * 
+	 */
+	// @Test(priority = 10, description = "BCAA-3905: Commit Quote")
+	public void commitQuote() {
+		logger.info("BCAA-3905: Commit Quote");
+		verifyOptions();
+		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+		editQuotesAndPolicies.commitQuote();
+	}
+
+	/**
+	 * BCAA-3909: Add Notes
+	 * 
+	 */
+	//@Test(priority = 11, description = "BCAA-3909: Add Notes")
+	public void addNotes() {
+		logger.info("BCAA-3909: Add Notes");
+		commitQuote();
+		noteTabPage = new NotesTabPage();
+		noteTabPage.clickOnNoteTab();
+		noteTabPage.addNotes();
+		noteTabPage.ViewNote();
+	}
+
+	/**
+	 * BCAA-3908: Add Remarks
+	 * 
+	 */
+	// @Test(priority = 12, description = "BCAA-3908: Add Remarks")
+	public void addRemarks() {
+		logger.info("BCAA-3908: Add Remarks");
+		commitQuote();
+		remarksTabPage = new RemarksTabPage();
+		remarksTabPage.clickOnRemarksTab();
+		remarksTabPage.addRemarks();
+	}
+
+	// @Test(priority = 13, description = "BCAA-3907: Copy Quote")
+	public void copyQuote() {
+		logger.info("BCAA-3907: Copy Quote");
+		commitQuote();
+		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
+		findQuotesAndPolicies.searchCopiedPolicy();
+		findQuotesAndPolicies.copyQuote();
+	}
+
+	// -----------------------------------SPRINT
+	// 2----------------------------------------------
+
+	/**
+	 * TA-3911: Issue Policy
+	 *
+	 */
+	// @Test(priority = 1, description = "TA-3911: Issue Policy ")
+	public void issuePolicy() {
+		addRemarks();
+		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+		editQuotesAndPolicies.issuePolicy();
+
+	}
+
+	/**
+	 * TA-3912:Create Receipt
+	 *
+	 */
+	//@Test(priority = 2, description = "TA-3912:Create Receipt")
+	public void createReceipt() {
+		posReceiptPage = new PosReceiptPage();
+		createReceiptPage = new CreateReceiptPage();
+		issuePolicy();
+		createReceiptPage.selectCreateReceipt();
+		posReceiptPage.createReceipt();
+
+	}
+
+
+
+	/**
+	 * BCAA-3914: EndorsePolicy
+	 *
+	 */
+
+	// @Test(priority = 4, description = "BCAA-3914: EndorsePolicy")
+	/*public void endorsePolicy() {
+		SelectInsurancePlanPage selectInsurancePlanObj = new SelectInsurancePlanPage();
+		selectInsurancePlanObj.selectEndorsePolicy();
+
+	}*/
+
+
+
+	/**
+	 * TA-3957: Cancel Policy
+	 * 
+	 */
+	//@Test(priority = 1, description = "TA-3957: Cancel Policy")
+	public void cancelPolicy() {
 		insurancePage = new InsurancePage();
 		InsuranceQuotePolicy insuranceQuotePolicy = new InsuranceQuotePolicy();
 		homePage = new HomePage();
@@ -908,86 +1939,23 @@ public class HabitationalTests {
 
 		editQuotesAndPolicies.verifyRetrivedQuote(pageElementObj);
 		editQuotesAndPolicies.verifyEditQuotePolicyHeader();
-		editQuotesAndPolicies.clickOnVoidPolicyBtn();
+		editQuotesAndPolicies.clickOnCancelPolicyBtn();
 		
-		//insuranceQuotePolicy.verifyVoidPolicyHeader();
-		//insuranceQuotePolicy.sendYesInPolicyVoidTextBox();
-		//insuranceQuotePolicy.clickOnVoidPolicyOkBtn();
+		insuranceQuotePolicy.verifyCancelPolicyHeader();
 		
-		//findQuotesAndPolicies.verifyVoidPolicyStatus();
+		insuranceQuotePolicy.selectDropDown();
+		insuranceQuotePolicy.clickOnRecalcualteRefundBtn();
+		insuranceQuotePolicy.verifyNoteData();
+		insuranceQuotePolicy.clickOkButton();
+		insuranceQuotePolicy.verifyPopUp();
+		
+		findQuotesAndPolicies.verifyCancelledMessage();
 
 	}
 
-
-
-	/**
-	 * BCAA-4022: Verify Premiums
-	 * 
-	 */
-
-	// @Test(priority = 3, description = "BCAA-4022: Verify Premiums")
-	public void verifyPremiums() {
-		optionsPage = new OptionsTabPage();
-		verifyOptions();
-		optionsPage.verifyPremiums();
-
-	}
-
-	/**
-	 * BCAA-3914: EndorsePolicy
-	 * 
-	 * @throws InterruptedException
-	 * 
-	 */
-
-	 //@Test(priority = 4, description = "BCAA-3914: EndorsePolicy")	
-	  /*public void endorsePolicy() { SelectInsurancePlanPage
-	  selectInsurancePlanObj = new SelectInsurancePlanPage();
-	  selectInsurancePlanObj.selectEndorsePolicy();
-	  
-	  }*/
-
-	//@Test(priority = 1)
-	public void openPaymentPlan(){
-		issuePolicy();
-		CreateReceiptPage createReceiptPage  = new CreateReceiptPage();
-		createReceiptPage.selectOpenPaymentPlan();
-		OpenPaymentPlanPage openPaymentPlan = new OpenPaymentPlanPage();
-		openPaymentPlan.openPaymentPlan();
-	}
-
-//	@Test(priority=5, description= "BCAA-3938: Create External Claim")
-	public void createExternalClaim()
-	{
-		logger.info("BCAA-3938: Create External Claim");
-		createDraftQuote();
-		claimsTabPage = new ClaimsTabPage();
-		claimsTabPage.claimsTab();
-		claimsTabPage.createExternalClaim();
-
-	}
+>>>>>>> .r126
 	
-//	@Test(priority=6, description= "BCAA-3900: Delete External Claim")
-	public void deleteExternalClaim()
-	{
-		logger.info("BCAA-3900: Delete External Claim");
-		createDraftQuote();
-		claimsTabPage = new ClaimsTabPage();
-		claimsTabPage.claimsTab();
-		claimsTabPage.createExternalClaim();
-		claimsTabPage.deleteExternalClaim();
-
-	}
 	
-//	@Test(priority=7, description= "BCAA-3920: Edit Home Asset - Home Evaluation")
-	public void editHomeEvaluation()
-	{
-		logger.info("BCAA-3920: Edit Home Asset - Home Evaluation");
-		goToHomeEvaluationTab();
-		assetPage.editAsset();
-		homeEvaluationPage.editHomeEvaluation();
-		
-	}
 	
 	@AfterClass
 	public void closeBrowser() {

@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import com.BCAA.neat.baseElementClass.Button;
 import com.BCAA.neat.executor.Browser;
 import com.BCAA.neat.executor.PageElement;
-import com.BCAA.neat.utils.InputType;
 
 /**
  * This class is for Create Receipts page
@@ -17,28 +16,27 @@ import com.BCAA.neat.utils.InputType;
 public class CreateReceiptPage {
 	Logger logger = Logger.getLogger(CreateReceiptPage.class);
 
-	private final String VALUE = "value";
+	private final static String VALUE = "value";
 
-	By createNewReceiptBtnId = By.id("btnCreateReceiptCreateNewReceiptId");
-	By policyNumTextboxCss = By.cssSelector(".readonlyField");
-	By openPaymentPlanBtnId = By.id("btnCreateReceiptOpenAPaymentPlanId");
+	private By createNewReceiptBtnId = By.id("btnCreateReceiptCreateNewReceiptId");
+	private By policyNumTextboxCss = By.cssSelector(".readonlyField");
+	private By openPaymentPlanBtnId = By.id("btnCreateReceiptOpenAPaymentPlanId");
 
-	PageElement createNewReceiptBtn = new PageElement(createNewReceiptBtnId, null, InputType.BUTTON);
+	Button createNewReceiptBtn = new Button(createNewReceiptBtnId);
+	Button openPaymentPlanBtn = new Button(openPaymentPlanBtnId);
+
 	PageElement getActivePolicyNumTextbox = new PageElement(policyNumTextboxCss, VALUE);
-	PageElement openPaymentPlanBtn = new PageElement(openPaymentPlanBtnId, null, InputType.BUTTON);
 
 	public void selectCreateReceipt() {
 		logger.info("Inside selectCreateReceipt method in Create Receipt page class");
 
-		Button button = new Button();
-		button.click(createNewReceiptBtn);
+		createNewReceiptBtn.click();
 	}
 
 	public void selectOpenPaymentPlan() {
 		logger.info("Inside selectOpenPaymentPlan method in Create Receipt page class");
 
-		Button button = new Button();
-		button.click(openPaymentPlanBtn);
+		openPaymentPlanBtn.click();
 	}
 
 	/**
