@@ -1,29 +1,34 @@
 package com.BCAA.neat.pageObjects.logIn;
 
+import java.util.Map;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-
 import com.BCAA.neat.baseElementClass.Button;
 import com.BCAA.neat.baseElementClass.TextBox;
-import com.BCAA.neat.executor.Browser;
-import com.BCAA.neat.utils.PropertiesReader;
+import com.BCAA.neat.utils.DataBaseConnection;
 
 /**
- * This class is used for login
+ * This class is for Login page
  *
  * @author Optimus
  */
 public class LoginPage {
-	Logger logger = Logger.getLogger(LoginPage.class);
-	Browser browser = new Browser();
+	Logger logger;
 
-	By userNameTextboxId = By.id("userNameField");
-	By passwordTextboxId = By.id("passwordField");
-	By signInButtonId = By.id("btnSignInId");
-	By logOutButtonId = By.id("btnSignOutId");
+	DataBaseConnection dataBaseConnection = new DataBaseConnection();
+	private Map<String, String> defaultData = dataBaseConnection.getDatabase().getPageCollectionsAsMap("LOGINPAGE");
+	
+	public LoginPage() {
+		logger = Logger.getLogger(LoginPage.class);
+	}
+	
+	private By userNameTextboxId = By.id("userNameField");
+	private By passwordTextboxId = By.id("passwordField");
+	private By signInButtonId = By.id("btnSignInId");
+	private By logOutButtonId = By.id("btnSignOutId");
 
-	TextBox userNameTextbox = new TextBox(userNameTextboxId, PropertiesReader.readProperty("userId"));
-	TextBox passwordTextbox = new TextBox(passwordTextboxId, PropertiesReader.readProperty("password"));
+	TextBox userNameTextbox = new TextBox(userNameTextboxId, defaultData.get("userid"));
+	TextBox passwordTextbox = new TextBox(passwordTextboxId, defaultData.get("password"));	
 
 	Button logInButton = new Button(signInButtonId);
 	Button logOutButton = new Button(logOutButtonId);
@@ -33,17 +38,9 @@ public class LoginPage {
 	 */
 	public void signIn() {
 		logger.info("Inside signIn method in LoginPage class");
+		
 		userNameTextbox.enterTextInField();
 		passwordTextbox.enterTextInField();
 		logInButton.click();
-	}
-
-	/**
-	 * This method sign
-	 */
-	public void signOut() {
-		logger.info("Inside signOut method in LoginPage class");
-
-		logOutButton.click();
 	}
 }

@@ -3,6 +3,7 @@
 <suite name="NEAT Smoke Test Suite">
 <listeners>
 			<listener class-name="com.BCAA.neat.utils.TestListener"></listener>
+			<listener class-name="com.BCAA.neat.utils.TestListener2"></listener>
 </listeners>
  <test name="NEAT Tests">
   <classes>

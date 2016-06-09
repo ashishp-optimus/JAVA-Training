@@ -5,8 +5,9 @@
     <classes>
       <class name="com.BCAA.neat.testcases.HabitationalTests">
         <methods>
-          <include name="logInToNEAT"/>
-          <include name="setLogger"/>
+          <include name="initialSetUp"/>
+          <include name="overrideSignInTest"/>
+          <include name="closeBrowser"/>
         </methods>
       </class> <!-- com.BCAA.neat.testcases.HabitationalTests -->
     </classes>

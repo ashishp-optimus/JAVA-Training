@@ -5,20 +5,25 @@ import org.openqa.selenium.By;
 import com.BCAA.neat.utils.InputType;
 
 /**
+ * This is the class to define the behaviour of the Element class objects
+ * 
  * @author Optimus
  */
 public class PageElement {
 
-	private By locator;
-	private String inValue;
+	protected By locator;
+	protected String inValue;
 	private String outValue;
-	private String attributeType;
+	protected String attributeType;
 	private InputType elementType;
 	protected Browser browser = new Browser();
 
 	public PageElement(By locatorType, String inValue, InputType elementType) {
 		this.locator = locatorType;
-		this.inValue = inValue;
+		if (inValue != null) {
+			this.inValue = inValue.trim();
+		}
+
 		this.elementType = elementType;
 	}
 
@@ -29,17 +34,25 @@ public class PageElement {
 
 	public PageElement(By locatorType, String inValue, String attributeType) {
 		this.locator = locatorType;
-		this.inValue = inValue;
+		if (inValue != null) {
+			this.inValue = inValue.trim();
+		}
 		this.attributeType = attributeType;
 	}
 
 	public PageElement(By locatorType, String inValue) {
 		this.locator = locatorType;
-		this.inValue = inValue;
+		if (inValue != null) {
+			this.inValue = inValue.trim();
+		}
 	}
 
 	public PageElement(By locatorType) {
 		this.locator = locatorType;
+	}
+
+	public PageElement(String inValue) {
+		this.inValue = inValue;
 	}
 
 	public By getLocatorType() {
@@ -61,8 +74,16 @@ public class PageElement {
 	public String getAttributeType() {
 		return this.attributeType;
 	}
+	
+	public void setInValue(String value) {
+		this.inValue = value.trim();
+	}
 
 	public void setOutValue(String value) {
-		this.outValue = value;
+		this.outValue = value.trim();
+	}
+	
+	public void setAttributeType(String value) {
+		this.attributeType = value;
 	}
 }

@@ -1,11 +1,14 @@
 package com.BCAA.neat.pageObjects.insurance;
 
+import java.util.Map;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
 import com.BCAA.neat.baseElementClass.Button;
+import com.BCAA.neat.baseElementClass.TextBox;
 import com.BCAA.neat.executor.Browser;
-import com.BCAA.neat.executor.PageElement;
+import com.BCAA.neat.utils.DataBaseConnection;
 
 /**
  * This class is for Create Receipts page
@@ -14,18 +17,31 @@ import com.BCAA.neat.executor.PageElement;
  */
 
 public class CreateReceiptPage {
-	Logger logger = Logger.getLogger(CreateReceiptPage.class);
+	Logger logger;
+	Browser browser;
+
+	public CreateReceiptPage() {
+		logger = Logger.getLogger(CreateReceiptPage.class);
+		browser = new Browser();
+	}
 
 	private final static String VALUE = "value";
+	private final static String CREATE_RECEIPT = "Create Receipt";
 
 	private By createNewReceiptBtnId = By.id("btnCreateReceiptCreateNewReceiptId");
 	private By policyNumTextboxCss = By.cssSelector(".readonlyField");
 	private By openPaymentPlanBtnId = By.id("btnCreateReceiptOpenAPaymentPlanId");
+	private By createReceiptHeader = By.xpath("//div[@id='export_sale_to_pos']/h2");
+	private By cancelBtnId = By.id("btnCreateReceiptCancelId");
 
-	Button createNewReceiptBtn = new Button(createNewReceiptBtnId);
-	Button openPaymentPlanBtn = new Button(openPaymentPlanBtnId);
+	private Button createNewReceiptBtn = new Button(createNewReceiptBtnId);
+	private Button openPaymentPlanBtn = new Button(openPaymentPlanBtnId);
+	private Button cancelBtn = new Button(cancelBtnId);
 
-	PageElement getActivePolicyNumTextbox = new PageElement(policyNumTextboxCss, VALUE);
+	private TextBox getActivePolicyNumTextbox = new TextBox(policyNumTextboxCss, VALUE);	
+	private TextBox verifyCreateReceiptHeader = new TextBox(createReceiptHeader, CREATE_RECEIPT);	
+	private TextBox createReceiptHeaderText = new TextBox(createReceiptHeader);
+
 
 	public void selectCreateReceipt() {
 		logger.info("Inside selectCreateReceipt method in Create Receipt page class");
@@ -44,13 +60,27 @@ public class CreateReceiptPage {
 	 * 
 	 * @return Policy Number
 	 */
-	public PageElement getActivePolicyNum() {
+	public TextBox getActivePolicyNum() {
 		logger.info("Inside getActivePolicyNum method in Create Receipt page class");
 
-		Browser browser = new Browser();
+		TextBox activePolicyNumber = getActivePolicyNumTextbox.getTextByAttribute();
+		return activePolicyNumber;
+	}
 
-		PageElement pageElementObj = browser.getTextByAttribute(getActivePolicyNumTextbox);
-		return pageElementObj;
+	/**
+	 * 
+	 */
+	public void verifyCreateReceiptHeader() {
+		logger.info("Inside verifyCreateReceiptHeader method in Create Receipt page class");
+
+		createReceiptHeaderText.waitUntilMsgBoxIsDisplayed();
+		verifyCreateReceiptHeader.verifyText();
+	}
+
+	public void clickOnCancelButton() {
+		logger.info("Inside clickOnCancelButton method in EditQuotesOrPolicyPage Class");
+
+		cancelBtn.click();
 	}
 
 }

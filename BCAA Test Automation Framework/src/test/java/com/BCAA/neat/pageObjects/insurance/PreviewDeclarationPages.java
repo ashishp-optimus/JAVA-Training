@@ -6,24 +6,36 @@ import org.openqa.selenium.By;
 import com.BCAA.neat.baseElementClass.Button;
 import com.BCAA.neat.executor.Browser;
 
+/**
+ * This class is for Preview Declaration page
+ * 
+ * @author Optimus
+ */
+
 public class PreviewDeclarationPages {
-	Logger logger = Logger.getLogger(PreviewDeclarationPages.class);
-	Browser browser = new Browser();
+	Logger logger;
+	Browser browser;
 
-	private By previewTabId = By.id("btnEditiPolicyPreviewId");
-	private By quoteSucessMsgBoxId = By.id("msgbox");
+	public PreviewDeclarationPages() {
+		logger = Logger.getLogger(PreviewDeclarationPages.class);
+		browser = new Browser();
+	}
 
-	Button preview = new Button(previewTabId);
+	private final static String VERIFY_PDF_THROUGH_PREVIEW_BTN="Inside preview method in Preview Declaration Pages Class";
+	private By previewBtnId = By.id("btnEditiPolicyPreviewId");
 
-	// PageElement printTheQuoteDeclaration=new
-	// PageElement(printTheQuoteDeclarationButton, null, InputType.BUTTON);
+	private Button previewBtn = new Button(previewBtnId);
 
-	public void preview() {
-		logger.info("Inside preview method in Preview Declaration Pages Class");
+	/**
+	 * To switch and close the browser window containing the PDF preview
+	 */
+	public void verifyPdfThroughPreviewBtn() {
+		logger.info(VERIFY_PDF_THROUGH_PREVIEW_BTN);
 
-		preview.click();
+		String parentHandle = Browser.driver.getWindowHandle();
+		previewBtn.click();
 
-		// TODO : NOT IMPLEMENTED YET
+		browser.switchToWindow(parentHandle);
 	}
 
 }

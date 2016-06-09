@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite">
-              <span class="suite-name border-skipped">NEAT Smoke Test Suite</span>
+              <span class="suite-name border-failed">NEAT Smoke Test Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -48,7 +48,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-NEAT_Smoke_Test_Suite">
-                    <span>C:\Users\optimus154.OPTIMUSDOM\Desktop\Optimus-repository\BCAA Test Automation Framework\testng.xml</span>
+                    <span>C:\Users\optimus150.OPTIMUSDOM\Desktop\Optimus-repository-10May\BCAA Test Automation Framework\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,26 +90,55 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,  2 skipped,  </span>
+                    <span class="method-stats">6 methods, 2 failed,   4 passed</span>
                   </li>
                   <li>
-                    <span class="method-list-title skipped">Skipped methods</span>
-                    <span class="show-or-hide-methods skipped">
-                      <a href="#" panel-name="suite-NEAT_Smoke_Test_Suite" class="hide-methods skipped suite-NEAT_Smoke_Test_Suite"> (hide)</a> <!-- hide-methods skipped suite-NEAT_Smoke_Test_Suite -->
-                      <a href="#" panel-name="suite-NEAT_Smoke_Test_Suite" class="show-methods skipped suite-NEAT_Smoke_Test_Suite"> (show)</a> <!-- show-methods skipped suite-NEAT_Smoke_Test_Suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-NEAT_Smoke_Test_Suite" class="hide-methods failed suite-NEAT_Smoke_Test_Suite"> (hide)</a> <!-- hide-methods failed suite-NEAT_Smoke_Test_Suite -->
+                      <a href="#" panel-name="suite-NEAT_Smoke_Test_Suite" class="show-methods failed suite-NEAT_Smoke_Test_Suite"> (show)</a> <!-- show-methods failed suite-NEAT_Smoke_Test_Suite -->
                     </span>
-                    <div class="method-list-content skipped suite-NEAT_Smoke_Test_Suite">
+                    <div class="method-list-content failed suite-NEAT_Smoke_Test_Suite">
                       <span>
-                        <img width="3%" src="skipped.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="createDraftQuote">createDraftQuote</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="additionalInsuredAsPrimaryPolicyholderTest">additionalInsuredAsPrimaryPolicyholderTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img width="3%" src="skipped.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="riskDetails">riskDetails</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="reinstatePolicy">reinstatePolicy</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content skipped suite-NEAT_Smoke_Test_Suite -->
+                    </div> <!-- method-list-content failed suite-NEAT_Smoke_Test_Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-NEAT_Smoke_Test_Suite" class="hide-methods passed suite-NEAT_Smoke_Test_Suite"> (hide)</a> <!-- hide-methods passed suite-NEAT_Smoke_Test_Suite -->
+                      <a href="#" panel-name="suite-NEAT_Smoke_Test_Suite" class="show-methods passed suite-NEAT_Smoke_Test_Suite"> (show)</a> <!-- show-methods passed suite-NEAT_Smoke_Test_Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-NEAT_Smoke_Test_Suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="SmokeTest">SmokeTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="commitQuoteCopyAndIssuePolicyTest">commitQuoteCopyAndIssuePolicyTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="createAndDeleteExternalClaimTest">createAndDeleteExternalClaimTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-NEAT_Smoke_Test_Suite" title="com.BCAA.neat.testcases.HabitationalTests" hash-for-method="voidPolicy">voidPolicy</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-NEAT_Smoke_Test_Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -121,36 +150,118 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-NEAT_Smoke_Test_Suite" class="panel NEAT_Smoke_Test_Suite">
-          <div class="suite-NEAT_Smoke_Test_Suite-class-skipped">
+          <div class="suite-NEAT_Smoke_Test_Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="skipped.png"/>
+              <img src="failed.png"/>
               <span class="class-name">com.BCAA.neat.testcases.HabitationalTests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="createDraftQuote">
-                  </a> <!-- createDraftQuote -->
-                  <span class="method-name">createDraftQuote</span>
+                  <a name="additionalInsuredAsPrimaryPolicyholderTest">
+                  </a> <!-- additionalInsuredAsPrimaryPolicyholderTest -->
+                  <span class="method-name">additionalInsuredAsPrimaryPolicyholderTest</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == td[6]/input[contains(@value,&apos;true&apos;)] (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 15.21 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;optimus-150&apos;, ip: &apos;192.197.48.156&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_40&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=true, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:8141/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 2a8d2099-92a9-4910-96eb-1e3f87a98797
+*** Element info: {Using=xpath, value=td[6]/input[contains(@value,&apos;true&apos;)]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
+	at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:198)
+	at org.openqa.selenium.remote.RemoteWebElement.findElementByXPath(RemoteWebElement.java:295)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:194)
+	at com.BCAA.neat.baseElementClass.Table.verifyCheckBoxChecked(Table.java:199)
+	at com.BCAA.neat.pageObjects.insurance.EditInsuredPage.verifyPrimaryNonPrimaryHolders(EditInsuredPage.java:94)
+	at com.BCAA.neat.baseInsurance.InsuranceLibrary.goToInsuredsTabAndEditPrimaryPolicyHolder(InsuranceLibrary.java:372)
+	at com.BCAA.neat.testcases.HabitationalTests.additionalInsuredAsPrimaryPolicyholderTest(HabitationalTests.java:161)
+... Removed 31 stack frames
+</div> <!-- stack-trace -->
                   <em>
-(BCAA-3986: Create Habitational Draft Quote)                  </em>
+(BCAA-3973:Set an additional insured as the primary policyholder)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="riskDetails">
-                  </a> <!-- riskDetails -->
-                  <span class="method-name">riskDetails</span>
+                  <a name="reinstatePolicy">
+                  </a> <!-- reinstatePolicy -->
+                  <span class="method-name">reinstatePolicy</span>
+                  <div class="stack-trace">java.lang.AssertionError: Timed out after 60 seconds waiting for visibility of element located by By.id: btnAssetsTabDeleteId
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;optimus-150&apos;, ip: &apos;192.197.48.156&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_40&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=true, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:8141/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 2a8d2099-92a9-4910-96eb-1e3f87a98797
+	at com.BCAA.neat.executor.Browser.waitTillElementIsClickable(Browser.java:377)
+	at com.BCAA.neat.baseElementClass.Button.clickWhenElementIsClickable(Button.java:40)
+	at com.BCAA.neat.pageObjects.insurance.HomeEvaluationTabPage.addHomeEvaluation(HomeEvaluationTabPage.java:127)
+	at com.BCAA.neat.baseInsurance.InsuranceLibrary.createAsset(InsuranceLibrary.java:415)
+	at com.BCAA.neat.baseInsurance.InsuranceLibrary.commitQuote(InsuranceLibrary.java:185)
+	at com.BCAA.neat.baseInsurance.InsuranceLibrary.issuePolicy(InsuranceLibrary.java:204)
+	at com.BCAA.neat.testcases.HabitationalTests.reinstatePolicy(HabitationalTests.java:185)
+... Removed 28 stack frames
+</div> <!-- stack-trace -->
                   <em>
-(BCAA-3930: Add Home Asset - Risk Details)                  </em>
+(BCAA-3960: Reinstate a Policy)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-NEAT_Smoke_Test_Suite-class-skipped -->
+          </div> <!-- suite-NEAT_Smoke_Test_Suite-class-failed -->
+          <div class="suite-NEAT_Smoke_Test_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.BCAA.neat.testcases.HabitationalTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="SmokeTest">
+                  </a> <!-- SmokeTest -->
+                  <span class="method-name">SmokeTest</span>
+                  <em>
+(Smoke Test)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="commitQuoteCopyAndIssuePolicyTest">
+                  </a> <!-- commitQuoteCopyAndIssuePolicyTest -->
+                  <span class="method-name">commitQuoteCopyAndIssuePolicyTest</span>
+                  <em>
+(TA-3946:Commit Quote, Copy and Issue a Policy)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createAndDeleteExternalClaimTest">
+                  </a> <!-- createAndDeleteExternalClaimTest -->
+                  <span class="method-name">createAndDeleteExternalClaimTest</span>
+                  <em>
+(BCAA-3953: Create and Delete External Claim)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="voidPolicy">
+                  </a> <!-- voidPolicy -->
+                  <span class="method-name">voidPolicy</span>
+                  <em>
+(BCAA-3962: Void a Policy)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-NEAT_Smoke_Test_Suite-class-passed -->
         </div> <!-- panel NEAT_Smoke_Test_Suite -->
         <div panel-name="test-xml-NEAT_Smoke_Test_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\optimus154.OPTIMUSDOM\Desktop\Optimus-repository\BCAA Test Automation Framework\testng.xml</span>
+            <span class="header-content">C:\Users\optimus150.OPTIMUSDOM\Desktop\Optimus-repository-10May\BCAA Test Automation Framework\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -159,6 +270,7 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot; name=&quot;NEAT Smoke Test Suite&quot;&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;com.BCAA.neat.utils.TestListener&quot;/&gt;
+    &lt;listener class-name=&quot;com.BCAA.neat.utils.TestListener2&quot;/&gt;
   &lt;/listeners&gt;
   &lt;test name=&quot;NEAT Tests&quot;&gt;
     &lt;classes&gt;
@@ -202,20 +314,36 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(6);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'riskDetails')
+data.setCell(0, 1, 'commitQuoteCopyAndIssuePolicyTest')
 data.setCell(0, 2, 'com.BCAA.neat.testcases.HabitationalTests')
-data.setCell(0, 3, 1);
+data.setCell(0, 3, 543246);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'createDraftQuote')
+data.setCell(1, 1, 'voidPolicy')
 data.setCell(1, 2, 'com.BCAA.neat.testcases.HabitationalTests')
-data.setCell(1, 3, 1);
+data.setCell(1, 3, 478733);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'SmokeTest')
+data.setCell(2, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(2, 3, 428585);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'reinstatePolicy')
+data.setCell(3, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(3, 3, 344498);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'additionalInsuredAsPrimaryPolicyholderTest')
+data.setCell(4, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(4, 3, 152450);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'createAndDeleteExternalClaimTest')
+data.setCell(5, 2, 'com.BCAA.neat.testcases.HabitationalTests')
+data.setCell(5, 3, 53833);
 window.suiteTableData['NEAT_Smoke_Test_Suite']= { tableData: data, tableDiv: 'times-div-NEAT_Smoke_Test_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 ms</span>
+              <span class="suite-total-time">Total running time: 33 minutes</span>
               <div id="times-div-NEAT_Smoke_Test_Suite">
               </div> <!-- times-div-NEAT_Smoke_Test_Suite -->
             </div> <!-- times-div -->
@@ -226,6 +354,18 @@ return data;
             <span class="header-content">Reporter output for NEAT Smoke Test Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">reinstatePolicy</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><div style='width: 100px; float: left;'><a style='padding:20px' href='C:\Users\optimus150.OPTIMUSDOM\Desktop\Optimus-repository-10May\BCAA Test Automation Framework\Screenshot\reinstatePolicy_09-06-2016_17-11-12.png'><img src='C:\Users\optimus150.OPTIMUSDOM\Desktop\Optimus-repository-10May\BCAA Test Automation Framework\Screenshot\reinstatePolicy_09-06-2016_17-11-12.png' width='200px' /> </a></div></div></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">additionalInsuredAsPrimaryPolicyholderTest</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><div style='width: 100px; float: left;'><a style='padding:20px' href='C:\Users\optimus150.OPTIMUSDOM\Desktop\Optimus-repository-10May\BCAA Test Automation Framework\Screenshot\additionalInsuredAsPrimaryPolicyholderTest_09-06-2016_16-55-30.png'><img src='C:\Users\optimus150.OPTIMUSDOM\Desktop\Optimus-repository-10May\BCAA Test Automation Framework\Screenshot\additionalInsuredAsPrimaryPolicyholderTest_09-06-2016_16-55-30.png' width='200px' /> </a></div></div></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-NEAT_Smoke_Test_Suite" class="panel">
@@ -243,19 +383,41 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.BCAA.neat.testcases.HabitationalTests</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">setLogger</span>
+                <span class="method-name">initialSetUp</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">createDraftQuote</span>
-                <span class="method-start">30732 ms</span>
+                <span class="method-name">SmokeTest</span>
+                <span class="method-start">34907 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">riskDetails</span>
-                <span class="method-start">30733 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">additionalInsuredAsPrimaryPolicyholderTest</span>
+                <span class="method-start">463493 ms</span>
               </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">commitQuoteCopyAndIssuePolicyTest</span>
+                <span class="method-start">616602 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">createAndDeleteExternalClaimTest</span>
+                <span class="method-start">1159849 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">reinstatePolicy</span>
+                <span class="method-start">1213683 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">voidPolicy</span>
+                <span class="method-start">1558699 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">closeBrowser</span>
+                <span class="method-start">2037433 ms</span>
+              </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

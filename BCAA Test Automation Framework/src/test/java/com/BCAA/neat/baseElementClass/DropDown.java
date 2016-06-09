@@ -18,7 +18,20 @@ public class DropDown extends PageElement {
 
 	}
 
+	public DropDown(By locatorType) {
+		super(locatorType, InputType.DROPDOWN);
+
+	}
+
 	public void selectValue() {
 		browser.setElement(this);
+	}
+	
+	public void verifyFirstSelectedOption(){
+		browser.verifyFirstSelectedOption(this);
+	}
+	
+	public void verifyElementDisabled(){
+		browser.verifyElementDisabled(this);
 	}
 }

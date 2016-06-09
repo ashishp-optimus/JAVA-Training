@@ -6,1960 +6,520 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.BCAA.neat.baseElementClass.TextBox;
 import com.BCAA.neat.baseInsurance.InsuranceLibrary;
 import com.BCAA.neat.executor.Browser;
-import com.BCAA.neat.executor.PageElement;
-import com.BCAA.neat.pageObjects.POS.PosReceiptPage;
 import com.BCAA.neat.pageObjects.epp.OpenPaymentPlanPage;
+import com.BCAA.neat.pageObjects.insurance.AddExternalClaimPage;
+import com.BCAA.neat.pageObjects.insurance.AddOrEditAssetPage;
 import com.BCAA.neat.pageObjects.insurance.AssetsTabPage;
+import com.BCAA.neat.pageObjects.insurance.AuthorizationsPage;
+import com.BCAA.neat.pageObjects.insurance.BusinessTabPage;
 import com.BCAA.neat.pageObjects.insurance.ClaimsTabPage;
 import com.BCAA.neat.pageObjects.insurance.CreateReceiptPage;
+import com.BCAA.neat.pageObjects.insurance.EditHomeEvaluationPage;
 import com.BCAA.neat.pageObjects.insurance.EditQuotesOrPolicyPage;
 import com.BCAA.neat.pageObjects.insurance.FindQuotesOrPolicyPage;
-import com.BCAA.neat.pageObjects.insurance.HomeEvaluationTabPage;
-import com.BCAA.neat.pageObjects.insurance.InsuranceQuotePolicy;
 import com.BCAA.neat.pageObjects.insurance.InsuredsTabPage;
-import com.BCAA.neat.pageObjects.insurance.NotesTabPage;
 import com.BCAA.neat.pageObjects.insurance.OptionsTabPage;
-import com.BCAA.neat.pageObjects.insurance.RemarksTabPage;
 import com.BCAA.neat.pageObjects.insurance.RiskDetailsTabPage;
 import com.BCAA.neat.pageObjects.insurance.SelectInsurancePlanPage;
 import com.BCAA.neat.pageObjects.logIn.LoginPage;
 import com.BCAA.neat.pageObjects.navigation.HomePage;
 import com.BCAA.neat.pageObjects.navigation.InsurancePage;
+import com.BCAA.neat.utils.TestListener2;
 
 /**
  * 
- * This class verify the login page
+ * This class covers the Test cases as per Testlink
  * 
  * @author Optimus
  */
 
-//Please ignore this test file as this is not ready yet
 public class HabitationalTests {
 
-	Logger logger = Logger.getLogger(HabitationalTests.class);
+	private final static String H5_ADVANTAGE_HOME = "H5 ADVANTAGE HOME";
+	private final static String H1_ADVANTAGE_HOME = "H1 ADVANTAGE HOME";
+	private final static String C6_ADVANTAGE_HOME = "C6 Advantage Home";
+	private final static String T6_ADVANTAGE_HOME = "T6 Advantage Home";
+	private final static String ACTIVE_RENEWED = "G7045057";
+	private final static int TWO_DAY_AFTER_EXPIRY = 2;
 
-	Browser browser = new Browser();
-	LoginPage loginPage = new LoginPage();
-	HomePage homePage;
+	Logger logger;
+	InsuredsTabPage insuredsTabPage;
+	InsuranceLibrary insurance;
+	CreateReceiptPage createReceipt;
+	Browser browser;
+	LoginPage loginPage;
+	EditQuotesOrPolicyPage editQuotesOrPolicy;
+	AddExternalClaimPage addExternalClaim;
+	ClaimsTabPage claims;
+	FindQuotesOrPolicyPage findQuotesOrPolicy;
+	OptionsTabPage optionsTabPage;
 	InsurancePage insurancePage;
+	AuthorizationsPage authorizationsPage;
+	AddOrEditAssetPage addOrEditAssetPage;
+	AssetsTabPage assetsTabPage;
+	EditHomeEvaluationPage editHomeEvaluation;
+	BusinessTabPage businessTab;
 	SelectInsurancePlanPage selectInsurancePlan;
 	AssetsTabPage assetPage;
-	RiskDetailsTabPage riskDetail;
-	EditQuotesOrPolicyPage editQuotesAndPolicies;
-	FindQuotesOrPolicyPage findQuotesAndPolicies;
-	InsuredsTabPage insuredPage;
-	HomeEvaluationTabPage homeEvaluationPage;
-	OptionsTabPage optionsPage;
-	NotesTabPage noteTabPage;
-	RemarksTabPage remarksTabPage;
-	CreateReceiptPage createReceiptPage;
-	PosReceiptPage posReceiptPage;
-	ClaimsTabPage claimsTabPage;
+	RiskDetailsTabPage riskDetailTab;
+	TextBox activeRenewedNum;
+	OpenPaymentPlanPage openPaymentPlan;
+	HomePage homePage;
+	TextBox activePolicy;
+
+	public HabitationalTests() {
+		logger = Logger.getLogger(HabitationalTests.class);
+
+		insurance = new InsuranceLibrary();
+		insuredsTabPage = new InsuredsTabPage();
+		browser = new Browser();
+		loginPage = new LoginPage();
+		editQuotesOrPolicy = new EditQuotesOrPolicyPage();
+		addExternalClaim = new AddExternalClaimPage();
+		claims = new ClaimsTabPage();
+		findQuotesOrPolicy = new FindQuotesOrPolicyPage();
+		insurancePage = new InsurancePage();
+		optionsTabPage = new OptionsTabPage();
+		authorizationsPage = new AuthorizationsPage();
+		addOrEditAssetPage = new AddOrEditAssetPage();
+		assetsTabPage = new AssetsTabPage();
+		editHomeEvaluation = new EditHomeEvaluationPage();
+		businessTab = new BusinessTabPage();
+		selectInsurancePlan = new SelectInsurancePlanPage();
+		createReceipt = new CreateReceiptPage();
+		editQuotesOrPolicy = new EditQuotesOrPolicyPage();
+		assetPage = new AssetsTabPage();
+		riskDetailTab = new RiskDetailsTabPage();
+		openPaymentPlan = new OpenPaymentPlanPage();
+		activeRenewedNum = new TextBox(ACTIVE_RENEWED);
+		homePage = new HomePage();
+	}
 
 	@BeforeClass
-	public void setLogger() {
+	public void initialSetUp() {
 		PropertyConfigurator.configure("log4j.properties");
+
+		logger.info("Executing before class method");
+
 		browser.startBrowser();
 		browser.navigateTo();
 		loginPage.signIn();
-	}
-
-	@Test
-	public void SmokeTest()
-	{
-		InsuranceLibrary insurance=new InsuranceLibrary();
-		insurance.verifyLogin();
-		insurance.selectInsuranceTab();
-		insurance.QuotesandPolicy();
-		insurance.createQuote();
-		insurance.SelectInsurancePlan();
-//		insurance.claimsTab();
-//		insurance.createExternalClaim();
-//		insurance.deleteExternalClaim();
-//		insurance.goToInsuredsTab();
-//		insurance.addInsuredsTab();
-//		insurance.editInsuredsTab();
-//		insurance.goToAssetsTab();
-//		insurance.addAssets();
-//		insurance.editAssets();
-//		insurance.addRiskDetails();
-//		insurance.addHomeEvaluation();
-//		
-		
-	}
-	/**
-	 * Habitational Regression Test Cases: These are the test scripts that
-	 * should be in this file
-	 */
-
-	/**
-	 * BCAA-3946:Commit Quote, Copy and Issue a Policy
-	 */
-	// @Test(priority = 1, description = "BCAA-3946:Commit Quote, Copy and Issue
-	// a Policy")
-	public void BCAA_3946() {
-		// 1. Execute flow BCAA-3943:Commit Quote and make note of the quote
-		// number.
-		// TODO Write function execute this flow
-
-		// 2. Execute flow BCAA-4016:Go to Find Quote/Policy and Find
-		// Quote/Policy using the quote number from step #1
-		// TODO Write function execute this flow
-
-		// 3. Execute module BCAA-3907:Copy Quote
-		// TODO Write function execute this module
-
-		// 4. Execute flow BCAA-3997:Go To Options and Verify Options
-		// TODO Write function execute this flow
-
-		// 5. Execute flow BCAA-4002:Add Remark, Add Note, Preview Dec, Issue
-		// Policy
-		// TODO Write function execute this flow
-
-		// 6. Execute module BCAA-3912:Create Receipt
-		// TODO Write function execute this module
-	}
-
-	/**
-	 * BCAA-3950:Issue an Endorsed Policy - Home
-	 */
-	// @Test(priority = 1, description = "BCAA-3950:Issue an Endorsed Policy
-	// (Home)")
-	public void BCAA_3950_Home() {
-		// 1. Execute flow BCAA-3947:Issue Policy for home asset and make a note
-		// of the policy number
-		// TODO Write function execute this flow
-
-		// 2. Execute flow BCAA-4012:Find Policy and Endorse It using the policy
-		// number in step #1
-		// TODO Write function execute this flow
-
-		// 3. Execute flow BCAA-4005:Go to Assets and Edit Home Evaluation
-		// TODO Write function execute this flow
-
-		// 4. Execute flow BCAA-4004:Go To Options and Edit Option
-		// TODO Write function execute this flow
-
-		// 5. Execute flow BCAA-4002:Add Remark, Add Note, Preview Dec, Issue
-		// Policy
-		// TODO Write function execute this flow
-
-		// 6. Execute module BCAA-3912:Create Receipt
-		// TODO Write function execute this module
+		homePage.waitTillHouseHoldInfoToAppear();
+		homePage.verifyLogin();
+		homePage.selectInsuranceTab();
 
 	}
 
 	/**
-	 * BCAA-3950:Issue an Endorsed Policy - Condo
+	 * Smoke Test
+	 * 
 	 */
-	// @Test(priority = 1, description = "BCAA-3950:Issue an Endorsed Policy
-	// (Condo)")
-	public void BCAA_3950_Condo() {
-		// 1. Execute flow BCAA-3947:Issue Policy for Condo asset and make a
-		// note of the policy number
-		// TODO Write function execute this flow
 
-		// 2. Execute flow BCAA-4012:Find Policy and Endorse It using the policy
-		// number in step #1
-		// TODO Write function execute this flow
+	@Test(description = "Smoke Test",retryAnalyzer=TestListener2.class)
+	public void SmokeTest() {
+		logger.info("Executing Smoke Test");
 
-		// 3. Execute flow BCAA-4005:Go to Assets and Edit Home Evaluation
-		// TODO Write function execute this flow
-
-		// 4. Execute flow BCAA-4004:Go To Options and Edit Option
-		// TODO Write function execute this flow
-
-		// 5. Execute flow BCAA-4002:Add Remark, Add Note, Preview Dec, Issue
-		// Policy
-		// TODO Write function execute this flow
-
-		// 6. Execute module BCAA-3912:Create Receipt
-		// TODO Write function execute this module
-
-	}
-
-	/**
-	 * BCAA-3950:Issue an Endorsed Policy - Tenant
-	 */
-	// @Test(priority = 1, description = "BCAA-3950:Issue an Endorsed Policy
-	// (Tenant)")
-	public void BCAA_3950_Tenant() {
-		// 1. Execute flow BCAA-3947:Issue Policy for Tenant asset and make a
-		// note of the policy number
-		// TODO Write function execute this flow
-
-		// 2. Execute flow BCAA-4012:Find Policy and Endorse It using the policy
-		// number in step #1
-		// TODO Write function execute this flow
-
-		// 3. Execute flow BCAA-4005:Go to Assets and Edit Home Evaluation
-		// TODO Write function execute this flow
-
-		// 4. Execute flow BCAA-4004:Go To Options and Edit Option
-		// TODO Write function execute this flow
-
-		// 5. Execute flow BCAA-4002:Add Remark, Add Note, Preview Dec, Issue
-		// Policy
-		// TODO Write function execute this flow
-
-		// 6. Execute module BCAA-3912:Create Receipt
-		// TODO Write function execute this module
+		insurance.commitQuote(H5_ADVANTAGE_HOME);
+		insurance.addRemarkaddNotePreviewDecIssuePolicy();
+		insurance.createReceipt();
 
 	}
 
 	/**
 	 * BCAA-3953: Create and Delete External Claim
 	 */
-	// @Test(priority = 1, description = "BCAA-3953: Create and Delete External
-	// Claim")
-	public void BCAA_3953() {
 
-		// 1. Execute flow BCAA-3975:Log in and Go To Find Quote/policy
+	@Test(description = "BCAA-3953: Create and Delete External Claim",retryAnalyzer=TestListener2.class)
+	public void createAndDeleteExternalClaimTest() {
+		logger.info("Executing test case BCAA-3953");
 
-		// 2. Execute flow BCAA-3986:Create Habitational Draft Quote
+		insurance.goToFindQuotesAndPolicies();
+		insurance.createQuoteWithMemberID();
 
-		// 3. Execute module BCAA-3988:Go To Claims Tab
+		editQuotesOrPolicy.goToClaimsTab();
 
-		// 4. Execute module BCAA-3938:Create External Claim
+		claims.selectAddExternalClaimTab();
 
-		// 5. Execute module BCAA-3900:Delete External Claim
+		addExternalClaim.createExternalClaim();
 
+		claims.deleteExternalClaim();
 	}
 
 	/**
-	 * BCAA-3955: Renew and Cancel a Policy (with EPP)
+	 * BCAA-3973:Set an additional insured as the primary policyholder
 	 */
-	// @Test(priority = 1, description = "BCAA-3955: Renew and Cancel a Policy
-	// (with EPP)")
-	public void BCAA_3955_WithEPP() {
 
-		// 1. Execute module BCAA-3942:Renew Policy
+	@Test(description = "BCAA-3973:Set an additional insured as the primary policyholder",retryAnalyzer=TestListener2.class)
+	public void additionalInsuredAsPrimaryPolicyholderTest() {
+		logger.info("Executing test case BCAA-3973");
 
-		// 2. Execute module BCAA-3916:Verify Options
-
-		// 3. Execute test case BCAA-3905:Commit Quote
-
-		// 4. Execute flow BCAA-4002:Add Remark, Add Note, Preview Dec, Issue
-		// Policy
-
-		// 5. Execute module BCAA-3956:Open Payment Plan
-
-		// 6. Execute flow BCAA-4016:Go to Find Quote/Policy and Find
-		// Quote/Policy using the policy number in step #5
-
-		// 7. Execute module BCAA-3957:Cancel Policy
-
-	}
-
-	/**
-	 * BCAA-3955: Renew and Cancel a Policy (without EPP)
-	 */
-	// @Test(priority = 1, description = "BCAA-3955: Renew and Cancel a Policy
-	// (without EPP)")
-	public void BCAA_3955_WithOutEPP() {
-
-		// 1. Execute module BCAA-3942:Renew Policy
-
-		// 2. Execute module BCAA-3916:Verify Options
-
-		// 3. Execute test case BCAA-3905:Commit Quote
-
-		// 4. Execute flow BCAA-4002:Add Remark, Add Note, Preview Dec, Issue
-		// Policy
-
-		// 5. Execute module BCAA-3912:Create Receipt
-
-		// 6. Execute flow BCAA-4016:Go to Find Quote/Policy and Find
-		// Quote/Policy using the policy number in step #5
-
-		// 7. Execute module BCAA-3957:Cancel Policy
-
-	}
-
-	/**
-	 * BCAA-3960: Reinstate a Policy
-	 */
-	// @Test(priority = 1, description = "BCAA-3960: Reinstate a Policy")
-	public void BCAA_3960() {
-
-		// 1. Execute flow BCAA-3958:Renew and Cancel a Policy (make note of the
-		// policy number)
-
-		// 2. Execute flow BCAA-4016:Go to Find Quote/Policy and Find
-		// Quote/Policy using the policy number in step #1
-
-		// 3. Execute module BCAA-3959:Reinstate a Policy
+		insurance.goToFindQuotesAndPolicies();
+		insurance.createQuoteWithMemberID();
+		insurance.goToInsuredsTabAndEditPrimaryPolicyHolder();
 	}
 
 	/**
 	 * BCAA-3962: Void a Policy
 	 */
-	// @Test(priority = 1, description = "BCAA-3962: Void a Policy")
-	public void BCAA_3962() {
 
-		// 1. Execute flow BCAA-3947:Issue Policy (make note of the policy
-		// number)
+	@Test(description = "BCAA-3962: Void a Policy")
+	public void voidPolicy() {
+		logger.info("Executing test case BCAA-3962");
 
-		// 2. Execute flow BCAA-4016:Go to Find Quote/Policy and Find
-		// Quote/Policy using the policy number in step #1
+		TextBox activePolicyNumber = insurance.issuePolicy(H5_ADVANTAGE_HOME);
 
-		// 3. Execute module BCAA-3961:Void a Policy
+		insurance.searchQuotePolicy(activePolicyNumber);
+		insurance.voidAPolicy();
 	}
 
 	/**
-	 * BCAA-3964: Commit Quote ,Copy and Issue a Policy with Multiple Assets
+	 * BCAA-3960: Reinstate a Policy
 	 */
-	// @Test(priority = 1, description = "BCAA-3964: Commit Quote ,Copy and
-	// Issue a Policy with Multiple Assets")
-	public void BCAA_3964() {
+	@Test(description = "BCAA-3960: Reinstate a Policy")
+	public void reinstatePolicy() {
+		logger.info("Executing test case BCAA-3960");
 
-		// 1. Execute flow BCAA-3975:Log in and Go To Find Quote/policy
+		TextBox activePolicyNumber = insurance.issuePolicy(H5_ADVANTAGE_HOME);
 
-		// 2. Execute module BCAA-3986:Create Habitational Draft Quote
+		insurance.searchQuotePolicy(activePolicyNumber);
+		insurance.cancelPolicy();
+		insurance.reinstatePolicy(activePolicyNumber);
 
-		// 3. Execute flow BCAA-4000:Go To Insureds and Edit Insured
+	}
 
-		// 4. Execute flow BCAA-3983:Create Asset for a Home asset
+	/**
+	 * TA-3946: Commit Quote, Copy and Issue a Policy
+	 */
 
-		// 5. Execute flow BCAA-3983:Create Asset for a Condo asset
+	@Test(description = "TA-3946:Commit Quote, Copy and Issue a Policy")
+	public void commitQuoteCopyAndIssuePolicyTest() {
+		logger.info("Executing test case BCAA-3946");
 
-		// 6. Execute flow BCAA-3997:Go To Options and Verify Options
+		TextBox quoteNumber = insurance.commitQuote(H5_ADVANTAGE_HOME);
 
-		// 7. Execute module BCAA-3905:Commit Quote and make note of the quote
-		// number
+		insurance.searchQuotePolicy(quoteNumber);
+		insurance.copyQuote();
+		insurance.goToOptionsTabAndVerifyOptions();
+		insurance.addRemarkaddNotePreviewDecIssuePolicy();
+		insurance.createReceipt();
 
-		// 8. Execute flow BCAA-4016:Go to Find Quote/Policy and Find
-		// Quote/Policy using the quote number from step #7
+	}
 
-		// 9. Execute module BCAA-3907:Copy Quote
+	/**
+	 * TA-3950: Issue an Endorsed Policy
+	 * 
+	 * @return Active Policy number
+	 */
+	//@Test(description = "Test Case TA-3950: Issue an Endorsed Policy")
+	public void issueAnEndorsedPolicy() {
+		logger.info("Executing test case TA-3950");
 
-		// 10. Execute flow BCAA-4002:Add Remark, Add Note, Preview Dec, Issue
-		// Policy
+		insurance.endorsePolicy(H5_ADVANTAGE_HOME);
+		insurance.assetsAndEditHomeEvaluation();
+		insurance.goToOptionsAndEditOptions();
+		insurance.addRemarkaddNotePreviewDecIssuePolicy();
 
-		// 11. Execute module BCAA-3912:Create Receipt
+		activePolicy = createReceipt.getActivePolicyNum();
+
+		insurance.createReceipt();
 
 	}
 
 	/**
 	 * BCAA-3965: Endorse a Policy (Multiple Times) with Home Business Added
 	 */
-	// @Test(priority = 1, description = "BCAA-3965: Endorse a Policy (Multiple
-	// Times) with Home Business Added")
-	public void BCAA_3965() {
+	//@Test(description = "BCAA-3965: Endorse a Policy (Multiple Times) with Home Business Added")
+	public void endorseAPolicyWithHomeBusiness() {
+		logger.info("Executing BCAA-3965");
 
-		// 1. Execute flow BCAA-3950:Issue an Endorsed Policy and make a note of
-		// the policy number.
+		issueAnEndorsedPolicy();
 
-		// 2. Execute flow BCAA-4012:Find Policy and Endorse It using the policy
-		// number in step #1
+		insurance.searchQuotePolicy(activePolicy);
+		insurance.endorsePolicy(H5_ADVANTAGE_HOME);
 
-		// 3. Execute module BCAA-3920:Edit Home Asset
+		editQuotesOrPolicy.goToAssetsTab();
 
-		// 4. Execute module BCAA-4008:Go To Business Tab
+		assetPage.selectEditHomeAssetTab();
 
-		// 5. Execute module BCAA-3966:Add Home Asset - Business
+		addOrEditAssetPage.goToHomeEvaluationTab();
 
-		// 6. Execute flow BCAA-3997:Go To Options and Verify Options
+		editHomeEvaluation.editHomeEvaluation();
 
-		// 7. Execute module BCAA-3905:Commit Quote
+		insurance.addHomeAssetBusiness();
+		insurance.goToOptionsTabAndVerifyOptions();
 
-		// 8. Execute flow BCAA-4002:Add Remark, Add Note, Preview Dec, Issue
-		// Policy
-	}
+		editQuotesOrPolicy.commitQuote();
 
-	/**
-	 * BCAA-3968:Endorse a Policy (RCT to Appraisal)
-	 */
-	// @Test(priority = 1, description = "BCAA-3968:Endorse a Policy (RCT to
-	// Appraisal)")
-	public void BCAA_3968() {
-
-		// 1. Execute flow BCAA-3947:Issue Policy and make a note of the policy
-		// number
-
-		// 2. Execute flow BCAA-4012:Find Policy and Endorse It using the policy
-		// number in step #1
-
-		// 3. Execute module BCAA-3990:Go To Assets Tab
-
-		// 4. Execute module BCAA-4006:Edit Home Asset
-
-		// 5. Execute module BCAA-3969:Edit Home Asset - Switch RCT to Appraisal
-
-		// 6. Execute flow BCAA-3997:Go To Options and Verify Options
-
-		// 7. Execute module BCAA-3905:Commit Quote
-
-		// 8. Execute flow BCAA-4002:Add Remark, Add Note, Preview Dec, Issue
-		// Policy
-
-		// 9. Execute module BCAA-3912:Create Receipt
-	}
-
-	/**
-	 * BCAA-3971:Endorse a Policy (Upgrade from H1 to H5)
-	 */
-	// @Test(priority = 1, description = "BCAA-3971:Endorse a Policy (Upgrade
-	// from H1 to H5)")
-	public void BCAA_3971() {
-
-		// 1. Execute flow BCAA-3947:Issue Policy and make a note of the policy
-		// number
-
-		// 2. Execute flow BCAA-4012:Find Policy and Endorse It using the policy
-		// number in step #1
-
-		// 3. Execute module BCAA-3990:Go To Assets Tab
-
-		// 4. Execute module BCAA-4006:Edit Home Asset
-
-		// 5. Execute module BCAA-3970:Edit Home Asset - Upgrade from H1 to H5
-
-		// 6. Execute flow BCAA-3997:Go To Options and Verify Options
-
-		// 7. Execute module BCAA-3905:Commit Quote
-
-		// 8. Execute flow BCAA-4002:Add Remark, Add Note, Preview Dec, Issue
-		// Policy
-	}
-
-	/**
-	 * BCAA-3973:Set an additional insured as the primary policyholder
-	 */
-	// @Test(priority = 1, description = "BCAA-3973:Set an additional insured as
-	// the primary policyholder")
-	public void BCAA_3973() {
-
-		// 1. Execute flow BCAA-3975:Log in and Go To Find Quote/policy
-
-		// 2. Execute flow BCAA-3986:Create Habitational Draft Quote
-
-		// 3. Execute flow BCAA-4000:Go To Insureds and Edit Insured
-
-		// 4. Execute module BCAA-3972:Insureds - Set Additional Insured as
-		// Primary Policyholder
-
-	}
-
-	/**
-	 * BCAA-3976:Member related discounts should be removed when member is
-	 * removed
-	 */
-	// @Test(priority = 1, description = "BCAA-3976:Member related discounts
-	// should be removed when member is removed")
-	public void BCAA_3976() {
-
-		// 1. Execute flow BCAA-3975:Log in and Go To Find Quote/policy
-
-		// 2. Execute flow BCAA-3986:Create Habitational Draft Quote for a
-		// non-Member (9416789-03)
-
-		// 3. Execute flow BCAA-3983:Create Asset
-
-		// 4. Execute flow BCAA-3997:Go To Options and Verify Options
-
-		// 5. Execute module BCAA-3989:Go To Insureds Tab
-
-		// 6. Execute module BCAA-3935:Add Insured with member (9416789-01)
-
-		// 7. Execute flow BCAA-3997:Go To Options and Verify Options
-
-		// 8. Execute module BCAA-3989:Go To Insureds Tab
-
-		// 9. Execute test case BCAA-3979:Delete Insured on member (9416789-01)
-
-		// 10. Execute flow BCAA-3997:Go To Options and Verify Options
-	}
-
-	/**
-	 * BCAA-3981:Safe Home points is adjusted accordingly when Safe Home points
-	 * are earned or lost
-	 */
-	// @Test(priority = 1, description = "BCAA-3981:Safe Home points is adjusted
-	// accordingly when Safe Home points are earned or lost")
-	public void BCAA_3981() {
-
-		// 1.Execute flow BCAA-3975:Log in and Go To Find Quote/policy
-
-		// 2. Execute flow BCAA-3986:Create Habitational Draft Quote
-
-		// 3. Execute flow BCAA-4000:Go To Insureds and Edit Insured
-
-		// 4. Execute flow BCAA-3983:Create Asset
-
-		// 5. Execute flow BCAA-3997:Go To Options and Verify Options
-
-		// 6. Execute flow BCAA-4019:Go to Assets and Edit Safe Home - select
-		// one or more Safe Home items
-
-		// 7. Execute flow BCAA-3997:Go To Options and Verify Options
-
-		// 8. Execute flow BCAA-4019:Go to Assets and Edit Safe Home -
-		// select/deselect Safe Home items
-
-		// 9. Execute flow BCAA-3997:Go To Options and Verify Options
-
-	}
-
-	/**
-	 * BCAA-4009:Endorse an issued policy and date in the future
-	 */
-	// @Test(priority = 1, description = "BCAA-4009:Endorse an issued policy and
-	// date in the future")
-	public void BCAA_4009() {
-
-		// 1. Execute flow BCAA-3947:Issue Policy and a note of the policy
-		// number
-
-		// 2.Execute flow BCAA-4012:Find Policy and Endorse It using the policy
-		// number in step #1 with an Endorsement
-
-		// Effective Date that is one of the following:
-
-		// 1) Earlier than the original Effective Date
-
-		// 2) Later or right on the original Expiry Date
-
-		// 3) Falls between the original policy's Effective and Expiry dates
-
-		// 3. Execute module BCAA-4011:Add Remark, Edit Insured, Commit Quote,
-		// Issue Policy and make note fo the policy number
-
-		// 4.Execute flow BCAA-4012:Find Policy and Endorse It using the policy
-		// number in step #3 with an Endorsement
-
-		// Effective Date that is one of the following:
-
-		// 1) Earlier than the Endorsement Effective Date
-
-		// 5. Execute module BCAA-4011:Add Remark, Edit Insured, Commit Quote,
-		// Issue Policy and make note fo the policy number
-
-	}
-
-	/**
-	 * BCAA-4013:Adding a 2nd location asset with a different liability should
-	 * result to error
-	 */
-	// @Test(priority = 1, description = "BCAA-4013:Adding a 2nd location asset
-	// with a different liability should result to error")
-	public void BCAA_4013() {
-
-		// 1. Execute flow BCAA-3947:Issue Policy and make a note of the policy
-		// number
-
-		// 2. Execute flow BCAA-4012:Find Policy and Endorse It using the policy
-		// number in step #1 with an Endorsement
-		// Effective Date that is one of the following:
-		// 1) Falls between the original policy's Effective and Expiry date
-
-		// 3.Execute flow BCAA-4000:Go To Insureds and Edit Insured
-
-		// 4. Execute flow BCAA-3983:Create Asset but
-		// - On the Risk Details tab, fill in all mandatory fields but do not
-		// flag new asset as "Location 1"
-		// - On the Home Evaluation tab, click on the [Find Property] button
-		// Click on the [Calculate Building Value] button and then click [Yes]
-		// on the confirmation message dialog
-
-		// 5.Execute flow BCAA-3997:Go To Options and Verify Options
-
-		// 6. Execute module BCAA-4014:Add Options - Liability Increase Limit
-
-		// 7. Execute flow BCAA-4003:Go To Remarks and Add Remark
-
-		// 8. Execute module BCAA-3905:Commit Quote
+		insurance.addRemarkaddNotePreviewDecIssuePolicy();
 	}
 
 	/**
 	 * BCAA-4015:Trigger an authorization and have someone with authority to use
 	 * the “Override Sign In” link
-	 */
-	// @Test(priority = 1, description = "BCAA-4015:Trigger an authorization and
-	// have someone with authority to use the “Override Sign In” link")
-	public void BCAA_4015() {
-
-		// 1. Execute flow BCAA-3975:Log in and Go To Find Quote/policy
-
-		// 2.Execute flow BCAA-3986:Create Habitational Draft Quote
-
-		// 3.
-		// Execute flow BCAA-3983:Create Asset but
-		// On the Risk Details tab, enter the following information:
-		// 1) Do you have a pet? = "Yes"
-		// 2) What type of pet? = "Pit Bull or any "bull" breed
-
-		// 4. Execute module BCAA-3991:Go To Options Tab
-
-		// 5.Execute module BCAA-4017:Authorize Binding Stop
-	}
-
-	/**
-	 * BCAA-4018:Remove FUS Override on Edit Asset page
-	 */
-	// @Test(priority = 1, description = " BCAA-4018:Remove FUS Override on Edit
-	// Asset page")
-	public void BCAA_4018() {
-
-		// 1. Execute flow BCAA-3975:Log in and Go To Find Quote/policy
-
-		// 2. Execute flow BCAA-3986:Create Habitational Draft Quote
-
-		// 3. Execute flow BCAA-3983:Create Asset
-
-		// 4. Execute module BCAA-4006:Edit Home Asset
-
-		// 5.Modify the input value in one of the following fields:
-		// 1) Hydrant
-		// 2) Firehall
-
-		// 6. Click on the [Save] button
-
-		// 7. Click on the [Remove Fire Protection Override] button
-	}
-
-	/**
-	 * Habitational Regression Test Cases
-	 */
-
-	/**
-	 * BCAA-3934: Log Into NEAT
-	 */
-	@Test(priority = 1, description = "BCAA-3934: Log Into NEAT")
-	public void logInToNEAT() {
-		homePage = new HomePage();
-		
-		homePage.verifyLogin();
-	}
-
-	/**
-	 * BCAA-3986: Create Habitational Draft Quote
-	 */
-<<<<<<< .mine
-//	@Test(priority = 1, description = "BCAA-3986: Create Habitational Draft Quote")
-//	public void createDraftQuote() {
-//		logger.info("BCAA-3986: Create Habitational Draft Quote");
-//
-//		insurancePage = new InsurancePage();
-//		selectInsurancePlan = new SelectInsurancePlanPage();
-//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-//		homePage = new HomePage();
-//
-//		homePage.selectInsurance();
-//		insurancePage = new InsurancePage();
-||||||| .r124
-	@Test(priority = 1, description = "BCAA-3986: Create Habitational Draft Quote")
-	public void createDraftQuote() {
-		logger.info("BCAA-3986: Create Habitational Draft Quote");
-
-		insurancePage = new InsurancePage();
-		selectInsurancePlan = new SelectInsurancePlanPage();
-		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-		homePage = new HomePage();
-
-		homePage.selectInsurance();
-		insurancePage = new InsurancePage();
-=======
-	//@Test(priority = 1, description = "BCAA-3986: Create Habitational Draft Quote")
-	public void createDraftQuote() {
-		logger.info("BCAA-3986: Create Habitational Draft Quote");
-
-		insurancePage = new InsurancePage();
-		selectInsurancePlan = new SelectInsurancePlanPage();
-		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-		homePage = new HomePage();
-
-		homePage.selectInsurance();
-		insurancePage = new InsurancePage();
->>>>>>> .r126
-		//insurancePage.quotesAndPoliciesTab();
-		//findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-		//findQuotesAndPolicies.createQuote();
-		//selectInsurancePlan = new SelectInsurancePlanPage();
-		//selectInsurancePlan.selectInsurancePlan();
-//	}
-
-	/**
-	 * BCAA-3931: Find Quote
-	 */
-	// @Test(priority = 3, description = "BCAA-3931: Find Quote")
-	public void searchQuotePolicy() {
-		logger.info("BCAA-3931: Find Quote");
-		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-		findQuotesAndPolicies.searchQuotePolicy();
-	}
-
-	/**
-	 * BCAA-3990: Go To Assets Tab
-	 */
-	// @Test(priority = 4, description = "BCAA-3990: Go To Assets Tab")
-	public void goToAssetsTab() {
-		logger.info("BCAA-3990: Go To Assets Tab");
-		createDraftQuote();
-		assetPage = new AssetsTabPage();
-		assetPage.addAsset();
-
-	/**
-	 * BCAA-3990: Go To Assets Tab
-	 */
-	// @Test(priority = 4, description = "BCAA-3990: Go To Assets Tab")
-	public void goToAssetsTab() {
-		logger.info("BCAA-3990: Go To Assets Tab");
-		createDraftQuote();
-		assetPage = new AssetsTabPage();
-		
-		assetPage.addAsset();
-
-
-//	/**
-//	 * BCAA-3990: Go To Assets Tab
-//	 */
-//	// @Test(priority = 4, description = "BCAA-3990: Go To Assets Tab")
-//	public void goToAssetsTab() {
-//		logger.info("BCAA-3990: Go To Assets Tab");
-//		createDraftQuote();
-//		assetPage = new AssetsTabPage();
-//		assetPage.addAsset();
-//
-//	}
-//
-//	/**
-//	 * 
-//	 * BCAA-3935: Add Insured
-//	 */
-//	// @Test(priority = 5, description = "BCAA-3935: Add Insured")
-//	public void addInsured() {
-//		logger.info("BCAA-3935: Add Insured");
-//		createDraftQuote();
-//		insuredPage = new InsuredsTabPage();
-//		insuredPage.insuredTab();
-//		insuredPage.addInsured();
-//	}
-//
-//	/**
-//	 * 
-//	 * BCAA-3901: Edit Insured
-//	 * 
-//	 * @throws InterruptedException
-//	 */
-//	// @Test(priority = 6, description = "BCAA-3901: Edit Insured")
-//	public void editInsured() {
-//		logger.info("BCAA-3901: Edit Insured");
-//		createDraftQuote();
-//		insuredPage = new InsuredsTabPage();
-//
-//		insuredPage.insuredTab();
-//		insuredPage.editInsured();
-//	}
-//
-//	/**
-//	 * BCAA-3992: Go To Home Evaluation Tab
-//	 *
-//	 */
-//	// @Test(priority = 7, description = "BCAA-3992: Go To Home Evaluation Tab")
-//	public void goToHomeEvaluationTab() {
-//		logger.info("BCAA-3992: Go To Home Evaluation Tab");
-//		createDraftQuote();
-//		assetPage = new AssetsTabPage();
-//		riskDetail = new RiskDetailsTabPage();
-//		homeEvaluationPage = new HomeEvaluationTabPage();
-//
-//		assetPage.addAsset();
-//		riskDetail.addRiskDetails();
-//		homeEvaluationPage.addHomeEvaluation();
-//	}
-//
-//	/**
-//	 * BCAA-3930: Add Home Asset - Risk Details
-//	 * 
-//	 */
-//	@Test(priority = 8, description = "BCAA-3930: Add Home Asset - Risk Details")
-//	public void riskDetails() {
-//		logger.info("BCAA-3930: Add Home Asset - Risk Details");
-//		assetPage = new AssetsTabPage();
-//		riskDetail = new RiskDetailsTabPage();
-//
-//		goToAssetsTab();
-//		riskDetail.addRiskDetails();
-//
-//		// Verify the address populated in asset page
-//		assetPage.verifyUpdatedAddress();
-//
-//	}
-//
-//	/**
-//	 * BCAA-3916: Verify Options
-//	 * 
-//	 * 
-//	 */
-//	// @Test(priority = 9, description = "BCAA-3916: Verify Options")
-//	public void verifyOptions() {
-//		logger.info("BCAA-3916: Verify Options");
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		assetPage = new AssetsTabPage();
-//		riskDetail = new RiskDetailsTabPage();
-//		homeEvaluationPage = new HomeEvaluationTabPage();
-//		optionsPage = new OptionsTabPage();
-//		insuredPage = new InsuredsTabPage();
-//
-//		editQuotesAndPolicies.searchAndEditAPolicy();
-//		insuredPage.insuredTab();
-//		insuredPage.editInsured();
-//		assetPage.addAsset();
-//
-//		riskDetail.addRiskDetails();
-//		// Verify the address populated in asset page
-//		assetPage.verifyUpdatedAddress();
-//		homeEvaluationPage.addHomeEvaluation();
-//
-//		optionsPage.verifyOptions();
-//	}
-//
-//	/**
-//	 * BCAA-3905: Commit Quote
-//	 * 
-//	 */
-//	// @Test(priority = 10, description = "BCAA-3905: Commit Quote")
-//	public void commitQuote() {
-//		logger.info("BCAA-3905: Commit Quote");
-//		verifyOptions();
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		editQuotesAndPolicies.commitQuote();
-//	}
-//
-//	/**
-//	 * BCAA-3909: Add Notes
-//	 * 
-//	 */
-//	//@Test(priority = 11, description = "BCAA-3909: Add Notes")
-//	public void addNotes() {
-//		logger.info("BCAA-3909: Add Notes");
-//		commitQuote();
-//		noteTabPage = new NotesTabPage();
-//		noteTabPage.clickOnNoteTab();
-//		noteTabPage.addNotes();
-//		noteTabPage.ViewNote();
-//	}
-//
-//	/**
-//	 * BCAA-3908: Add Remarks
-//	 * 
-//	 */
-//	// @Test(priority = 12, description = "BCAA-3908: Add Remarks")
-//	public void addRemarks() {
-//		logger.info("BCAA-3908: Add Remarks");
-//		commitQuote();
-//		remarksTabPage = new RemarksTabPage();
-//		remarksTabPage.clickOnRemarksTab();
-//		remarksTabPage.addRemarks();
-//	}
-//
-//	// @Test(priority = 13, description = "BCAA-3907: Copy Quote")
-//	public void copyQuote() {
-//		logger.info("BCAA-3907: Copy Quote");
-//		commitQuote();
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-//		findQuotesAndPolicies.searchCopiedPolicy();
-//		findQuotesAndPolicies.copyQuote();
-//	}
-//
-//	// -----------------------------------SPRINT
-//	// 2----------------------------------------------
-//
-//	/**
-//	 * TA-3911: Issue Policy
-//	 *
-//	 */
-//	// @Test(priority = 1, description = "TA-3911: Issue Policy ")
-//	public void issuePolicy() {
-//		addRemarks();
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		editQuotesAndPolicies.issuePolicy();
-//
-//	}
-//
-//	/**
-//	 * TA-3912:Create Receipt
-//	 *
-//	 */
-//	//@Test(priority = 2, description = "TA-3912:Create Receipt")
-//	public void createReceipt() {
-//		posReceiptPage = new PosReceiptPage();
-//		createReceiptPage = new CreateReceiptPage();
-//		issuePolicy();
-//		createReceiptPage.selectCreateReceipt();
-//		posReceiptPage.createReceipt();
-//
-//	}
-//
-//
-//
-//	/**
-//	 * BCAA-3914: EndorsePolicy
-//	 *
-//	 */
-//
-//	// @Test(priority = 4, description = "BCAA-3914: EndorsePolicy")
-//	/*public void endorsePolicy() {
-//		SelectInsurancePlanPage selectInsurancePlanObj = new SelectInsurancePlanPage();
-//		selectInsurancePlanObj.selectEndorsePolicy();
-//
-//	}*/
-//
-//
-//
-//	/**
-//	 * TA-3957: Cancel Policy
-//	 * 
-//	 */
-//	//@Test(priority = 1, description = "TA-3957: Cancel Policy")
-//	public void cancelPolicy() {
-//		insurancePage = new InsurancePage();
-//		InsuranceQuotePolicy insuranceQuotePolicy = new InsuranceQuotePolicy();
-//		homePage = new HomePage();
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		createReceiptPage = new CreateReceiptPage();
-//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-//
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//
-//		addRemarks();
-//
-//		editQuotesAndPolicies.issuePolicy();
-//		PageElement pageElementObj = createReceiptPage.getActivePolicyNum();
-//
-//		homePage.selectInsurance();
-//		insurancePage.quotesAndPoliciesTab();
-//		findQuotesAndPolicies.searchQuotePolicywithQuoteNumber(pageElementObj);
-//		findQuotesAndPolicies.selectActivePolicy();
-//		findQuotesAndPolicies.clickEditBtn();
-//
-//		editQuotesAndPolicies.verifyRetrivedQuote(pageElementObj);
-//		editQuotesAndPolicies.verifyEditQuotePolicyHeader();
-//		editQuotesAndPolicies.clickOnCancelPolicyBtn();
-//		
-//		insuranceQuotePolicy.verifyCancelPolicyHeader();
-//		
-//		insuranceQuotePolicy.selectDropDown();
-//		insuranceQuotePolicy.clickOnRecalcualteRefundBtn();
-//		insuranceQuotePolicy.verifyNoteData();
-//		insuranceQuotePolicy.clickOkBtn();
-//		insuranceQuotePolicy.verifyPopUp();
-//		
-//		findQuotesAndPolicies.verifyCancelledMessage();
-//
-//	}
-//	
-//	/**
-//	 * TA-3961: Void a Policy
-//	 * 
-//	 */
-//	//@Test(priority = 1, description = "TA-3961: Void a Policy")
-//	public void voidPolicy() {
-//		insurancePage = new InsurancePage();
-//		InsuranceQuotePolicy insuranceQuotePolicy = new InsuranceQuotePolicy();
-//		homePage = new HomePage();
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		createReceiptPage = new CreateReceiptPage();
-//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-//
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//
-//		addRemarks();
-//
-//		editQuotesAndPolicies.issuePolicy();
-//		PageElement pageElementObj = createReceiptPage.getActivePolicyNum();
-//
-//		homePage.selectInsurance();
-//		insurancePage.quotesAndPoliciesTab();
-//		findQuotesAndPolicies.searchQuotePolicywithQuoteNumber(pageElementObj);
-//		findQuotesAndPolicies.selectActivePolicy();
-//		findQuotesAndPolicies.clickEditBtn();
-//
-//		editQuotesAndPolicies.verifyRetrivedQuote(pageElementObj);
-//		editQuotesAndPolicies.verifyEditQuotePolicyHeader();
-//		editQuotesAndPolicies.clickOnVoidPolicyBtn();
-//		
-//		//insuranceQuotePolicy.verifyVoidPolicyHeader();
-//		//insuranceQuotePolicy.sendYesInPolicyVoidTextBox();
-//		//insuranceQuotePolicy.clickOnVoidPolicyOkBtn();
-//		
-//		//findQuotesAndPolicies.verifyVoidPolicyStatus();
-//
-//	}
-//
-//
-//
-//	/**
-//	 * BCAA-4022: Verify Premiums
-//	 * 
-//	 */
-//
-//	// @Test(priority = 3, description = "BCAA-4022: Verify Premiums")
-//	public void verifyPremiums() {
-//		optionsPage = new OptionsTabPage();
-//		verifyOptions();
-//		optionsPage.verifyPremiums();
-//
-//	}
-//
-//	/**
-//	 * BCAA-3914: EndorsePolicy
-//	 * 
-//	 * @throws InterruptedException
-//	 * 
-//	 */
-//
-//	 //@Test(priority = 4, description = "BCAA-3914: EndorsePolicy")	
-//	  /*public void endorsePolicy() { SelectInsurancePlanPage
-//	  selectInsurancePlanObj = new SelectInsurancePlanPage();
-//	  selectInsurancePlanObj.selectEndorsePolicy();
-//	  
-//	  }*/
-//
-//	//@Test(priority = 1)
-//	public void openPaymentPlan(){
-//		issuePolicy();
-//		CreateReceiptPage createReceiptPage  = new CreateReceiptPage();
-//		createReceiptPage.selectOpenPaymentPlan();
-//		OpenPaymentPlanPage openPaymentPlan = new OpenPaymentPlanPage();
-//		openPaymentPlan.openPaymentPlan();
-//	}
-//
-////	@Test(priority=5, description= "BCAA-3938: Create External Claim")
-//	public void createExternalClaim()
-//	{
-//		logger.info("BCAA-3938: Create External Claim");
-//		createDraftQuote();
-//		claimsTabPage = new ClaimsTabPage();
-//		claimsTabPage.claimsTab();
-//		claimsTabPage.createExternalClaim();
-//
-//	}
-//	
-////	@Test(priority=6, description= "BCAA-3900: Delete External Claim")
-//	public void deleteExternalClaim()
-//	{
-//		logger.info("BCAA-3900: Delete External Claim");
-//		createDraftQuote();
-//		claimsTabPage = new ClaimsTabPage();
-//		claimsTabPage.claimsTab();
-//		claimsTabPage.createExternalClaim();
-//		claimsTabPage.deleteExternalClaim();
-//
-//	}
-//	
-////	@Test(priority=7, description= "BCAA-3920: Edit Home Asset - Home Evaluation")
-//	public void editHomeEvaluation()
-//	{
-//		logger.info("BCAA-3920: Edit Home Asset - Home Evaluation");
-//		goToHomeEvaluationTab();
-//		assetPage.editAsset();
-//		homeEvaluationPage.editHomeEvaluation();
-//		
-//	}
-
-//	/**
-//	 * BCAA-3990: Go To Assets Tab
-//	 */
-//	// @Test(priority = 4, description = "BCAA-3990: Go To Assets Tab")
-//	public void goToAssetsTab() {
-//		logger.info("BCAA-3990: Go To Assets Tab");
-//		createDraftQuote();
-//		assetPage = new AssetsTabPage();
-//		assetPage.addAsset();
-//
-//	}
-//
-//	/**
-//	 * 
-//	 * BCAA-3935: Add Insured
-//	 */
-//	// @Test(priority = 5, description = "BCAA-3935: Add Insured")
-//	public void addInsured() {
-//		logger.info("BCAA-3935: Add Insured");
-//		createDraftQuote();
-//		insuredPage = new InsuredsTabPage();
-//		insuredPage.insuredTab();
-//		insuredPage.addInsured();
-//	}
-//
-//	/**
-//	 * 
-//	 * BCAA-3901: Edit Insured
-//	 * 
-//	 * @throws InterruptedException
-//	 */
-//	// @Test(priority = 6, description = "BCAA-3901: Edit Insured")
-//	public void editInsured() {
-//		logger.info("BCAA-3901: Edit Insured");
-//		createDraftQuote();
-//		insuredPage = new InsuredsTabPage();
-//
-//		insuredPage.insuredTab();
-//		insuredPage.editInsured();
-//	}
-//
-//	/**
-//	 * BCAA-3992: Go To Home Evaluation Tab
-//	 *
-//	 */
-//	// @Test(priority = 7, description = "BCAA-3992: Go To Home Evaluation Tab")
-//	public void goToHomeEvaluationTab() {
-//		logger.info("BCAA-3992: Go To Home Evaluation Tab");
-//		createDraftQuote();
-//		assetPage = new AssetsTabPage();
-//		riskDetail = new RiskDetailsTabPage();
-//		homeEvaluationPage = new HomeEvaluationTabPage();
-//
-//		assetPage.addAsset();
-//		riskDetail.addRiskDetails();
-//		homeEvaluationPage.addHomeEvaluation();
-//	}
-//
-//	/**
-//	 * BCAA-3930: Add Home Asset - Risk Details
-//	 * 
-//	 */
-//	@Test(priority = 8, description = "BCAA-3930: Add Home Asset - Risk Details")
-//	public void riskDetails() {
-//		logger.info("BCAA-3930: Add Home Asset - Risk Details");
-//		assetPage = new AssetsTabPage();
-//		riskDetail = new RiskDetailsTabPage();
-//
-//		goToAssetsTab();
-//		riskDetail.addRiskDetails();
-//
-//		// Verify the address populated in asset page
-//		assetPage.verifyUpdatedAddress();
-//
-//	}
-//
-//	/**
-//	 * BCAA-3916: Verify Options
-//	 * 
-//	 * 
-//	 */
-//	// @Test(priority = 9, description = "BCAA-3916: Verify Options")
-//	public void verifyOptions() {
-//		logger.info("BCAA-3916: Verify Options");
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		assetPage = new AssetsTabPage();
-//		riskDetail = new RiskDetailsTabPage();
-//		homeEvaluationPage = new HomeEvaluationTabPage();
-//		optionsPage = new OptionsTabPage();
-//		insuredPage = new InsuredsTabPage();
-//
-//		editQuotesAndPolicies.searchAndEditAPolicy();
-//		insuredPage.insuredTab();
-//		insuredPage.editInsured();
-//		assetPage.addAsset();
-//
-//		riskDetail.addRiskDetails();
-//		// Verify the address populated in asset page
-//		assetPage.verifyUpdatedAddress();
-//		homeEvaluationPage.addHomeEvaluation();
-//
-//		optionsPage.verifyOptions();
-//	}
-//
-//	/**
-//	 * BCAA-3905: Commit Quote
-//	 * 
-//	 */
-//	// @Test(priority = 10, description = "BCAA-3905: Commit Quote")
-//	public void commitQuote() {
-//		logger.info("BCAA-3905: Commit Quote");
-//		verifyOptions();
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		editQuotesAndPolicies.commitQuote();
-//	}
-//
-//	/**
-//	 * BCAA-3909: Add Notes
-//	 * 
-//	 */
-//	//@Test(priority = 11, description = "BCAA-3909: Add Notes")
-//	public void addNotes() {
-//		logger.info("BCAA-3909: Add Notes");
-//		commitQuote();
-//		noteTabPage = new NotesTabPage();
-//		noteTabPage.clickOnNoteTab();
-//		noteTabPage.addNotes();
-//		noteTabPage.ViewNote();
-//	}
-//
-//	/**
-//	 * BCAA-3908: Add Remarks
-//	 * 
-//	 */
-//	// @Test(priority = 12, description = "BCAA-3908: Add Remarks")
-//	public void addRemarks() {
-//		logger.info("BCAA-3908: Add Remarks");
-//		commitQuote();
-//		remarksTabPage = new RemarksTabPage();
-//		remarksTabPage.clickOnRemarksTab();
-//		remarksTabPage.addRemarks();
-//	}
-//
-//	// @Test(priority = 13, description = "BCAA-3907: Copy Quote")
-//	public void copyQuote() {
-//		logger.info("BCAA-3907: Copy Quote");
-//		commitQuote();
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-//		findQuotesAndPolicies.searchCopiedPolicy();
-//		findQuotesAndPolicies.copyQuote();
-//	}
-//
-//	// -----------------------------------SPRINT
-//	// 2----------------------------------------------
-//
-//	/**
-//	 * TA-3911: Issue Policy
-//	 *
-//	 */
-//	// @Test(priority = 1, description = "TA-3911: Issue Policy ")
-//	public void issuePolicy() {
-//		addRemarks();
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		editQuotesAndPolicies.issuePolicy();
-//
-//	}
-//
-//	/**
-//	 * TA-3912:Create Receipt
-//	 *
-//	 */
-//	//@Test(priority = 2, description = "TA-3912:Create Receipt")
-//	public void createReceipt() {
-//		posReceiptPage = new PosReceiptPage();
-//		createReceiptPage = new CreateReceiptPage();
-//		issuePolicy();
-//		createReceiptPage.selectCreateReceipt();
-//		posReceiptPage.createReceipt();
-//
-//	}
-//
-//
-//
-//	/**
-//	 * BCAA-3914: EndorsePolicy
-//	 *
-//	 */
-//
-//	// @Test(priority = 4, description = "BCAA-3914: EndorsePolicy")
-//	/*public void endorsePolicy() {
-//		SelectInsurancePlanPage selectInsurancePlanObj = new SelectInsurancePlanPage();
-//		selectInsurancePlanObj.selectEndorsePolicy();
-//
-//	}*/
-//
-//
-//
-//	/**
-//	 * TA-3957: Cancel Policy
-//	 * 
-//	 */
-//	//@Test(priority = 1, description = "TA-3957: Cancel Policy")
-//	public void cancelPolicy() {
-//		insurancePage = new InsurancePage();
-//		InsuranceQuotePolicy insuranceQuotePolicy = new InsuranceQuotePolicy();
-//		homePage = new HomePage();
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		createReceiptPage = new CreateReceiptPage();
-//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-//
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//
-//		addRemarks();
-//
-//		editQuotesAndPolicies.issuePolicy();
-//		PageElement pageElementObj = createReceiptPage.getActivePolicyNum();
-//
-//		homePage.selectInsurance();
-//		insurancePage.quotesAndPoliciesTab();
-//		findQuotesAndPolicies.searchQuotePolicywithQuoteNumber(pageElementObj);
-//		findQuotesAndPolicies.selectActivePolicy();
-//		findQuotesAndPolicies.clickEditBtn();
-//
-//		editQuotesAndPolicies.verifyRetrivedQuote(pageElementObj);
-//		editQuotesAndPolicies.verifyEditQuotePolicyHeader();
-//		editQuotesAndPolicies.clickOnCancelPolicyBtn();
-//		
-//		insuranceQuotePolicy.verifyCancelPolicyHeader();
-//		
-//		insuranceQuotePolicy.selectDropDown();
-//		insuranceQuotePolicy.clickOnRecalcualteRefundBtn();
-//		insuranceQuotePolicy.verifyNoteData();
-//		insuranceQuotePolicy.clickOkBtn();
-//		insuranceQuotePolicy.verifyPopUp();
-//		
-//		findQuotesAndPolicies.verifyCancelledMessage();
-//
-//	}
-//
-//=======
-//	/**
-//	 * BCAA-3990: Go To Assets Tab
-//	 */
-//	// @Test(priority = 4, description = "BCAA-3990: Go To Assets Tab")
-//	public void goToAssetsTab() {
-//		logger.info("BCAA-3990: Go To Assets Tab");
-//		createDraftQuote();
-//		assetPage = new AssetsTabPage();
-//		assetPage.addAsset();
-//
-//	}
-//
-//	/**
-//	 * 
-//	 * BCAA-3935: Add Insured
-//	 */
-//	// @Test(priority = 5, description = "BCAA-3935: Add Insured")
-//	public void addInsured() {
-//		logger.info("BCAA-3935: Add Insured");
-//		createDraftQuote();
-//		insuredPage = new InsuredsTabPage();
-//		insuredPage.insuredTab();
-//		insuredPage.addInsured();
-//	}
-//
-//	/**
-//	 * 
-//	 * BCAA-3901: Edit Insured
-//	 * 
-//	 * @throws InterruptedException
-//	 */
-//	// @Test(priority = 6, description = "BCAA-3901: Edit Insured")
-//	public void editInsured() {
-//		logger.info("BCAA-3901: Edit Insured");
-//		createDraftQuote();
-//		insuredPage = new InsuredsTabPage();
-//
-//		insuredPage.insuredTab();
-//		insuredPage.editInsured();
-//	}
-//
-//	/**
-//	 * BCAA-3992: Go To Home Evaluation Tab
-//	 *
-//	 */
-//	// @Test(priority = 7, description = "BCAA-3992: Go To Home Evaluation Tab")
-//	public void goToHomeEvaluationTab() {
-//		logger.info("BCAA-3992: Go To Home Evaluation Tab");
-//		createDraftQuote();
-//		assetPage = new AssetsTabPage();
-//		riskDetail = new RiskDetailsTabPage();
-//		homeEvaluationPage = new HomeEvaluationTabPage();
-//
-//		assetPage.addAsset();
-//		riskDetail.addRiskDetails();
-//		homeEvaluationPage.addHomeEvaluation();
-//	}
-//
-//	/**
-//	 * BCAA-3930: Add Home Asset - Risk Details
-//	 * 
-//	 */
-//	@Test(priority = 8, description = "BCAA-3930: Add Home Asset - Risk Details")
-//	public void riskDetails() {
-//		logger.info("BCAA-3930: Add Home Asset - Risk Details");
-//		assetPage = new AssetsTabPage();
-//		riskDetail = new RiskDetailsTabPage();
-//
-//		goToAssetsTab();
-//		riskDetail.addRiskDetails();
-//
-//		// Verify the address populated in asset page
-//		assetPage.verifyUpdatedAddress();
-//
-//	}
-//
-//	/**
-//	 * BCAA-3916: Verify Options
-//	 * 
-//	 * 
-//	 */
-//	// @Test(priority = 9, description = "BCAA-3916: Verify Options")
-//	public void verifyOptions() {
-//		logger.info("BCAA-3916: Verify Options");
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		assetPage = new AssetsTabPage();
-//		riskDetail = new RiskDetailsTabPage();
-//		homeEvaluationPage = new HomeEvaluationTabPage();
-//		optionsPage = new OptionsTabPage();
-//		insuredPage = new InsuredsTabPage();
-//
-//		editQuotesAndPolicies.searchAndEditAPolicy();
-//		insuredPage.insuredTab();
-//		insuredPage.editInsured();
-//		assetPage.addAsset();
-//
-//		riskDetail.addRiskDetails();
-//		// Verify the address populated in asset page
-//		assetPage.verifyUpdatedAddress();
-//		homeEvaluationPage.addHomeEvaluation();
-//
-//		optionsPage.verifyOptions();
-//	}
-//
-//	/**
-//	 * BCAA-3905: Commit Quote
-//	 * 
-//	 */
-//	// @Test(priority = 10, description = "BCAA-3905: Commit Quote")
-//	public void commitQuote() {
-//		logger.info("BCAA-3905: Commit Quote");
-//		verifyOptions();
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		editQuotesAndPolicies.commitQuote();
-//	}
-//
-//	/**
-//	 * BCAA-3909: Add Notes
-//	 * 
-//	 */
-//	//@Test(priority = 11, description = "BCAA-3909: Add Notes")
-//	public void addNotes() {
-//		logger.info("BCAA-3909: Add Notes");
-//		commitQuote();
-//		noteTabPage = new NotesTabPage();
-//		noteTabPage.clickOnNoteTab();
-//		noteTabPage.addNotes();
-//		noteTabPage.ViewNote();
-//	}
-//
-//	/**
-//	 * BCAA-3908: Add Remarks
-//	 * 
-//	 */
-//	// @Test(priority = 12, description = "BCAA-3908: Add Remarks")
-//	public void addRemarks() {
-//		logger.info("BCAA-3908: Add Remarks");
-//		commitQuote();
-//		remarksTabPage = new RemarksTabPage();
-//		remarksTabPage.clickOnRemarksTab();
-//		remarksTabPage.addRemarks();
-//	}
-//
-//	// @Test(priority = 13, description = "BCAA-3907: Copy Quote")
-//	public void copyQuote() {
-//		logger.info("BCAA-3907: Copy Quote");
-//		commitQuote();
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-//		findQuotesAndPolicies.searchCopiedPolicy();
-//		findQuotesAndPolicies.copyQuote();
-//	}
-//
-//	// -----------------------------------SPRINT
-//	// 2----------------------------------------------
-//
-//	/**
-//	 * TA-3911: Issue Policy
-//	 *
-//	 */
-//	// @Test(priority = 1, description = "TA-3911: Issue Policy ")
-//	public void issuePolicy() {
-//		addRemarks();
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		editQuotesAndPolicies.issuePolicy();
-//
-//	}
-//
-//	/**
-//	 * TA-3912:Create Receipt
-//	 *
-//	 */
-//	//@Test(priority = 2, description = "TA-3912:Create Receipt")
-//	public void createReceipt() {
-//		posReceiptPage = new PosReceiptPage();
-//		createReceiptPage = new CreateReceiptPage();
-//		issuePolicy();
-//		createReceiptPage.selectCreateReceipt();
-//		posReceiptPage.createReceipt();
-//
-//	}
-//
-//
-//
-//	/**
-//	 * BCAA-3914: EndorsePolicy
-//	 *
-//	 */
-//
-//	// @Test(priority = 4, description = "BCAA-3914: EndorsePolicy")
-//	/*public void endorsePolicy() {
-//		SelectInsurancePlanPage selectInsurancePlanObj = new SelectInsurancePlanPage();
-//		selectInsurancePlanObj.selectEndorsePolicy();
-//
-//	}*/
-//
-//
-//
-//	/**
-//	 * TA-3957: Cancel Policy
-//	 * 
-//	 */
-//	//@Test(priority = 1, description = "TA-3957: Cancel Policy")
-//	public void cancelPolicy() {
-//		insurancePage = new InsurancePage();
-//		InsuranceQuotePolicy insuranceQuotePolicy = new InsuranceQuotePolicy();
-//		homePage = new HomePage();
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//		createReceiptPage = new CreateReceiptPage();
-//		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-//
-//		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-//
-//		addRemarks();
-//
-//		editQuotesAndPolicies.issuePolicy();
-//		PageElement pageElementObj = createReceiptPage.getActivePolicyNum();
-//
-//		homePage.selectInsurance();
-//		insurancePage.quotesAndPoliciesTab();
-//		findQuotesAndPolicies.searchQuotePolicywithQuoteNumber(pageElementObj);
-//		findQuotesAndPolicies.selectActivePolicy();
-//		findQuotesAndPolicies.clickEditBtn();
-//
-//		editQuotesAndPolicies.verifyRetrivedQuote(pageElementObj);
-//		editQuotesAndPolicies.verifyEditQuotePolicyHeader();
-//		editQuotesAndPolicies.clickOnCancelPolicyBtn();
-//		
-//		insuranceQuotePolicy.verifyCancelPolicyHeader();
-//		
-//		insuranceQuotePolicy.selectDropDown();
-//		insuranceQuotePolicy.clickOnRecalcualteRefundBtn();
-//		insuranceQuotePolicy.verifyNoteData();
-//		insuranceQuotePolicy.clickOkButton();
-//		insuranceQuotePolicy.verifyPopUp();
-//		
-//		findQuotesAndPolicies.verifyCancelledMessage();
-//
-//	}
-
-
-<<<<<<< .mine
-||||||| .r124
-		insuredPage.insuredTab();
-		insuredPage.editInsured();
-	}
-
-	/**
-	 * BCAA-3992: Go To Home Evaluation Tab
-	 *
-	 */
-	// @Test(priority = 7, description = "BCAA-3992: Go To Home Evaluation Tab")
-	public void goToHomeEvaluationTab() {
-		logger.info("BCAA-3992: Go To Home Evaluation Tab");
-		createDraftQuote();
-		assetPage = new AssetsTabPage();
-		riskDetail = new RiskDetailsTabPage();
-		homeEvaluationPage = new HomeEvaluationTabPage();
-
-		assetPage.addAsset();
-		riskDetail.addRiskDetails();
-		homeEvaluationPage.addHomeEvaluation();
-	}
-
-	/**
-	 * BCAA-3930: Add Home Asset - Risk Details
 	 * 
 	 */
-	@Test(priority = 8, description = "BCAA-3930: Add Home Asset - Risk Details")
-	public void riskDetails() {
-		logger.info("BCAA-3930: Add Home Asset - Risk Details");
-		assetPage = new AssetsTabPage();
-		riskDetail = new RiskDetailsTabPage();
+	//@Test(description = "BCAA-4015:Trigger an authorization and have someone with authority to use the “Override Sign In” link")
+	public void overrideSignInTest() {
+		logger.info("Executing test case BCAA-4015");
 
-		goToAssetsTab();
-		riskDetail.addRiskDetails();
+		insurance.createQuoteWithMemberID();
+		insurance.createAssetWithPetBinding();
 
-		// Verify the address populated in asset page
-		assetPage.verifyUpdatedAddress();
+		editQuotesOrPolicy.goToOptionsTab();
+
+		optionsTabPage.clickAuthorizationsBtn();
+
+		insurancePage.verifyOverrideUserSignOut();
+		insurancePage.overrideSignIn();
+
+		authorizationsPage.selectPetAsset();
+		authorizationsPage.clickAuthorizationsBtn();
+		authorizationsPage.verifyBindingStop();
+		authorizationsPage.clickOkBtn();
+
+		insurancePage.overrideSignOut();
+		insurancePage.verifyOverrideUserSignOut();
+	}
+
+	/**
+	 * BCAA-4026:Endorse Effective Date that falls between the original policy's
+	 * Effective and Expiry dates
+	 */
+
+	//@Test(description = "BCAA-4026:Endorse Effective Date that falls between the original policy's Effective and Expiry dates")
+	public void endorsemenEffectiveDatebetweenOriginalAndExpiryDates() {
+		logger.info("Executing test case BCAA-4026");
+
+		TextBox activePolicyNumber = insurance.issuePolicy(H5_ADVANTAGE_HOME);
+
+		insurance.searchQuotePolicy(activePolicyNumber);
+
+		findQuotesOrPolicy.selectActivePolicy();
+		findQuotesOrPolicy.clickOnEndorsePolicyBtn();
+
+		selectInsurancePlan.setBeforeAndAfterCurrentDate(5);
+		selectInsurancePlan.clickOkBtn();
+
+		editQuotesOrPolicy.verifyEndorsePolicySuccessMessage();
+
+		insurance.goToRemarksAndAddRemark();
+		insurance.goToInsuredsTabAndEditInsured();
+
+		editQuotesOrPolicy.selectCommitQuoteButtonOnly();
+
+		insuredsTabPage.selectEditButton();
+
+		insurance.addRemarkaddNotePreviewDecIssuePolicy();
+
+		activePolicy = createReceipt.getActivePolicyNum();
 
 	}
 
 	/**
-	 * BCAA-3916: Verify Options
-	 * 
-	 * 
+	 * BCAA-4025:Endorsement Effective Date later the original Expiry Date
 	 */
-	// @Test(priority = 9, description = "BCAA-3916: Verify Options")
-	public void verifyOptions() {
-		logger.info("BCAA-3916: Verify Options");
-		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-		assetPage = new AssetsTabPage();
-		riskDetail = new RiskDetailsTabPage();
-		homeEvaluationPage = new HomeEvaluationTabPage();
-		optionsPage = new OptionsTabPage();
-		insuredPage = new InsuredsTabPage();
+	//@Test(description = "BCAA-4025:Endorsement Effective Date later the original Expiry Date")
+	public void endorsementEffectiveDateEarlierThanOriginalEffectiveDate() {
+		logger.info("Executing test case BCAA-4025");
 
-		editQuotesAndPolicies.searchAndEditAPolicy();
-		insuredPage.insuredTab();
-		insuredPage.editInsured();
-		assetPage.addAsset();
+		TextBox activePolicyNumber = insurance.issuePolicy(H5_ADVANTAGE_HOME);
 
-		riskDetail.addRiskDetails();
-		// Verify the address populated in asset page
-		assetPage.verifyUpdatedAddress();
-		homeEvaluationPage.addHomeEvaluation();
+		insurance.searchQuotePolicy(activePolicyNumber);
 
-		optionsPage.verifyOptions();
+		findQuotesOrPolicy.selectActivePolicy();
+		findQuotesOrPolicy.clickOnEndorsePolicyBtn();
+
+		selectInsurancePlan.setAfterExpiryDate(TWO_DAY_AFTER_EXPIRY);
+		selectInsurancePlan.clickOkBtn();
+		selectInsurancePlan.verifyErrorAfterExpiryDate();
+		selectInsurancePlan.verifyErrorAfterExpiryDate();
 	}
 
 	/**
-	 * BCAA-3905: Commit Quote
-	 * 
+	 * TA-3964: Commit Quote ,Copy and Issue a Policy with Multiple Assets
 	 */
-	// @Test(priority = 10, description = "BCAA-3905: Commit Quote")
-	public void commitQuote() {
-		logger.info("BCAA-3905: Commit Quote");
-		verifyOptions();
-		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-		editQuotesAndPolicies.commitQuote();
+
+	//@Test(description = "BCAA-3964: Commit Quote ,Copy and Issue a Policy with Multiple Assets")
+	public void commitCopyAndIssuePolicyWithMultipleAssets() {
+		logger.info("Executing test case BCAA-3964");
+
+		insurance.createQuoteWithMemberID();
+		insurance.goToInsuredsTabAndEditInsured();
+		insurance.createHomeAsset();
+		insurance.createCondoAsset();
+		insurance.goToOptionsTabAndVerifyCondoOptions();
+
+		TextBox quoteNumber = editQuotesOrPolicy.commitQuote();
+
+		insurance.searchQuotePolicy(quoteNumber);
+		insurance.copyQuote();
+		insurance.goToOptionsTabAndVerifyOptions();
+		insurance.addRemarkaddNotePreviewDecIssuePolicy();
+		insurance.createReceipt();
 	}
 
 	/**
-	 * BCAA-3909: Add Notes
-	 * 
+	 * BCAA-3971: Endorse a Policy (Upgrade from H1 to H5)
 	 */
-	//@Test(priority = 11, description = "BCAA-3909: Add Notes")
-	public void addNotes() {
-		logger.info("BCAA-3909: Add Notes");
-		commitQuote();
-		noteTabPage = new NotesTabPage();
-		noteTabPage.clickOnNoteTab();
-		noteTabPage.addNotes();
-		noteTabPage.ViewNote();
+	//@Test(description = "BCAA-3971: Endorse a Policy (Upgrade from H1 to H5)")
+	public void endorseAPolicy() {
+		logger.info("Executing test case BCAA-3971");
+
+		insurance.endorsePolicy(H1_ADVANTAGE_HOME);
+
+		editQuotesOrPolicy.goToAssetsTab();
+		editQuotesOrPolicy.selectExistingAssets();
+		editQuotesOrPolicy.clickOnEditButton();
+
+		addOrEditAssetPage.editAssetPlan(H5_ADVANTAGE_HOME);
+		addOrEditAssetPage.clickOnOkButton();
+
+		assetsTabPage.clickOnEditButton();
+
+		insurance.goToOptionsTabAndVerifyOptions();
+
+		editQuotesOrPolicy.selectCommitQuoteButtonOnly();
+		editQuotesOrPolicy.selectShowAllBtn();
+
+		insurance.addRemarkaddNotePreviewDecIssuePolicy();
 	}
 
 	/**
-	 * BCAA-3908: Add Remarks
-	 * 
+	 * TA-3968: Endorse a Policy (RCT to Appraisal)
 	 */
-	// @Test(priority = 12, description = "BCAA-3908: Add Remarks")
-	public void addRemarks() {
-		logger.info("BCAA-3908: Add Remarks");
-		commitQuote();
-		remarksTabPage = new RemarksTabPage();
-		remarksTabPage.clickOnRemarksTab();
-		remarksTabPage.addRemarks();
-	}
+	//@Test(description = "TA-3968: Endorse a Policy (RCT to Appraisal)")
+	public void endorsePolicyRctToAppraisal() {
+		logger.info("Executing test case TA-3968");
 
-	// @Test(priority = 13, description = "BCAA-3907: Copy Quote")
-	public void copyQuote() {
-		logger.info("BCAA-3907: Copy Quote");
-		commitQuote();
-		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-		findQuotesAndPolicies.searchCopiedPolicy();
-		findQuotesAndPolicies.copyQuote();
-	}
+		insurance.endorsePolicy(H1_ADVANTAGE_HOME);
 
-	// -----------------------------------SPRINT
-	// 2----------------------------------------------
+		editQuotesOrPolicy.goToAssetsTab();
 
-	/**
-	 * TA-3911: Issue Policy
-	 *
-	 */
-	// @Test(priority = 1, description = "TA-3911: Issue Policy ")
-	public void issuePolicy() {
-		addRemarks();
-		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-		editQuotesAndPolicies.issuePolicy();
+		assetsTabPage.selectEditHomeAssetTab();
 
+		insurance.switchRctToAppraisalEvaluation();
+		insurance.goToOptionsTabAndVerifyOptions();
+
+		editQuotesOrPolicy.selectCommitQuoteButtonOnly();
+		editQuotesOrPolicy.selectShowAllBtn();
+
+		insurance.addRemarkaddNotePreviewDecIssuePolicy();
+		insurance.createReceipt();
 	}
 
 	/**
-	 * TA-3912:Create Receipt
-	 *
+	 * TA-3976: Member related discounts should be removed when member is
+	 * removed
 	 */
-	//@Test(priority = 2, description = "TA-3912:Create Receipt")
-	public void createReceipt() {
-		posReceiptPage = new PosReceiptPage();
-		createReceiptPage = new CreateReceiptPage();
-		issuePolicy();
-		createReceiptPage.selectCreateReceipt();
-		posReceiptPage.createReceipt();
+	//@Test(description = "TA-3976: Member related discounts should be removed when member is removed")
+	public void memberRelatedDiscounts() {
+		logger.info("Executing test case TA-3976");
 
-	}
+		insurance.createQuoteWithNonMemberID();
+		insurance.createAsset(H5_ADVANTAGE_HOME);
 
+		editQuotesOrPolicy.goToOptionsTab();
 
+		optionsTabPage.selectAPolicyAndClickVerifyOptions();
 
-	/**
-	 * BCAA-3914: EndorsePolicy
-	 *
-	 */
+		editQuotesOrPolicy.verifyNonBCAADiscountMessage();
 
-	// @Test(priority = 4, description = "BCAA-3914: EndorsePolicy")
-	/*public void endorsePolicy() {
-		SelectInsurancePlanPage selectInsurancePlanObj = new SelectInsurancePlanPage();
-		selectInsurancePlanObj.selectEndorsePolicy();
+		insurance.goToInsuredsTabAndAddInsured();
 
-	}*/
+		editQuotesOrPolicy.goToOptionsTab();
 
+		optionsTabPage.selectAPolicyAndClickVerifyOptions();
 
+		editQuotesOrPolicy.verifyBCAADiscountMessage();
+		editQuotesOrPolicy.goToInsuredsTab();
 
-	/**
-	 * TA-3957: Cancel Policy
-	 * 
-	 */
-	//@Test(priority = 1, description = "TA-3957: Cancel Policy")
-	public void cancelPolicy() {
-		insurancePage = new InsurancePage();
-		InsuranceQuotePolicy insuranceQuotePolicy = new InsuranceQuotePolicy();
-		homePage = new HomePage();
-		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-		createReceiptPage = new CreateReceiptPage();
-		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
+		insurance.deleteInsured();
 
-		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
+		editQuotesOrPolicy.verifyInsuredDeletedSucessMessage();
+		editQuotesOrPolicy.goToOptionsTab();
 
-		addRemarks();
+		optionsTabPage.selectAPolicyAndClickVerifyOptions();
 
-		editQuotesAndPolicies.issuePolicy();
-		PageElement pageElementObj = createReceiptPage.getActivePolicyNum();
-
-		homePage.selectInsurance();
-		insurancePage.quotesAndPoliciesTab();
-		findQuotesAndPolicies.searchQuotePolicywithQuoteNumber(pageElementObj);
-		findQuotesAndPolicies.selectActivePolicy();
-		findQuotesAndPolicies.clickEditBtn();
-
-		editQuotesAndPolicies.verifyRetrivedQuote(pageElementObj);
-		editQuotesAndPolicies.verifyEditQuotePolicyHeader();
-		editQuotesAndPolicies.clickOnCancelPolicyBtn();
-		
-		insuranceQuotePolicy.verifyCancelPolicyHeader();
-		
-		insuranceQuotePolicy.selectDropDown();
-		insuranceQuotePolicy.clickOnRecalcualteRefundBtn();
-		insuranceQuotePolicy.verifyNoteData();
-		insuranceQuotePolicy.clickOkButton();
-		insuranceQuotePolicy.verifyPopUp();
-		
-		findQuotesAndPolicies.verifyCancelledMessage();
-
-	}
-
-=======
-		insuredPage.insuredTab();
-		insuredPage.editInsured();
+		editQuotesOrPolicy.verifyRemovedBCAAMemberMessage();
 	}
 
 	/**
-	 * BCAA-3992: Go To Home Evaluation Tab
-	 *
+	 * BCAA-3981: Safe Home points is adjusted accordingly when Safe Home points
+	 * are earned or lost
 	 */
-	// @Test(priority = 7, description = "BCAA-3992: Go To Home Evaluation Tab")
-	public void goToHomeEvaluationTab() {
-		logger.info("BCAA-3992: Go To Home Evaluation Tab");
-		createDraftQuote();
-		assetPage = new AssetsTabPage();
-		riskDetail = new RiskDetailsTabPage();
-		homeEvaluationPage = new HomeEvaluationTabPage();
 
-		assetPage.addAsset();
-		riskDetail.addRiskDetails();
-		homeEvaluationPage.addHomeEvaluation();
+	//@Test(description = "BCAA-3981: Safe Home points is adjusted accordingly when Safe Home points are earned or lost")
+	public void verifySafeHomePointsAdjusted() {
+		logger.info("Executing test case BCAA-3981");
+
+		insurance.goToFindQuotesAndPolicies();
+		insurance.createQuoteWithMemberID();
+		insurance.goToInsuredsTabAndEditInsured();
+		insurance.createAsset(H1_ADVANTAGE_HOME);
+		insurance.goToOptionsTabAndVerifyOptions();
+		insurance.goToAssetsAndEditSafeHome();
+
+		editQuotesOrPolicy.goToOptionsTab();
+
+		optionsTabPage.selectAPolicyAndClickVerifyOptions();
+		optionsTabPage.verifyDiscount();
+
+		insurance.goToAssetsAndRemoveSafeHomeOptions();
+
+		editQuotesOrPolicy.goToOptionsTab();
+
+		optionsTabPage.selectAPolicyAndClickVerifyOptions();
+		optionsTabPage.verifyRemoveDiscount();
 	}
 
 	/**
-	 * BCAA-3930: Add Home Asset - Risk Details
-	 * 
+	 * BCAA-4018: Remove FUS Override on Edit Asset page
 	 */
-	//@Test(priority = 8, description = "BCAA-3930: Add Home Asset - Risk Details")
-	public void riskDetails() {
-		logger.info("BCAA-3930: Add Home Asset - Risk Details");
-		assetPage = new AssetsTabPage();
-		riskDetail = new RiskDetailsTabPage();
 
-		goToAssetsTab();
-		riskDetail.addRiskDetails();
+	//@Test(description = "BCAA-4018:  Remove FUS Override on Edit Asset page")
+	public void verifyRemoveFUSOverride() {
+		logger.info("Executing test case BCAA-4018");
 
-		// Verify the address populated in asset page
-		assetPage.verifyUpdatedAddress();
+		insurance.goToFindQuotesAndPolicies();
+		insurance.createQuoteWithMemberID();
+		insurance.goToInsuredsTabAndEditInsured();
+		insurance.createAsset(H1_ADVANTAGE_HOME);
 
+		editQuotesOrPolicy.goToAssetsTab();
+
+		assetPage.selectEditHomeAssetTab();
+
+		riskDetailTab.selectfirehallDistanceLookupCodeDropdown();
+		riskDetailTab.clickRemoveFireProtectionButton();
+		riskDetailTab.verifyFireProtectionMessage();
 	}
 
 	/**
-	 * BCAA-3916: Verify Options
-	 * 
-	 * 
-	 */
-	// @Test(priority = 9, description = "BCAA-3916: Verify Options")
-	public void verifyOptions() {
-		logger.info("BCAA-3916: Verify Options");
-		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-		assetPage = new AssetsTabPage();
-		riskDetail = new RiskDetailsTabPage();
-		homeEvaluationPage = new HomeEvaluationTabPage();
-		optionsPage = new OptionsTabPage();
-		insuredPage = new InsuredsTabPage();
-
-		editQuotesAndPolicies.searchAndEditAPolicy();
-		insuredPage.insuredTab();
-		insuredPage.editInsured();
-		assetPage.addAsset();
-
-		riskDetail.addRiskDetails();
-		// Verify the address populated in asset page
-		assetPage.verifyUpdatedAddress();
-		homeEvaluationPage.addHomeEvaluation();
-
-		optionsPage.verifyOptions();
-	}
-
-	/**
-	 * BCAA-3905: Commit Quote
-	 * 
-	 */
-	// @Test(priority = 10, description = "BCAA-3905: Commit Quote")
-	public void commitQuote() {
-		logger.info("BCAA-3905: Commit Quote");
-		verifyOptions();
-		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-		editQuotesAndPolicies.commitQuote();
-	}
-
-	/**
-	 * BCAA-3909: Add Notes
-	 * 
-	 */
-	//@Test(priority = 11, description = "BCAA-3909: Add Notes")
-	public void addNotes() {
-		logger.info("BCAA-3909: Add Notes");
-		commitQuote();
-		noteTabPage = new NotesTabPage();
-		noteTabPage.clickOnNoteTab();
-		noteTabPage.addNotes();
-		noteTabPage.ViewNote();
-	}
-
-	/**
-	 * BCAA-3908: Add Remarks
-	 * 
-	 */
-	// @Test(priority = 12, description = "BCAA-3908: Add Remarks")
-	public void addRemarks() {
-		logger.info("BCAA-3908: Add Remarks");
-		commitQuote();
-		remarksTabPage = new RemarksTabPage();
-		remarksTabPage.clickOnRemarksTab();
-		remarksTabPage.addRemarks();
-	}
-
-	// @Test(priority = 13, description = "BCAA-3907: Copy Quote")
-	public void copyQuote() {
-		logger.info("BCAA-3907: Copy Quote");
-		commitQuote();
-		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-		findQuotesAndPolicies.searchCopiedPolicy();
-		findQuotesAndPolicies.copyQuote();
-	}
-
-	// -----------------------------------SPRINT
-	// 2----------------------------------------------
-
-	/**
-	 * TA-3911: Issue Policy
-	 *
-	 */
-	// @Test(priority = 1, description = "TA-3911: Issue Policy ")
-	public void issuePolicy() {
-		addRemarks();
-		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-		editQuotesAndPolicies.issuePolicy();
-
-	}
-
-	/**
-	 * TA-3912:Create Receipt
-	 *
-	 */
-	//@Test(priority = 2, description = "TA-3912:Create Receipt")
-	public void createReceipt() {
-		posReceiptPage = new PosReceiptPage();
-		createReceiptPage = new CreateReceiptPage();
-		issuePolicy();
-		createReceiptPage.selectCreateReceipt();
-		posReceiptPage.createReceipt();
-
-	}
-
-
-
-	/**
-	 * BCAA-3914: EndorsePolicy
-	 *
+	 * BCAA-4013: Adding a 2nd location asset with a different liability should
+	 * result to error
 	 */
 
-	// @Test(priority = 4, description = "BCAA-3914: EndorsePolicy")
-	/*public void endorsePolicy() {
-		SelectInsurancePlanPage selectInsurancePlanObj = new SelectInsurancePlanPage();
-		selectInsurancePlanObj.selectEndorsePolicy();
+	//@Test(description = "BCAA-4013: Adding a 2nd location asset with a different liability should result to error")
+	public void verifyAdding2ndlocationasset() {
+		logger.info("Executing test case BCAA-4013");
 
-	}*/
+		insurance.endorsePolicy(H5_ADVANTAGE_HOME);
+		insurance.goToInsuredsTabAndEditInsured();
+		insurance.createSecondAsset(H5_ADVANTAGE_HOME);
+		insurance.goToOptionsTabAndVerifyOptions();
+		insurance.goToOptionsAndEditOptions();
+		insurance.goToRemarksAndAddRemark();
 
-
-
-	/**
-	 * TA-3957: Cancel Policy
-	 * 
-	 */
-	//@Test(priority = 1, description = "TA-3957: Cancel Policy")
-	public void cancelPolicy() {
-		insurancePage = new InsurancePage();
-		InsuranceQuotePolicy insuranceQuotePolicy = new InsuranceQuotePolicy();
-		homePage = new HomePage();
-		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-		createReceiptPage = new CreateReceiptPage();
-		findQuotesAndPolicies = new FindQuotesOrPolicyPage();
-
-		editQuotesAndPolicies = new EditQuotesOrPolicyPage();
-
-		addRemarks();
-
-		editQuotesAndPolicies.issuePolicy();
-		PageElement pageElementObj = createReceiptPage.getActivePolicyNum();
-
-		homePage.selectInsurance();
-		insurancePage.quotesAndPoliciesTab();
-		findQuotesAndPolicies.searchQuotePolicywithQuoteNumber(pageElementObj);
-		findQuotesAndPolicies.selectActivePolicy();
-		findQuotesAndPolicies.clickEditBtn();
-
-		editQuotesAndPolicies.verifyRetrivedQuote(pageElementObj);
-		editQuotesAndPolicies.verifyEditQuotePolicyHeader();
-		editQuotesAndPolicies.clickOnCancelPolicyBtn();
-		
-		insuranceQuotePolicy.verifyCancelPolicyHeader();
-		
-		insuranceQuotePolicy.selectDropDown();
-		insuranceQuotePolicy.clickOnRecalcualteRefundBtn();
-		insuranceQuotePolicy.verifyNoteData();
-		insuranceQuotePolicy.clickOkButton();
-		insuranceQuotePolicy.verifyPopUp();
-		
-		findQuotesAndPolicies.verifyCancelledMessage();
-
+		editQuotesOrPolicy.commitQuoteError();
 	}
 
->>>>>>> .r126
-	
-	
-	
 	@AfterClass
 	public void closeBrowser() {
-		loginPage.signOut();
+		logger.info("Closing the browser");
+
 		browser.closeBrowser();
 	}
 

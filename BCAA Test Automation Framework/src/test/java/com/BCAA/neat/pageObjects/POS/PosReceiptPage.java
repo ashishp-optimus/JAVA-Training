@@ -18,21 +18,26 @@ import com.BCAA.neat.utils.PropertiesReader;
  */
 
 public class PosReceiptPage {
-	Logger logger = Logger.getLogger(PosReceiptPage.class);
+	Logger logger;
+	Browser browser;
+
+	public PosReceiptPage() {
+		logger = Logger.getLogger(PosReceiptPage.class);
+		browser = new Browser();
+	}
 
 	private final static String POS_RECEIPT_SUCCESS_MESSAGE = "New POS receipt is successfully created. ";
 	private final static String RECEIPT_PAYMENT_SUCCESS_MESSAGE = "New receipt payment has been added successfully. ";
 	private final static String VALUE = "value";
 	private final static String TYPE_CASH = "Cash";
 	private final static String TYPE_VISA = "Visa";
-	private final static String LOADING_MONERIS_MESSAGE = "Loading Moneris credit card transaction page, please wait ...";
+	private final static String CREATE_RECEIPT = "Inside createReceipt method in POS Receipt Page";
 
 	private By paymentMethodCodeDropdownId = By.id("paymentMethodCode");
 	private By successMessageId = By.id("msgbox");
 	private By printerMessageId = By.id("errorMsgBox");
 	private By addPaymentButtonId = By.id("addPaymentButtonId");
 	private By printReceiptCheckboxId = By.id("printReceiptFlagCheckBox");
-	private By printerId = By.id("printerPath");
 	private By receiptNumberId = By.id("receiptNumber");
 	private By saveAndExitButtonId = By.id("saveAndExitButtonId");
 	private By identificationTypeDropdownId = By.id("identificationTypeLookupCode");
@@ -40,87 +45,95 @@ public class PosReceiptPage {
 	private By identificationNumberTextboxId = By.id("identificationNumber");
 	private By okButtonId = By.id("btnIDInformatinOk");
 	private By idInformationBoxId = By.id("TB_window");
-	private By idInformationBoxFrameId = By.name("TB_iframeContent");
+	private By idInformationBoxFrameId = By.id("TB_iframeContent");
 	private By useMonerisCheckBoxId = By.id("useMonerisFlagCheckBox");
-	private By monerisMessageXpath = By.xpath("//*[@id='body']/center/b");
 
-	Button addPaymentButton = new Button(addPaymentButtonId);
-	Button saveAndExitButton = new Button(saveAndExitButtonId);
-	Button okButton = new Button(okButtonId);
+	private Button addPaymentButton = new Button(addPaymentButtonId);
+	private Button saveAndExitButton = new Button(saveAndExitButtonId);
+	private Button okButton = new Button(okButtonId);
 
-	CheckBox checkPrintReceiptCheckbox = new CheckBox(printReceiptCheckboxId);
-	CheckBox useMonerisCheckBox = new CheckBox(useMonerisCheckBoxId);
+	private CheckBox checkPrintReceiptCheckbox = new CheckBox(printReceiptCheckboxId);
+	private CheckBox useMonerisCheckBox = new CheckBox(useMonerisCheckBoxId);
 
-	DropDown cashPaymentMethodDropdown = new DropDown(paymentMethodCodeDropdownId, TYPE_CASH);
-	DropDown visaPaymentMethodDropdown = new DropDown(paymentMethodCodeDropdownId, TYPE_VISA);
-	DropDown identificationTypeDropdown = new DropDown(identificationTypeDropdownId,
+	private DropDown cashPaymentMethodDropdown = new DropDown(paymentMethodCodeDropdownId, TYPE_CASH);
+	private DropDown visaPaymentMethodDropdown = new DropDown(paymentMethodCodeDropdownId, TYPE_VISA);
+	private DropDown identificationTypeDropdown = new DropDown(identificationTypeDropdownId,
 			PropertiesReader.readProperty("idType"));
 
-	PageElement posSuccessMessage = new PageElement(successMessageId, POS_RECEIPT_SUCCESS_MESSAGE);
-	PageElement selectPrinter = new PageElement(printerId, PropertiesReader.readProperty("printer"));
-	PageElement receiptNumber = new PageElement(receiptNumberId, VALUE);
-	PageElement paymentSuccessMessage = new PageElement(successMessageId, RECEIPT_PAYMENT_SUCCESS_MESSAGE);
-	PageElement idInformationBox = new PageElement(idInformationBoxId);
-	PageElement idInformationBoxFrame = new PageElement(idInformationBoxFrameId);
-	PageElement monerisMessage = new PageElement(monerisMessageXpath, LOADING_MONERIS_MESSAGE);
+	private PageElement idInformationBox = new PageElement(idInformationBoxId);
+	private PageElement idInformationBoxFrame = new PageElement(idInformationBoxFrameId);
 
-	TextBox identificationIssuePlaceTextbox = new TextBox(identificationIssuePlaceTextboxId,
+	private TextBox identificationIssuePlaceTextbox = new TextBox(identificationIssuePlaceTextboxId,
 			PropertiesReader.readProperty("issuePlace"));
-	TextBox identificationNumberTextbox = new TextBox(identificationNumberTextboxId,
+	private TextBox identificationNumberTextbox = new TextBox(identificationNumberTextboxId,
 			PropertiesReader.readProperty("idNumber"));
+	private TextBox paymentSuccessMessage = new TextBox(successMessageId, RECEIPT_PAYMENT_SUCCESS_MESSAGE);
+	private TextBox posSuccessMessage = new TextBox(successMessageId, POS_RECEIPT_SUCCESS_MESSAGE);
+	private TextBox receiptNumber = new TextBox(receiptNumberId, VALUE);
+	private TextBox printerMessage = new TextBox(printerMessageId);
 
 	public void createReceipt() {
-		logger.info("Inside createReceipt method in POS Receipt Page");
+		logger.info(CREATE_RECEIPT);
 
-		Browser browser = new Browser();
-
-		browser.verifyText(posSuccessMessage);
+		posSuccessMessage.verifyText();
 
 		addPayment(PropertiesReader.readProperty("type"));
-		browser.verifyText(paymentSuccessMessage);
+		paymentSuccessMessage.verifyText();
 		checkPrintReceiptCheckbox.selectCheckbox();
-		// browser.setElement(selectPrinter); - Commented since printer is shown
+		// selectPrinter.selectValue(); - Commented since printer is shown
 		// as Not A Real Printer
-		String currentReceiptNumber = browser.getTextByAttribute(receiptNumber).toString();
-		saveAndExitButton.click();
+		TextBox currentReceiptNumber = receiptNumber.getTextByAttribute();
+		saveAndExitButton.clickAndWaitForProcessingBoxToDisappear();
+		browser.waitForVisibilityOfElement(idInformationBox);
+		browser.switchToFrame(idInformationBoxFrame);
+		identificationTypeDropdown.selectValue();
+		
+		identificationIssuePlaceTextbox.enterTextInField();
+		identificationNumberTextbox.enterTextInField();
+		
+		okButton.click();
 
-		// TODO: This is not working yet due to inability to switch to a frame
+		String receiptSuccessMessage = "The receipt " + currentReceiptNumber.getOutValue()
+				+ " has been committed successfully. ";
+
+		TextBox currentReceiptSuccessMessage = new TextBox(successMessageId, receiptSuccessMessage);
+
+		currentReceiptSuccessMessage.verifyText();
+		printerMessage.waitUntilMsgBoxIsDisplayed();
+
 		/*
-		 * browser.switchToFrame(idInformationBoxFrame);
-		 * browser.setElement(identificationTypeDropdown);
-		 * browser.setElement(identificationIssuePlaceTextbox);
-		 * browser.setElement(identificationNumberTextbox);
-		 * browser.setElement(okButton);
-		 * 
-		 * String receiptSuccessMessage = "The receipt "+ currentReceiptNumber +
-		 * " has been committed successfully. "; PageElement
-		 * currentReceiptSuccessMessage = new
-		 * PageElement(successMessageId,receiptSuccessMessage);
+		 * This is commented since option displayed is Not A Real Printer. But
+		 * test case requires ISD-RCT1 as printer. Coding is complete. But this
+		 * code wont be executed
 		 * 
 		 * String printSuccessMessage =
-		 * "Document Receipt was printed to printer "+
-		 * PropertiesReader.readProperty("printer") +"."; PageElement
-		 * currentPrintSuccessMessage = new
-		 * PageElement(printerMessageId,printSuccessMessage);
+		 * "Document Receipt was printed to printer " +
+		 * PropertiesReader.readProperty("printer") + ".";
 		 * 
-		 * browser.verifyText(currentReceiptSuccessMessage);
-		 * browser.verifyText(currentPrintSuccessMessage);
+		 * TextBox currentPrintSuccessMessage = new TextBox(printerMessageId,
+		 * printSuccessMessage);
+		 * 
+		 * printerMessage.waitUntilMsgBoxIsDisplayed();
+		 * 
+		 * currentPrintSuccessMessage.verifyText();
+		 * 
 		 */
 
 	}
 
 	public void addPayment(String paymentType) {
-		if (paymentType == "Cash") {
+		if (paymentType.equals(TYPE_CASH)) {
 			cashPaymentMethodDropdown.selectValue();
 			addPaymentButton.click();
-		} else if (paymentType == "Visa") {
-			Browser browser = new Browser();
+		} else if (paymentType.equals(TYPE_VISA)) {
+
 			visaPaymentMethodDropdown.selectValue();
 			useMonerisCheckBox.selectCheckbox();
 			addPaymentButton.click();
-			browser.waitUntilTextIsPresent(monerisMessage);
+			// monerisMessage.waitUntilTextIsPresent();
 			// TODO: Further code yet to be written since moneris website is
 			// displaying error and we are unable to proceed
+			// Refer Redmine ticket 61755
 		}
 	}
 
