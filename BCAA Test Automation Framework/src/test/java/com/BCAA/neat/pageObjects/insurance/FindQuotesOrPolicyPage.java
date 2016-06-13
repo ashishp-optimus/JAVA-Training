@@ -35,7 +35,8 @@ public class FindQuotesOrPolicyPage {
 	private final static String MEMBER_NUMBER_KEY = "membernumber";
 	private final static String ACTIVE_NEW_STATUS_KEY = "activepolicynewstatus";
 	private final static String ASSOCIATE_NUMBER_KEY = "associatenumber";
-	private final static String CANCELLED_SUCESS_MESSAGE_KEY = "cancelledsuccessmessage";
+	//private final static String CANCELLED_SUCESS_MESSAGE_KEY = "cancelledsuccessmessage";
+	private final static String CANCELLED_SUCESS_MESSAGE_KEY = "Policy is cancelled successfully. The following list shows the cancelled version.";
 	private final static String ACTIVE_ENDORSED_STATUS_KEY = "activepolicyendorsestatus";
 	
 	private final static String ACTIVE_RENEWAL_POLICY ="Active Policy - Renewal";
