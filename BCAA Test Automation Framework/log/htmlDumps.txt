@@ -1,0 +1,2490 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8;IE=Edge">
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	<title>NEAT</title>
+
+	
+
+	
+		<link href="/neat/html/skin/color/01/en_US.css" rel="stylesheet" type="text/css">
+	
+
+	
+<link href="/neat/html/js/thickbox/thickbox.css" rel="stylesheet" type="text/css" media="screen">
+<link href="/neat/html/common/BCAA.css" rel="stylesheet" type="text/css">
+<link href="/neat/html/js/thickbox/thickbox.css" rel="stylesheet" type="text/css" media="screen"> 
+<link href="/neat/html/js/jquery-notice/jquery.notice.css" rel="stylesheet" type="text/css" media="screen"> 
+
+	<link href="/neat/html/js/thickbox/jquery-ui.css" rel="stylesheet">
+	
+	<script src="/neat/html/js/sniffer.js" type="text/javascript"></script>
+	<script src="/neat/html/js/init.js" type="text/javascript"></script>
+	<script src="/neat/html/js/menu.js" type="text/javascript"></script>
+	<script src="/neat/html/js/rollovers.js" type="text/javascript"></script>
+	
+  	<!-- script type="text/javascript" src="/neat/html/js/thickbox/jquery-ui.js"></script-->	
+	<script src="/neat/html/js/util.js" type="text/javascript"></script>
+	<script src="/neat/html/js/validation.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		var psm;
+
+		function submitFormAlert() {
+			alert("\u0054\u0068\u0069\u0073\u0020\u0066\u006f\u0072\u006d\u0020\u0068\u0061\u0073\u0020\u0061\u006c\u0072\u0065\u0061\u0064\u0079\u0020\u0062\u0065\u0065\u006e\u0020\u0073\u0075\u0062\u006d\u0069\u0074\u0074\u0065\u0064\u002e");
+		}
+	</script>
+	<style type="text/css">
+		#progressbar .ui-progressbar-value {
+		    background-color: #bbb;
+		}
+		.ui-dialog-titlebar-close {
+		  visibility: hidden;
+		}
+		#example {height:30em;}
+		label { display:block;float:left;width:45%;clear:left; }
+		.clear { clear:both; }
+		#resp { margin:10px;padding:5px;border:1px solid #ccc;background:#fff;}
+		#resp li { font-family:monospace }
+		.passDirSteps{ margin:10px;padding:5px;border:1px solid #ccc;background:#fff;}
+		.passDirText {color:f00;}	
+	 </style>    
+    
+
+
+
+<script language="javascript" src="/neat/html/js/thickbox/jquery.js" type="text/javascript"></script>
+<script language="javascript" src="/neat/html/js/jquery-notice/jquery.notice.js" type="text/javascript"></script>
+<script language="javascript" src="/neat/html/js/json/json2.js" type="text/javascript"></script>
+<script type="text/javascript">
+//    JQ = $;  //rename $ function: solution of having jQuery and Prototype together, refer to dev.jquery.com/wiki/PrototypeAndJQuery
+    JQ = jQuery.noConflict();
+    jQuery.ajaxSetup ({
+        // Disable caching of AJAX responses
+        cache: false
+    });
+    var psmMessageUrl = '/neat/c/portal/layout?p_l_id=51.1&p_p_id=portlets_WAR_portaladmin&p_p_action=1&p_p_state=normal&p_p_mode=view&_portlets_WAR_portaladmin_struts_action=%2Fportaladmin%2Fpsm_message&#p_portlets_WAR_portaladmin';
+</script>
+<script language="javascript" src="/neat/html/js/thickbox/thickbox_JQ.js" type="text/javascript"></script>
+
+
+<script src="/neat/dwr/engine.js" type="text/javascript"></script>
+<script src="/neat/dwr/util.js" type="text/javascript"></script>
+<script src="/neat/dwr/interface/PSMContextServiceJS.js" type="text/javascript"></script>
+<script src="/neat/html/common/BCAA.js" type="text/javascript"></script>
+<script src="/neat/html/common/ajaxUtils.js" type="text/javascript"></script>
+<script src="/neat/html/common/BCAAFormUtils.js" type="text/javascript"></script>
+<script src="/neat/html/common/BCAA_TRACS.js" type="text/javascript"></script>
+
+
+<script src="/neat/html/js/scriptaculous/prototype.js" type="text/javascript"></script>
+<script src="/neat/html/js/scriptaculous/scriptaculous.js" type="text/javascript"></script><script src="http://tneat-sql:7777/neat/html/js/scriptaculous/builder.js" type="text/javascript"></script><script src="http://tneat-sql:7777/neat/html/js/scriptaculous/effects.js" type="text/javascript"></script><script src="http://tneat-sql:7777/neat/html/js/scriptaculous/dragdrop.js" type="text/javascript"></script><script src="http://tneat-sql:7777/neat/html/js/scriptaculous/controls.js" type="text/javascript"></script><script src="http://tneat-sql:7777/neat/html/js/scriptaculous/slider.js" type="text/javascript"></script><script src="http://tneat-sql:7777/neat/html/js/scriptaculous/sound.js" type="text/javascript"></script>
+
+
+<link href="/neat/html/common/form-field-tooltip.css" rel="stylesheet" type="text/css" media="screen">
+<script src="/neat/html/js/tooltip/rounded-corners.js" type="text/javascript"></script>
+<script src="/neat/html/js/tooltip/form-field-tooltip.js" type="text/javascript"></script>
+
+
+<link href="/neat/html/js/yui/build/button/assets/skins/sam/button.css" rel="stylesheet" type="text/css">
+<link href="/neat/html/js/yui/build/container/assets/skins/sam/container.css" rel="stylesheet" type="text/css">
+<link href="/neat/html/js/yui/build/calendar/assets/skins/sam/calendar.css" rel="stylesheet" type="text/css">
+<link href="/neat/html/js/yui/build/datatable/assets/skins/sam/datatable.css" rel="stylesheet" type="text/css">
+<link href="/neat/html/js/yui/build/autocomplete/assets/skins/sam/autocomplete.css" rel="stylesheet" type="text/css">
+<link href="/neat/html/js/yui/build/paginator/assets/skins/sam/paginator.css" rel="stylesheet" type="text/css">
+
+<script src="/neat/html/js/yui/build/utilities/utilities.js" type="text/javascript"></script>
+
+
+<script src="/neat/html/js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script src="/neat/html/js/yui/build/element/element-min.js" type="text/javascript"></script>
+
+<script src="/neat/html/js/yui/build/button/button.js" type="text/javascript"></script>
+<script src="/neat/html/js/yui/build/container/container.js" type="text/javascript"></script>
+<script src="/neat/html/js/yui/build/calendar/calendar.js" type="text/javascript"></script>
+<script src="/neat/html/js/yui/build/dragdrop/dragdrop-min.js" type="text/javascript"></script>
+<script src="/neat/html/js/yui/build/datasource/datasource-min.js" type="text/javascript"></script>
+<script src="/neat/html/js/yui/build/datatable/datatable-min.js" type="text/javascript"></script>
+<script src="/neat/html/js/yui/build/autocomplete/autocomplete-min.js" type="text/javascript"></script>
+<script src="/neat/html/js/yui/build/paginator/paginator-min.js" type="text/javascript"></script>
+
+
+<script src="/neat/html/common/BCAA_PSM.js" type="text/javascript"></script>
+
+
+<link href="/neat/html/common/BCAA_yui.css" rel="stylesheet" type="text/css">
+
+	
+
+
+<script type="text/javascript">
+var calendarHandlers = new Array();
+
+function setupCalendars(){
+	 for(var i=0; i<calendarHandlers.length; i++){
+		calendarHandlers[i].init();
+		calendarHandlers[i] = null;
+	 }
+	 calendarHandlers = null;
+}
+
+YAHOO.util.Event.onDOMReady(setupCalendars);
+
+</script>
+</head>
+
+
+
+
+	<body class="yui-skin-sam" bgcolor="#ffffff">
+	  	<div id="progressDialog">
+		    <div id="progressbar"></div>
+		</div>
+ 
+ 
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+<!-- set up BCAA Images Path -->
+
+
+	<table width="100%" id="psmBar" style="background: rgb(51, 51, 153); border-style: none none solid; border-bottom-color: rgb(255, 255, 255); border-bottom-width: 2px;" cellspacing="0" cellpadding="0">
+	<tbody><tr style="color: rgb(255, 255, 255); font-size: 12px;">
+		<td style="padding-top: 0.2em; padding-bottom: 0.2em; padding-left: 1em;">
+			Member:<b><span id="psmData">9416789-01</span></b>
+		</td>
+		<td width="180" style="text-align: right; padding-top: 0.2em; padding-right: 1em; padding-bottom: 0.2em;">
+			<a style="color: rgb(255, 255, 255);" onclick="sendPSMMessage('DIAMOND');" href="#">Diamond</a>&nbsp;&nbsp;
+		    <!-- Greeter App -->
+			
+		    	<img alt="" src="/neat/html/common/images/divider15.gif" border="0" vspace="0" hspace="0">&nbsp;
+				<span id="greeterAppBox">
+					<a title="Service Location Waitlist" class="thickbox" id="greeterAppPopupLink" style="color: rgb(255, 255, 255);" href="http://tgreeter.bcaa.bc.ca:8060?agent=987F3E51-273&amp;roles=greeter_app_agent|greeter_app_helpdesk|greeter_app_inspector&amp;TB_iframe=true&amp;height=500&amp;width=900&amp;modal=false">Waitlist</a>
+				</span>
+			
+		</td>
+	</tr>
+	</tbody></table>
+<script type="text/javascript">
+	function myPSMINIT() {
+		var userId = "misharp";
+		psmInit(userId, true);
+		psmLoadContext();
+	}
+	YAHOO.util.Event.onDOMReady(myPSMINIT);
+</script>
+
+<center>
+
+<!-- BCAA Style Sheet -->
+<!-- START: Header Area -->
+<div id="head">
+
+<!-- Liferay header -->
+
+	<table width="760" id="titlebar" style="background: rgb(171, 190, 230);" border="0" cellspacing="0" cellpadding="0">
+		<tbody><tr>
+			<!-- project logo -->
+			<th>
+				<img id="neatLogo" alt="NEAT" src="/neat/html/common/images/NEAT_logo.gif">&nbsp;&nbsp;
+				<img alt="" src="/neat/html/common/images/273.gif" border="0" vspace="0" hspace="0">
+			</th>
+			<td>
+				<div id="userinfo_field" style="background: rgb(171, 190, 230); font-size: 12px;">
+					<!-- Agent: xxx xxx -->
+					User:&nbsp;<b>Piyush Mishra&nbsp;</b>
+				 	
+				    <!-- Override Sign In -->
+				    <img alt="" src="/neat/html/common/images/divider15.gif" border="0" vspace="0" hspace="0">&nbsp;
+					<span id="overrideUserBox">
+						<a class="thickbox" id="overrideLoginPopupLink" href="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=pop_up&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Foverride_user_signin&amp;_portlets_WAR_insurance_goto=portlet.insurance.override_user_signin&amp;_portlets_WAR_insurance_popup=true&amp;#p_portlets_WAR_insurance&amp;TB_iframe=true&amp;height=170&amp;width=420&amp;modal=true">Override User Sign In</a>
+						<span id="overrideLoginLblBox"></span><b>&nbsp;<span id="overrideLoginNameBox"></span></b>&nbsp;<a id="overrideLogoutPopupLink" onclick="overrideUser.overrideUserSignOut();" href="#"></a>
+					</span>
+				    <img alt="" src="/neat/html/common/images/divider15.gif" border="0" vspace="0" hspace="0">&nbsp;
+				 	
+				 	<a id="btnSignOutId" href="/neat/c/portal/logout?referer=/neat/c">Sign Out</a>&nbsp;
+				</div>
+			</td>
+		</tr>
+	</tbody></table>
+
+
+
+<div id="request_processing_layer" style="background: orange; display: none;">
+	<div id="request_processing_layer_content">Processing request. <br><img id="NEAT_Throbber" alt="" src="/neat/html/common/images/NEAT_throbber.gif" border="0">&nbsp;&nbsp;Please wait...</div>
+</div>
+<form name="NEATMetricsInfo" style="display: block;" action="#">
+    
+        <input name="userLoginName" type="hidden" value="misharp">
+        <input name="userClubCode" type="hidden" value="273">
+        <input name="userLocationCode" type="hidden" value="97">
+    
+    
+</form>
+
+
+
+
+
+	
+
+<!-- before the div tag -->
+<div class="tabcontainer">
+<ul class="tabs">
+
+
+<!-- display all the main tabs -->
+
+
+	<!-- display the individual tabs -->
+	
+
+<!-- Selected Item in the navigation tab -->
+
+
+		<li>
+
+      <a id="tabHomeId" href="/neat/c/portal/layout?p_l_id=1">Home</a>
+    </li>
+
+
+
+	<!-- display the individual tabs -->
+	
+
+<!-- Selected Item in the navigation tab -->
+
+
+		<li>
+
+      <a id="tabPOSId" href="/neat/c/portal/layout?p_l_id=51.30">POS</a>
+    </li>
+
+
+
+	<!-- display the individual tabs -->
+	
+
+<!-- Selected Item in the navigation tab -->
+
+		<li class="current">
+
+
+      <a id="tabInsuranceId" href="/neat/c/portal/layout?p_l_id=51.5">Insurance</a>
+    </li>
+
+
+
+	<!-- display the individual tabs -->
+	
+
+<!-- Selected Item in the navigation tab -->
+
+
+		<li>
+
+      <a id="tabFinancialId" href="/neat/c/portal/layout?p_l_id=51.6">Financial</a>
+    </li>
+
+
+
+	<!-- display the individual tabs -->
+	
+
+<!-- Selected Item in the navigation tab -->
+
+
+		<li>
+
+      <a id="tabProductsId" href="/neat/c/portal/layout?p_l_id=51.4">Products</a>
+    </li>
+
+
+
+	<!-- display the individual tabs -->
+	
+
+<!-- Selected Item in the navigation tab -->
+
+
+		<li>
+
+      <a id="tabMembershipId" href="/neat/c/portal/layout?p_l_id=51.8">Membership</a>
+    </li>
+
+
+
+	<!-- display the individual tabs -->
+	
+
+<!-- Selected Item in the navigation tab -->
+
+
+		<li>
+
+      <a id="tabSystemId" href="/neat/c/portal/layout?p_l_id=51.7">System</a>
+    </li>
+
+
+
+	<!-- display the individual tabs -->
+	
+
+<!-- Selected Item in the navigation tab -->
+
+
+		<li>
+
+      <a id="tabInventoryId" href="/neat/c/portal/layout?p_l_id=51.2">Inventory</a>
+    </li>
+
+
+
+	<!-- display the individual tabs -->
+	
+
+<!-- Selected Item in the navigation tab -->
+
+
+		<li>
+
+      <a id="tabPortalId" href="/neat/c/portal/layout?p_l_id=51.1">Portal Admin</a>
+    </li>
+
+
+
+	<!-- display the individual tabs -->
+	
+
+<!-- Selected Item in the navigation tab -->
+
+
+		<li>
+
+      <a id="tabClaimsId" href="/neat/c/portal/layout?p_l_id=51.50">Claims</a>
+    </li>
+
+
+
+	<!-- display the individual tabs -->
+	
+
+<!-- Selected Item in the navigation tab -->
+
+
+		<li>
+
+      <a id="tabMaintenanceId" href="/neat/c/portal/layout?p_l_id=51.20">Maintenance</a>
+    </li>
+
+
+
+	<!-- display the individual tabs -->
+	
+
+<!-- Selected Item in the navigation tab -->
+
+
+		<li>
+
+      <a id="tabEPPId" href="/neat/c/portal/layout?p_l_id=51.60">EPP</a>
+    </li>
+
+
+</ul>
+</div>
+
+
+
+
+
+
+
+</div>
+<!-- END: Header Area -->
+
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	function addPortlet(layoutId, portletId, columnId) {
+		self.location = "/neat/c/portal/add_portlet?referer=" + encodeURIComponent("/neat/c/portal/layout?p_l_id=" + layoutId + "&#p_" + portletId) + "&p_l_id=" + layoutId + "&p_p_id=" + portletId + "&p_l_cur_co=" + columnId;
+	}
+
+	function buildColumnHTML(portletIds, columnId) {
+		var html = "";
+
+		for (var i = 0; i < portletIds.length; i++) {
+			html += buildPortletHTML(portletIds[i]);
+		}
+
+		var columnEl = document.getElementById("p_l_c_" + columnId);
+		columnEl.innerHTML = html;
+	}
+
+	function buildPortletHTML(portletId) {
+		var html = "";
+		html += "<a name='p_" + portletId + "'><\/a>";
+		html += "<div id='p_p_id_" + portletId + "'>";
+		html += document.getElementById("p_p_id_" + portletId).innerHTML;
+		html += "<\/div>";
+
+		return html;
+	}
+
+	function closePortlet(layoutId, portletId, columnId) {
+		if (confirm('\u0041\u0072\u0065\u0020\u0079\u006f\u0075\u0020\u0073\u0075\u0072\u0065\u0020\u0079\u006f\u0075\u0020\u0077\u0061\u006e\u0074\u0020\u0074\u006f\u0020\u0072\u0065\u006d\u006f\u0076\u0065\u0020\u0074\u0068\u0069\u0073\u0020\u0063\u006f\u006d\u0070\u006f\u006e\u0065\u006e\u0074\u003f')) {
+			if (is_ns_4) {
+				self.location = "/neat/c/portal/remove_portlet?referer=" + encodeURIComponent("/neat/c/portal/layout?p_l_id=" + layoutId) + "&p_l_id=" + layoutId + "&p_p_id=" + portletId;
+			}
+			else {
+				document.getElementById("p_p_id_" + portletId).style.display = "none";
+
+				if (columnId == "n1") {
+					n1Portlets = closePortletId(n1Portlets, portletId);
+				}
+				else if (columnId == "n2") {
+					n2Portlets = closePortletId(n2Portlets, portletId);
+				}
+				else if (columnId == "w") {
+					wPortlets = closePortletId(wPortlets, portletId);
+				}
+
+				
+					loadPage("/neat/c/portal/remove_portlet?p_l_id=" + layoutId + "&p_p_id=" + portletId);
+				
+
+				
+
+				eval("addItem(document.layout_" + columnId + "_fm.add_" + columnId + "_sel, portletTitles_" + columnId + "[portletId], portletId, true);");
+			}
+		}
+		else {
+			self.focus();
+		}
+	}
+
+	function closePortletId(portletIds, portletId) {
+		var tempPortletIds = new Array();
+
+		var count = 0;
+
+		for (var i = 0; i < portletIds.length; i++) {
+			if (portletIds[i] != portletId) {
+				tempPortletIds[count++] = portletIds[i];
+			}
+		}
+
+		return tempPortletIds;
+	}
+
+	function minimizePortlet(layoutId, portletId, restore) {
+		if (is_ns_4) {
+			self.location = "/neat/c/portal/minimize_portlet?referer=" + encodeURIComponent("/neat/c/portal/layout?p_l_id=" + layoutId + "&#p_" + portletId) + "&p_l_id=" + layoutId + "&p_p_id=" + portletId + "&p_p_restore=" + restore;
+		}
+		else {
+			
+				if (restore) {
+					document.getElementById("p_p_body_" + portletId).style.display = "";
+
+					var buttonsEl = document.getElementById("p_p_body_" + portletId + "_min_buttons");
+
+					var html = buttonsEl.innerHTML;
+					html = html.replace(", true", ", false");
+					html = html.replace("_restore", "_min");
+					html = html.replace("_restore", "_min");
+					html = html.replace("_restore", "_min");
+					html = html.replace("Restore", "Minimize");
+
+					buttonsEl.innerHTML = html;
+
+					loadPage("/neat/c/portal/minimize_portlet?p_l_id=" + layoutId + "&p_p_id=" + portletId + "&p_p_restore=" + restore);
+				}
+				else {
+					document.getElementById("p_p_body_" + portletId).style.display = "none";
+
+					/*var speed = 5;
+					var height = 50;
+
+					for (var i = height, n = 0; i >= 0; i--, n++) {
+						if (i > 0) {
+							window.setTimeout("document.getElementById(\"p_p_body_" + portletId + "\").style.height = " + i, n * speed);
+						}
+						else {
+							window.setTimeout("document.getElementById(\"p_p_body_" + portletId + "\").display = 'none';", n * speed);
+						}
+					}*/
+
+					var buttonsEl = document.getElementById("p_p_body_" + portletId + "_min_buttons");
+
+					var html = buttonsEl.innerHTML;
+					html = html.replace(", false", ", true");
+					html = html.replace("_min", "_restore");
+					html = html.replace("_min", "_restore");
+					html = html.replace("_min", "_restore");
+					html = html.replace("Minimize", "Restore");
+
+					buttonsEl.innerHTML = html;
+
+					loadPage("/neat/c/portal/minimize_portlet?p_l_id=" + layoutId + "&p_p_id=" + portletId + "&p_p_restore=" + restore);
+				}
+			
+
+			
+		}
+	}
+
+	function movePortletDown(layoutId, portletId, columnId) {
+		if (is_ns_4) {
+			self.location = "/neat/c/portal/move_portlet_down?referer=" + encodeURIComponent("/neat/c/portal/layout?p_l_id=" + layoutId + "&#p_" + portletId) + "&p_l_id=" + layoutId + "&p_p_id=" + portletId;
+		}
+		else {
+			if (columnId == "n1") {
+				movePortletIdDown(n1Portlets, portletId, columnId);
+			}
+			else if (columnId == "n2") {
+				movePortletIdDown(n2Portlets, portletId, columnId);
+			}
+			else if (columnId == "w") {
+				movePortletIdDown(wPortlets, portletId, columnId);
+			}
+
+			loadPage("/neat/c/portal/move_portlet_down?p_l_id=" + layoutId + "&p_p_id=" + portletId);
+		}
+	}
+
+	function movePortletUp(layoutId, portletId, columnId) {
+		if (is_ns_4) {
+			self.location = "/neat/c/portal/move_portlet_up?referer=" + encodeURIComponent("/neat/c/portal/layout?p_l_id=" + layoutId + "&#p_" + portletId) + "&p_l_id=" + layoutId + "&p_p_id=" + portletId;
+		}
+		else {
+			if (columnId == "n1") {
+				movePortletIdUp(n1Portlets, portletId, columnId);
+			}
+			else if (columnId == "n2") {
+				movePortletIdUp(n2Portlets, portletId, columnId);
+			}
+			else if (columnId == "w") {
+				movePortletIdUp(wPortlets, portletId, columnId);
+			}
+
+			loadPage("/neat/c/portal/move_portlet_up?p_l_id=" + layoutId + "&p_p_id=" + portletId);
+		}
+	}
+
+	function movePortletIdDown(portletIds, portletId, columnId) {
+		for (var i = 0; i < portletIds.length && portletIds.length > 1; i++) {
+			if (portletIds[i] == portletId) {
+				if (i != portletIds.length - 1) {
+					portletIds[i] = portletIds[i + 1];
+					portletIds[i + 1] = portletId;
+				}
+				else {
+					portletIds[i] = portletIds[0];
+					portletIds[0] = portletId;
+				}
+
+				break;
+			}
+		}
+
+		buildColumnHTML(portletIds, columnId);
+	}
+
+	function movePortletIdUp(portletIds, portletId, columnId) {
+		for (var i = 0; i < portletIds.length && portletIds.length > 1; i++) {
+			if (portletIds[i] == portletId) {
+				if (i != 0) {
+					portletIds[i] = portletIds[i - 1];
+					portletIds[i - 1] = portletId;
+				}
+				else {
+					portletIds[0] = portletIds[portletIds.length - 1];
+					portletIds[portletIds.length - 1] = portletId;
+				}
+
+				break;
+			}
+		}
+
+		buildColumnHTML(portletIds, columnId);
+	}
+
+	var n1Portlets = new Array();
+	var n2Portlets = new Array();
+	var wPortlets = new Array();
+</script>
+
+
+
+
+
+
+
+
+			
+
+					
+
+
+
+<script type="text/javascript">
+	wPortlets[0] = "portlets_WAR_insurance";
+</script>
+
+
+
+
+
+	
+
+				
+					
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="p_portlets_WAR_insurance"></a>
+
+				
+					
+						
+
+						
+
+							
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/neat/html/js/insurance/WindowOpener.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // this function calls the UI package to do a crystal preview
+	// rptName refers the rpt name, i.e POS_log_sheet.rpt
+	// docParams refers to the rpt parameters i.e. householdNumber, clubcode. They must be in order
+	// exportType refers to the type of preview, i.e. PDF. We only support preview and PDF as of now.
+	// form - this is for the modal callback if used. ignore if not necessary.
+	function printCrystalPreview(rptName, docParams, exportType, form){
+		
+    
+        var previewUrl = "http://TNEAT-SQL:7777/bcaa-report/crystalPreview.jsp" + "?&rpt=" +  rptName; 
+        
+        if (exportType != null && exportType == "PDF"){
+        	previewUrl = previewUrl + "&exportType=" + exportType;
+        }else{
+        	previewUrl = previewUrl + "&exportType=none";
+        }
+        //BUG 17106 - Reversing the parameter is causing the print preview to fail.
+        //why are we reversing the parameters?
+        //docParams.reverse();
+        for ( var i=0; i < docParams.length ; i++){
+        	var paramX = "&param" + i + "=";
+        	previewUrl = previewUrl + paramX + docParams[i];
+        }
+	    var winOpener1 = new WindowOpener();
+		winOpener1.setWindowProperties("toolbar=no,location=no,directories=no,menubar=no,scrollbars=yes,resizable=yes,status=yes,titlebar=yes,hotkeys=no,modal=yes");
+		winOpener1.setUrl(previewUrl);
+		winOpener1.setModalFlag(false);
+		winOpener1.setWindowName("Crystal_Report");
+		if (form != null && form != ""){
+			winOpener1.modalCallback("formSubmit(" + form + ")");
+		}
+		winOpener1.open();
+	    	
+       	return true;
+        
+	}
+	
+	</script>
+
+
+
+
+
+<script src="/neat/dwr/interface/CheckPrintMessageJS.js" type="text/javascript"></script>
+
+
+<script src="/neat/dwr/interface/OverrideCredentialJS.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var pageDataChanged;
+    pageDataChanged = false;
+
+    var alert_msg_set = false;
+    var alert_msg = '';
+
+    function setPageDataDirty() {
+        pageDataChanged = true;
+    }
+    function resetPageDataDirty() {
+        pageDataChanged = false;
+    }
+    function isPageDataDirty() {
+        return pageDataChanged;
+    }    
+    
+    function alert (error_msg, styleClass) {
+        alert_msg_set = true;
+        alert_msg = error_msg;
+        var d = document.getElementById('errorMsgBox');
+        if(styleClass != null)
+	        d.className = styleClass;
+	    else
+	    	d.className = 'errbox';
+		requestProgressBarStop();	    	
+		d.style.visibility="visible";
+		d.style.display="block";
+        d.innerHTML = '<span><ul><li>' + alert_msg + '</li></ul></span>';
+        alert_msg_set = false;
+        alert_msg = "";
+        window.scroll(0,0);       
+    } 
+    function alertMultiple(error_msg, styleClass) {
+        if (!error_msg) return;
+        if (error_msg == null) return;
+        if (error_msg.length == 0) return;
+        alert_msg_set = true;
+        var d = document.getElementById('errorMsgBox');
+        var w = "";
+        if(styleClass != null)
+            d.className = styleClass;
+        else
+            d.className = 'errbox';
+        requestProgressBarStop();           
+        d.style.visibility="visible";
+        d.style.display="block";
+        w = '<span><ul>';       
+        for (var i = 0 ; i < error_msg.length; i ++) {
+            w = w + '<li>' + error_msg[i] + '</li>';
+        }
+        w = w + '</ul></span>'
+        d.innerHTML = w;
+        alert_msg_set = false;
+        window.scroll(0,0);       
+    } 
+    function alertMultipleWithSummary(error_msg, styleClass, summary) {
+        if (!error_msg) return;
+        if (error_msg == null) return;
+        if (error_msg.length == 0) return;
+        alert_msg_set = true;
+        var d = document.getElementById('errorMsgBox');
+        var w = "";
+        if(styleClass != null)
+            d.className = styleClass;
+        else
+            d.className = 'errbox';
+        requestProgressBarStop();           
+        d.style.visibility="visible";
+        d.style.display="block";
+        w = '<span>' + summary + '<ul>';       
+        for (var i = 0 ; i < error_msg.length; i ++) {
+            w = w + '<li>' + error_msg[i] + '</li>';
+        }
+        w = w + '</ul></span>'
+        d.innerHTML = w;
+        alert_msg_set = false;
+        window.scroll(0,0);       
+    } 
+    function resetAlert () {
+        d = document.getElementById("errorMsgBox");
+		d.innerHTML='';
+		d.style.visibility="hidden";
+		d.style.display="none";
+    }
+    function isAlert () {
+        return alert_msg_set;
+    }
+    function getAlert () {
+        return alert_msg;
+    }
+
+    function alert_disable (msg) {
+        alert (msg);
+        return false;
+    }
+
+
+    
+    function displayMsg (info_msg) {
+		alert(info_msg, 'displayMsgBox');
+    }
+    function showMessages(messages){
+    	if(messages != null){
+	        var d = document.getElementById('errorMsgBox');
+	        var msg = '';
+			for(var i=0; i<messages.length; i++){
+	         	msg += ('<li>' + messages[i] + '</li>');
+	        }
+			if(msg != ''){	       
+			 	requestProgressBarStop();
+		    	d.className = 'displayMsgBox';
+				d.style.visibility="visible";
+				d.style.display="block";	        
+		        d.innerHTML = '<span><ul>' + msg + '</ul></span>';  
+		        alert_msg_set = false;
+		        alert_msg = "";
+		        window.scroll(0,0);	          
+	        }  		
+    	}
+    }
+    function resetDisplay () {
+		resetAlert ();
+    }
+    
+    function isDisplay () {
+        return isAlert();
+    }
+    function getDisplay () {
+        return getAlert();
+    }
+    
+    function warn(warn_msg){
+    	alert(warn_msg, 'warnbox');
+    }
+    
+    function error(error_msg) {
+    	alert(error_msg, 'errbox');
+    }
+    
+    function info(info_msg) {
+    	alert(info_msg, 'infobox');
+    }
+
+    function warnMultiple(warn_msg){
+    	alertMultiple(warn_msg, 'warnbox');        
+    }
+    
+    function resetWarning () {
+		resetAlert ();
+    }    
+
+
+
+    //Returns true if the page data is saved
+    //Returns false if the page data is dirty
+    function warnUnsavedPageData() {
+        if (pageDataChanged) {
+            alert("You have unsaved changes. Please save before continue.");
+            return false;
+        } else {
+            return true;
+        }
+    }
+    //Returns true if the page data is saved or user wants to continue without saving
+    //Returns false if the page data is dirty and user doesn't want to continue
+    function checkUnsavedPageData() {
+        if (pageDataChanged) {
+            var answer = confirm("You have unsaved changes. Do you want to continue without saving?", "Yes", "No");
+            return answer;
+        } else {
+            return true;
+        }
+    }
+    
+	var timer;
+	
+	function setupTimerForPrintMessage() {
+		timer = setInterval(checkForPrintMessage, 3000);
+	}
+	
+	function infoAJAX(info_msg) {
+        if(info_msg != null){
+            var d = document.getElementById('errorMsgBox');
+            if (d != null) {
+                d.style.visibility="visible";
+                d.style.display="block";            
+                var msg = '<div id="msgbox"><br>' + info_msg + '<br></div>';
+                d.innerHTML = d.innerHTML + msg;  
+                window.scroll(0,0);           
+            }
+        }
+	}
+	
+	function clearInfoAJAX() {
+		resetAlert();
+		var d = document.getElementById("msgbox");
+		if (d != null && d.parentNode != null) {
+	        d.parentNode.removeChild(d);
+		}
+	}
+	
+    function clearWarnAJAX() {
+        resetAlert();
+        var d = document.getElementById("warnbox");
+        if (d != null && d.parentNode != null) {
+            d.parentNode.removeChild(d);
+        }
+    }
+    
+	/**
+	 * AJAX call to see if we have a message that should be displayed to the user.
+	 */
+	function checkForPrintMessage() {
+		 CheckPrintMessageJS.checkForPrintMessage
+	     (
+	     	{
+		 		callback:function(dataFromServer) 
+		   		{	
+		 			if ( dataFromServer.shouldClientContinueToCheck == false ) {
+		 				clearInterval(timer);
+		 			}
+		 			
+		 			// Display any messages that have been returned by the server call.
+		 			if ( dataFromServer.errorPrintMessages != null ) {
+		 				error(dataFromServer.errorPrintMessages);
+		 			}
+		 			
+		 			if ( dataFromServer.warnPrintMessages != null ) {
+		 				warn(dataFromServer.warnPrintMessages);
+		 			}
+		 			
+		 			if ( dataFromServer.infoPrintMessages != null ) {
+		 				info(dataFromServer.infoPrintMessages);
+		 			}
+		 		},      
+		  		errorHandler:function(errorString, exception) 
+		  		{
+		  			alert(exception.errorMessages);
+		  		}
+			}
+	    );
+	}
+	
+	YAHOO.util.Event.onDOMReady(setupTimerForPrintMessage);
+</script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+     
+
+     var divContent = new SignInDivContent();
+     divContent.setOverrideUrl('http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&p_p_id=portlets_WAR_insurance&p_p_action=1&p_p_state=pop_up&p_p_mode=view&_portlets_WAR_insurance_struts_action=%2Finsurance%2Foverride_user_signin&_portlets_WAR_insurance_goto=portlet.insurance.override_user_signin&_portlets_WAR_insurance_popup=true&#p_portlets_WAR_insurance');
+     divContent.setSignInContent1('Override User Sign In');
+     divContent.setSignInContent2('&TB_iframe=true&height=170&width=420&modal=true');
+
+     divContent.setSignOutContent1('Override User:');
+     divContent.setSignOutContent2('Sign Out');
+
+     var overrideUser = new OverrideUser(divContent);
+     overrideUser.checkOverrideState();
+
+</script>
+
+
+
+	<div id="secondMenuBar">
+		<div id="secondlevel">
+<ul class="subnav">
+<li class="current"><a href="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Ffind_policy&amp;#p_portlets_WAR_insurance">Quotes and Policies</a></li>
+<li><a href="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Ffind_interested_party&amp;#p_portlets_WAR_insurance">Find Interested Party</a></li>
+<li><a href="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Fedit_confirm_icbc_sale&amp;#p_portlets_WAR_insurance">Confirm ICBC Sale</a></li>
+<li><a href="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Ffind_icbc_txn&amp;#p_portlets_WAR_insurance">Find ICBC Transaction</a></li>
+<li><a href="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Ffind_icbc_batch&amp;#p_portlets_WAR_insurance">Find ICBC Batch</a></li>
+<li><a href="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Ffind_ams_txn&amp;#p_portlets_WAR_insurance">Find AMS Transaction</a></li>
+<li><a href="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Ffind_abeyance&amp;#p_portlets_WAR_insurance">Find Abeyance</a></li>
+<li><a href="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Fshow_batch_policy_notes&amp;#p_portlets_WAR_insurance">Load Bulk Policy Notes</a></li>
+</ul>
+</div>
+
+	</div>
+
+
+
+	<div id="body">
+        
+        <div class="errbox" id="errorMsgBox" style="display: block; visibility: visible;"><span><ul><li>Please select a policy to edit.</li></ul></span></div>
+        
+		
+		<!-- ===================================================== -->
+<!-- include all the initialization file -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/neat/html/js/insurance/WindowOpener.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // this function calls the UI package to do a crystal preview
+	// rptName refers the rpt name, i.e POS_log_sheet.rpt
+	// docParams refers to the rpt parameters i.e. householdNumber, clubcode. They must be in order
+	// exportType refers to the type of preview, i.e. PDF. We only support preview and PDF as of now.
+	// form - this is for the modal callback if used. ignore if not necessary.
+	function printCrystalPreview(rptName, docParams, exportType, form){
+		
+    
+        var previewUrl = "http://TNEAT-SQL:7777/bcaa-report/crystalPreview.jsp" + "?&rpt=" +  rptName; 
+        
+        if (exportType != null && exportType == "PDF"){
+        	previewUrl = previewUrl + "&exportType=" + exportType;
+        }else{
+        	previewUrl = previewUrl + "&exportType=none";
+        }
+        //BUG 17106 - Reversing the parameter is causing the print preview to fail.
+        //why are we reversing the parameters?
+        //docParams.reverse();
+        for ( var i=0; i < docParams.length ; i++){
+        	var paramX = "&param" + i + "=";
+        	previewUrl = previewUrl + paramX + docParams[i];
+        }
+	    var winOpener1 = new WindowOpener();
+		winOpener1.setWindowProperties("toolbar=no,location=no,directories=no,menubar=no,scrollbars=yes,resizable=yes,status=yes,titlebar=yes,hotkeys=no,modal=yes");
+		winOpener1.setUrl(previewUrl);
+		winOpener1.setModalFlag(false);
+		winOpener1.setWindowName("Crystal_Report");
+		if (form != null && form != ""){
+			winOpener1.modalCallback("formSubmit(" + form + ")");
+		}
+		winOpener1.open();
+	    	
+       	return true;
+        
+	}
+	
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/neat/html/js/insurance/WindowOpener.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // this function calls the UI package to do a crystal preview
+	// rptName refers the rpt name, i.e POS_log_sheet.rpt
+	// docParams refers to the rpt parameters i.e. householdNumber, clubcode. They must be in order
+	// exportType refers to the type of preview, i.e. PDF. We only support preview and PDF as of now.
+	// form - this is for the modal callback if used. ignore if not necessary.
+	function printCrystalPreview(rptName, docParams, exportType, form){
+		
+    
+        var previewUrl = "http://TNEAT-SQL:7777/bcaa-report/crystalPreview.jsp" + "?&rpt=" +  rptName; 
+        
+        if (exportType != null && exportType == "PDF"){
+        	previewUrl = previewUrl + "&exportType=" + exportType;
+        }else{
+        	previewUrl = previewUrl + "&exportType=none";
+        }
+        //BUG 17106 - Reversing the parameter is causing the print preview to fail.
+        //why are we reversing the parameters?
+        //docParams.reverse();
+        for ( var i=0; i < docParams.length ; i++){
+        	var paramX = "&param" + i + "=";
+        	previewUrl = previewUrl + paramX + docParams[i];
+        }
+	    var winOpener1 = new WindowOpener();
+		winOpener1.setWindowProperties("toolbar=no,location=no,directories=no,menubar=no,scrollbars=yes,resizable=yes,status=yes,titlebar=yes,hotkeys=no,modal=yes");
+		winOpener1.setUrl(previewUrl);
+		winOpener1.setModalFlag(false);
+		winOpener1.setWindowName("Crystal_Report");
+		if (form != null && form != ""){
+			winOpener1.modalCallback("formSubmit(" + form + ")");
+		}
+		winOpener1.open();
+	    	
+       	return true;
+        
+	}
+	
+	</script>
+
+
+
+
+
+
+
+
+
+
+<!-- import the inventory web keys -->
+
+
+
+
+<!-- ===================================================== -->
+<!-- setup the URL -->
+
+
+
+
+
+
+
+
+<!-- check if we can use the buttons -->
+
+
+
+
+
+
+
+
+
+
+	
+	
+<script src="/neat/dwr/interface/AuditButtonJS.js" type="text/javascript"></script>
+	
+
+<script type="text/javascript">
+	
+	function auditButtonAction(actionCode, objectKeyValue, changeHistoryText ) {
+	
+		var action = "VIEWPOLICY";
+		var policyId = objectKeyValue;
+		var text = "Policy Version " + changeHistoryText + " viewed";
+		AuditButtonJS.auditUIButtons(
+				action, policyId, text, 
+				{
+					callback:function(dataFromServer)
+					{	
+									
+					}, errorHandler:function(errorString, exception) {
+	
+					}
+				}
+			);	
+	}
+
+    function validateFields() {
+        return true;
+    }
+
+    function findQuotePolicy() {
+        if (validateFields()) {
+            // reset the show history to false
+            insuranceSearchPolicyForm.showHistory.value = 'false';
+            formSubmit(insuranceSearchPolicyForm);
+        }
+    }
+       
+    function createQuote() {
+        // only allow to proceed if household number is entered
+        if (insuranceSearchPolicyForm.householdNumber.value != "") {
+            // set up the inputs for the form
+            insuranceSelectInsurancePlanForm.householdNumber.value=
+                insuranceSearchPolicyForm.householdNumber.value;
+            insuranceSelectInsurancePlanForm.associateNumber.value=
+                insuranceSearchPolicyForm.associateNumber.value;
+
+            insuranceSelectInsurancePlanForm.action = 'http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&p_p_id=portlets_WAR_insurance&p_p_action=1&p_p_state=normal&p_p_mode=view&_portlets_WAR_insurance_struts_action=%2Finsurance%2Fadd_select_insurance_plan&#p_portlets_WAR_insurance'
+			insuranceSelectInsurancePlanForm.NEAT_Request_ProductCategoryClass.value='';
+			var householdNumber=insuranceSearchPolicyForm.householdNumber.value;
+			var associateNumber=insuranceSearchPolicyForm.associateNumber.value;
+            formSubmit(insuranceSelectInsurancePlanForm);
+            return true;
+        } else {
+            alert ("Please enter a Member Number before creating a quote.");
+            return false;
+        }
+    }
+
+    function showVersions() {
+
+        // only allow to proceed if a record is selected
+        if (insuranceSearchPolicyForm.policyId.value != "" &&
+            insuranceSearchPolicyForm.policyVersionId.value != "") {
+
+            // set the policy Number
+            insuranceSearchPolicyForm.policyNumber.value =
+                insuranceSearchPolicyForm.selectedPolicyNumber.value;
+            insuranceSearchPolicyForm.showHistory.value = 'true';
+
+            // submit the search
+            formSubmit(insuranceSearchPolicyForm);
+            return true;
+
+        } else {
+            alert ("Please select a policy to show all versions.");
+            return false;
+        }
+    }
+
+
+    function viewPolicyDetail() {
+
+        // only allow to search the form if a record is selected
+        if (insuranceSearchPolicyForm.policyId.value != "" &&
+            insuranceSearchPolicyForm.policyVersionId.value != "") {
+
+            // set up the inputs for the form
+            insurancePolicyDetailForm.policyId.value=
+                insuranceSearchPolicyForm.policyId.value;
+            insurancePolicyDetailForm.policyVersionId.value=
+                insuranceSearchPolicyForm.policyVersionId.value;
+
+            // audit
+            auditButtonAction("", insurancePolicyDetailForm.policyId.value, insurancePolicyDetailForm.policyVersionId.value );
+            insurancePolicyDetailForm.formWorkMode.value="view";
+            insurancePolicyDetailForm.action = 'http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&p_p_id=portlets_WAR_insurance&p_p_action=1&p_p_state=normal&p_p_mode=view&_portlets_WAR_insurance_struts_action=%2Finsurance%2Fview_policy_detail&#p_portlets_WAR_insurance';
+            formSubmit(insurancePolicyDetailForm);
+            return true;
+        } else {
+            alert ("Please select a policy to view.");
+            return false;
+        }
+    }
+
+    function editPolicyDetail() {
+        // only allow to edit the form if a record is selected
+        if (insuranceSearchPolicyForm.policyId.value != "" &&
+            insuranceSearchPolicyForm.policyVersionId.value != "") {
+        // only allow to edit the form if policy version is not historical quote
+			if (insuranceSearchPolicyForm.policyVersionStateLookupCode.value ==
+				'HIST' &&
+					(insuranceSearchPolicyForm.policyStageLookupCode.value ==
+					'DR' ||
+					insuranceSearchPolicyForm.policyStageLookupCode.value ==
+					'CMTD')) {
+		        alert ("A historical quote version cannot be edited.");
+				return false;
+	        }
+            // set up the inputs for the form
+            insurancePolicyDetailForm.policyId.value=
+                insuranceSearchPolicyForm.policyId.value;
+            insurancePolicyDetailForm.policyVersionId.value=
+                insuranceSearchPolicyForm.policyVersionId.value;
+            insurancePolicyDetailForm.formWorkMode.value="edit";
+
+            //audit
+            auditButtonAction("", insurancePolicyDetailForm.policyId.value, insurancePolicyDetailForm.policyVersionId.value );
+
+            insurancePolicyDetailForm.action = 'http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&p_p_id=portlets_WAR_insurance&p_p_action=1&p_p_state=normal&p_p_mode=view&_portlets_WAR_insurance_struts_action=%2Finsurance%2Fedit_policy_detail&#p_portlets_WAR_insurance';
+            formSubmit(insurancePolicyDetailForm);
+            return true;
+        } else {
+            alert ("Please select a policy to edit.");
+            return false;
+        }
+    }
+
+    function copyQuote() {
+
+        // only allow to search the form if a record is selected
+        if (insuranceSearchPolicyForm.policyId.value != "" &&
+            insuranceSearchPolicyForm.policyVersionId.value != "") {
+
+            // set up the inputs for the form
+            insurancePolicyDetailForm.policyId.value=
+                insuranceSearchPolicyForm.policyId.value;
+            insurancePolicyDetailForm.policyVersionId.value=
+                insuranceSearchPolicyForm.policyVersionId.value;
+
+            //audit
+            auditButtonAction("", insurancePolicyDetailForm.policyId.value, insurancePolicyDetailForm.policyVersionId.value );
+
+            insurancePolicyDetailForm.action = 'http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&p_p_id=portlets_WAR_insurance&p_p_action=1&p_p_state=normal&p_p_mode=view&_portlets_WAR_insurance_struts_action=%2Finsurance%2Fcopy_policy_detail&#p_portlets_WAR_insurance';
+            formSubmit(insurancePolicyDetailForm);
+            return true;
+        } else {
+            alert ("Please select a policy to be copied.");
+            return false;
+        }
+    }
+
+    function endorsePolicy() {
+        // only allow endorse if a record is selected
+        if (insuranceSearchPolicyForm.policyId.value != "" &&
+            insuranceSearchPolicyForm.policyVersionId.value != "") {
+
+            insuranceSelectInsurancePlanForm.policyId.value =
+                insuranceSearchPolicyForm.policyId.value;
+
+            insuranceSelectInsurancePlanForm.oldPolicyVersionId.value =
+                insuranceSearchPolicyForm.policyVersionId.value;
+
+            insuranceSelectInsurancePlanForm.oldPolicyStageLookupCode.value =
+            	insuranceSearchPolicyForm.policyStageLookupCode.value;
+
+            insuranceSelectInsurancePlanForm.oldPolicyVersionStateLookupCode.value =
+               	insuranceSearchPolicyForm.policyVersionStateLookupCode.value;
+
+            insuranceSelectInsurancePlanForm.oldPolicyTypeLookupCode.value =
+                        insuranceSearchPolicyForm.policyTypeLookupCode.value;
+
+            insuranceSelectInsurancePlanForm.policyStageLookupCode.value =
+                'DR';
+
+            insuranceSelectInsurancePlanForm.policyVersionStateLookupCode.value =
+                'CUR';
+
+            insuranceSelectInsurancePlanForm.policyTypeLookupCode.value =
+				'ENDS';
+
+	        //audit
+	        auditButtonAction("", insuranceSelectInsurancePlanForm.policyId.value, insuranceSearchPolicyForm.policyVersionId.value );
+
+			insuranceSelectInsurancePlanForm.action = 'http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&p_p_id=portlets_WAR_insurance&p_p_action=1&p_p_state=normal&p_p_mode=view&_portlets_WAR_insurance_struts_action=%2Finsurance%2Fadd_select_insurance_plan&#p_portlets_WAR_insurance'
+            formSubmit(insuranceSelectInsurancePlanForm);
+            return true;
+        } else {
+            alert ("Please select a policy to be endorsed.");
+            return false;
+        }
+    }
+
+    function renewPolicy() {
+        if (insuranceSearchPolicyForm.policyId.value != "" &&
+            insuranceSearchPolicyForm.policyVersionId.value != "" &&
+            insuranceSearchPolicyForm.policyVersionId.value != "0" ) {
+            insuranceRenewPolicyForm.policyId.value = insuranceSearchPolicyForm.policyId.value;
+			insuranceRenewPolicyForm.policyVersionId.value = insuranceSearchPolicyForm.policyVersionId.value;
+
+	        //audit
+	        auditButtonAction("", insuranceRenewPolicyForm.policyId.value, insuranceRenewPolicyForm.policyVersionId.value );
+			
+			formSubmit(insuranceRenewPolicyForm);
+			return true;
+        } else {
+            alert("Please select a policy.");
+            return false;
+        }
+    }
+
+    function reinstatePolicy(){
+        if (insuranceSearchPolicyForm.policyId.value != "" &&
+            insuranceSearchPolicyForm.policyVersionId.value != "" &&
+            insuranceSearchPolicyForm.policyVersionId.value != "0" ) {
+            reinstatePolicyForm.policyId.value = insuranceSearchPolicyForm.policyId.value;
+			reinstatePolicyForm.policyVersionId.value = insuranceSearchPolicyForm.policyVersionId.value;
+
+	        //audit
+	        auditButtonAction("", reinstatePolicyForm.policyId.value, reinstatePolicyForm.policyVersionId.value );
+			
+			formSubmit(reinstatePolicyForm);
+			return true;
+        } else {
+            alert("Please select a policy.");
+            return false;
+        }
+    }
+
+    function createReceipt() {
+        // only allow to proceed if a record is selected
+        if (insuranceSearchPolicyForm.policyId.value != "" &&
+            insuranceSearchPolicyForm.policyVersionId.value != "") {
+
+            // set the policy Number
+/*            insuranceSearchPolicyForm.policyNumber.value =
+                insuranceSearchPolicyForm.selectedPolicyNumber.value;
+            insuranceSearchPolicyForm.showHistory.value = 'true';
+
+            // submit the search
+            formSubmit(insuranceSearchPolicyForm);
+            return true;
+*/
+            selectPOSReceiptForm.policyNumber.value =
+                insuranceSearchPolicyForm.selectedPolicyNumber.value;
+	        selectPOSReceiptForm.policyId.value
+	        	= insuranceSearchPolicyForm.policyId.value;
+	        selectPOSReceiptForm.policyVersionId.value
+	        	= insuranceSearchPolicyForm.policyVersionId.value;
+			selectPOSReceiptForm.posExportType.value
+				= 'SingleItemSale';
+
+	        //audit
+	        auditButtonAction("", selectPOSReceiptForm.policyId.value, selectPOSReceiptForm.policyVersionId.value );
+			
+	        selectPOSReceiptForm.action
+	        	= 'http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&p_p_id=portlets_WAR_insurance&p_p_action=1&p_p_state=normal&p_p_mode=view&_portlets_WAR_insurance_struts_action=%2Finsurance%2Ffind_policy_create_receipt&#p_portlets_WAR_insurance'
+	        formSubmit(selectPOSReceiptForm);
+	        return true;
+        } else {
+            alert ("Please select a policy to create a receipt.");
+            return false;
+        }
+    }
+
+    function viewExtract() {
+        // only allow to proceed if a record is selected
+        if (insuranceSearchPolicyForm.policyId.value != "") {
+
+	        extractDetailForm.policyId.value
+	        	= insuranceSearchPolicyForm.policyId.value;
+	        formSubmit(extractDetailForm);
+	        return true;
+        } else {
+            alert ("Please select a policy to view extracts.");
+            return false;
+        }
+    }
+
+    function reset_fields() {
+    	insuranceSearchPolicyForm.householdNumber.value= '';
+    	insuranceSearchPolicyForm.associateNumber.value= '';
+    	insuranceSearchPolicyForm.policyNumber.value= '';
+    	insuranceSearchPolicyForm.productCategoryCode.value= ''; 
+    	insuranceSearchPolicyForm.firstName.value= '';
+    	insuranceSearchPolicyForm.lastName.value= '';
+    	insuranceSearchPolicyForm.locationId.value= '';
+    }
+
+</script>
+
+
+<!-- main form -->
+<form name="insuranceSearchPolicyForm" id="insuranceSearchPolicyForm" style="display: block;" onsubmit="findQuotePolicy(); return false;" action="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Fsearch_policy&amp;#p_portlets_WAR_insurance" method="post">
+
+	<input name="submission" type="hidden" value="true">
+
+	
+
+		
+			
+		
+		
+			
+		
+	<div class="item" id="findQuoteAndPolicy">
+<h2><span>Find Quote/Policy</span>
+</h2>
+<div class="buttonbar">
+
+<input id="btnFindPolicySearchId" onclick="&#10;                this.disabled=true;&#10;                findQuotePolicy(); &#10;                return false;" type="submit" value="Search">
+
+<input id="btnFindPolicyClearId" onclick="reset_fields();&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9; return true;" type="button" value="Clear">
+
+<input id="btnFindPolicyCreateQuoteId" onclick="if (createQuote()) this.disabled=true; return false;" type="button" value="Create Quote">
+</div>
+
+			<table class="form">
+				<tbody><tr>
+					<td class="label" id="associateNumber">
+						Member #:
+					</td>
+					<td>
+						<input name="householdNumber" id="txtbxFindPolicyMemberNumberId" type="text" size="12" maxlength="7" value="9416789">
+						<input name="associateNumber" id="txtbxFindPolicyAssociateNumberId" type="text" size="3" maxlength="2" value="01">
+					</td>
+
+					<td class="label" id="policyNumber">
+						Quote/Policy #:
+					</td>
+					<td>
+						<input name="policyNumber" id="txtbxFindPolicyQuoteOrPolicyNumberId" type="text" size="20" maxlength="20" value="QG1482801">
+					</td>
+
+					<td class="label" id="productCategoryCodeLabel">
+						Product Category:
+					</td>
+					<td>
+						<select name="productCategoryCode" style="width: 200px;"><option selected="selected" value="">Select a product category</option>
+							<option value="ADVAUTO">Automobile</option>
+<option value="AUTO">Specialty Auto</option>
+<option value="HABITATIONAL">Habitational </option>
+<option value="LIFE">Life</option>
+<option value="TMI">Travel Medical Ins</option></select>
+					</td>
+
+
+				</tr>
+
+				<tr>
+					<td class="label" id="lastName">
+						Last Name:
+					</td>
+					<td>
+						<input name="lastName" type="text" size="20" maxlength="30" value="">
+					</td>
+					<td class="label" id="firstName">
+						First Name:
+					</td>
+					<td>
+						<input name="firstName" type="text" size="20" maxlength="30" value="">
+					</td>
+
+					<td class="label">
+						Location:
+					</td>
+					<td>
+						<select name="locationId" style="width: 200px;"><option selected="selected" value="">Select a location</option>
+							<option value="16-273">ABBOTSFORD</option>
+<option value="19-273">BROADMEAD</option>
+<option value="1-273">BROADWAY</option>
+<option value="11-273">BURNABY</option>
+<option value="E87BF2C6-273">BURNABY SOLO</option>
+<option value="15-273">CHILLIWACK</option>
+<option value="12-273">CONTACT CTR LOC30</option>
+<option value="8-273">COQUITLAM</option>
+<option value="20-273">COURTENAY</option>
+<option value="9-273">DELTA</option>
+<option value="34-273">ERS CALL CENTRE</option>
+<option value="2-273">ERS DEPOT</option>
+<option value="00-273">HEAD OFFICE</option>
+<option value="17-273">HILLSIDE</option>
+<option value="30-273">INSURANCE ADMIN</option>
+<option value="26-273">KAMLOOPS</option>
+<option value="25-273">KELOWNA</option>
+<option value="50-273">KELOWNA-AUTO</option>
+<option value="3-273">KERRISDALE</option>
+<option value="14-273">LANGLEY</option>
+<option value="42-273">MAPLE RIDGE</option>
+<option value="E17634C8-273">MARINE GATEWAY</option>
+<option value="31-273">MBRSHIP ADMIN</option>
+<option value="41-273">MILLSTREAM</option>
+<option value="32-273">MKTG &amp; ADVERTISING</option>
+<option value="33-273">MS AGENCY SUPPORT</option>
+<option value="18-273">NANAIMO</option>
+<option value="27-273">NELSON</option>
+<option value="7-273">NEW WESTMINSTER</option>
+<option value="13-273">NORTH VANCOUVER</option>
+<option value="38-273">OPERATIONS</option>
+<option value="24-273">PENTICTON</option>
+<option value="52-273">PENTICTON-AUTO</option>
+<option value="28-273">PRINCE GEORGE</option>
+<option value="5-273">RICHMOND</option>
+<option value="10-273">SURREY</option>
+<option value="36-273">TuGo</option>
+<option value="29-273">VERNON</option>
+<option value="51-273">VERNON-AUTO</option>
+<option value="4-273">VIS</option>
+<option value="23-273">WEB MEMBER</option>
+<option value="6-273">WEST VANCOUVER</option>
+<option value="40-273">WESTBANK</option>
+<option value="37-273">WHITEROCK</option></select>
+					</td>
+
+				</tr>
+
+			</tbody></table>
+		</div>
+
+
+
+	<!-- declare some hidden values for the datagrid -->
+	<input name="policyId" type="hidden" value="">
+	<input name="policyVersionId" type="hidden" value="">
+	<input name="policyStageLookupCode" type="hidden" value="">
+	<input name="policyVersionStateLookupCode" type="hidden" value="">
+	<input name="policyTypeLookupCode" type="hidden" value="">
+	<input name="selectedPolicyNumber" type="hidden" value="">
+	<input name="showHistory" type="hidden" value="false">
+	
+	<input name="NEAT_Request_ProductCategoryClass" type="hidden">
+
+
+	<!-- set up the datagrid -->
+	
+		
+		
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			
+
+			
+			
+
+			
+				
+			
+				
+			
+							
+			
+
+			
+
+		<div class="itemlist" id="dg_search_find_quote_policy_list">
+<h2><span>
+Find Results
+<span class="buttongroup">
+<input id="btnFindPolicyViewId" onclick="if (viewPolicyDetail()) this.disabled=true; return false;" type="button" value="View">
+
+<input id="btnFindPolicyEditId" onclick="if (editPolicyDetail()) this.disabled=true; return false;" type="button" value="Edit">
+
+<input id="btnFindPolicyCopyQuoteId" onclick="if (copyQuote()) this.disabled=true; return false;" type="button" value="Copy Quote">
+
+<input id="btnFindPolicyEndorsePolicyId" onclick="if (endorsePolicy()) this.disabled=true; return false;" type="button" value="Endorse Policy">
+
+<input onclick="if (renewPolicy()) this.disabled=true; return false;" type="button" value="Renew Policy">
+
+<input onclick="if (reinstatePolicy()) this.disabled=true; return false;" type="button" value="Reinstate Policy">
+
+<input onclick="if (showVersions()) this.disabled=true; return false;" type="button" value="Show Versions">
+
+<input onclick="if(createReceipt())this.disabled=true; return false;" type="button" value="Create Receipt">
+
+<input onclick="if(viewExtract())this.disabled=true; return false;" type="button" value="View Extract">
+
+</span>
+</span>
+</h2>
+<div class="scrollbox" id="insuranceQuotePolicy">
+<table class="grid" cellspacing="0" cellpadding="0">
+<tbody><tr id="insuranceQuotePolicy_0">
+<th>Member #</th>
+<th>Policyholder</th>
+<th>Quote / Policy #</th>
+<th>Version</th>
+<th>Effective Date</th>
+<th>Expiry Date</th>
+<th>&nbsp;&nbsp;</th>
+<th>Rnst</th>
+<th>Status</th>
+<th>Product Category</th>
+<th>Premium</th>
+</tr>
+<tr id="insuranceQuotePolicy_1" onclick="javascript:highlight_row('insuranceQuotePolicy',1,11,1);&#10;&#9;    &#9;insuranceSearchPolicyForm.policyId.value='8080D0AD-273';&#10;&#9;    &#9;insuranceSearchPolicyForm.policyVersionId.value='1';&#10;    &#9;&#9;insuranceSearchPolicyForm.policyStageLookupCode.value='DR';&#10;    &#9;&#9;insuranceSearchPolicyForm.policyVersionStateLookupCode.value='CUR';&#10;    &#9;&#9;insuranceSearchPolicyForm.policyTypeLookupCode.value='NEW';&#10;    &#9;&#9;insuranceSearchPolicyForm.selectedPolicyNumber.value='QG1482801';&#10;    &#9;&#9;insurancePolicyDetailForm.productCategoryCode.value='HABITATIONAL';&#10;    &#9;&#9;insuranceSelectInsurancePlanForm.householdNumber.value='9416789';&#10;    &#9;&#9;insuranceSelectInsurancePlanForm.associateNumber.value='01';&#10;    &#9;&#9;insurancePolicyDetailForm.NEAT_Request_ProductCategoryClass.value='HABITATIONAL|INSURANCE';&#10;    &#9;&#9;insuranceSelectInsurancePlanForm.NEAT_Request_ProductCategoryClass.value='HABITATIONAL|INSURANCE';&#10;    &#9;&#9;insuranceRenewPolicyForm.NEAT_Request_ProductCategoryClass.value='HABITATIONAL|INSURANCE';&#10;    &#9;&#9;reinstatePolicyForm.NEAT_Request_ProductCategoryClass.value='HABITATIONAL|INSURANCE';&#10;    &#9;&#9;insuranceSearchPolicyForm.NEAT_Request_ProductCategoryClass.value='HABITATIONAL|INSURANCE';&#10;    &#9;&#9;//NEATNavigation('9416789', '01');&#10;    &#9;&#9;var householdNumber='9416789';&#10;    &#9;&#9;var associateNumber='01';">
+<td id="insuranceQuotePolicy_1_1">9416789-01</td>
+<td id="insuranceQuotePolicy_1_2">Peterson Best, Ervian</td>
+<td id="insuranceQuotePolicy_1_3">QG1482801</td>
+<td id="insuranceQuotePolicy_1_4">1</td>
+<td id="insuranceQuotePolicy_1_5">2016/05/19</td>
+<td id="insuranceQuotePolicy_1_6">2017/05/19</td>
+<td id="insuranceQuotePolicy_1_7">C</td>
+<td id="insuranceQuotePolicy_1_8"><input name="reinstateFlag" disabled="" type="checkbox" value="false"></td>
+<td id="insuranceQuotePolicy_1_9">Draft Quote - New</td>
+<td id="insuranceQuotePolicy_1_10">Habitational </td>
+<td id="insuranceQuotePolicy_1_11" style="text-align: right;">&nbsp;</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+
+	
+
+</form>
+<script language="JavaScript" type="text/javascript">
+  <!--
+  var focusControl = document.forms["insuranceSearchPolicyForm"].elements["householdNumber"];
+
+  if (focusControl.type != "hidden" && !focusControl.disabled) {
+     focusControl.focus();
+  }
+  // -->
+</script>
+
+
+<!-- ===================================================== -->
+<!-- define the form for select insurance plan -->
+<form name="insuranceSelectInsurancePlanForm" style="display: block;" action="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Fadd_select_insurance_plan&amp;#p_portlets_WAR_insurance" method="post">
+	<input name="policyId" type="hidden" value="">
+	<input name="policyVersionId" type="hidden" value="">
+	<input name="oldPolicyVersionId" type="hidden" value="">
+	<input name="householdNumber" type="hidden" value="">
+	<input name="associateNumber" type="hidden" value="">
+	<input name="policyStageLookupCode" type="hidden" value="DR">
+	<input name="oldPolicyStageLookupCode" type="hidden" value="">
+	<input name="policyVersionStateLookupCode" type="hidden" value="CUR">
+	<input name="oldPolicyVersionStateLookupCode" type="hidden" value="">
+	<input name="oldPolicyTypeLookupCode" type="hidden" value="">
+	<input name="policyTypeLookupCode" type="hidden" value="NEW">
+	<input name="NEAT_Request_ProductCategoryClass" type="hidden">
+</form>
+<!-- ===================================================== -->
+<!-- define the form for edit policy detail -->
+<form name="insurancePolicyDetailForm" style="display: block;" action="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Fedit_policy_detail&amp;#p_portlets_WAR_insurance" method="post">
+	<input name="policyId" type="hidden" value="">
+	<input name="policyVersionId" type="hidden" value="">
+	<input name="productCategoryCode" type="hidden" value="">
+	<input name="formWorkMode" type="hidden" value="">
+	<input name="NEAT_Request_ProductCategoryClass" type="hidden">
+</form>
+<form name="insuranceRenewPolicyForm" style="display: block;" action="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Frenew_policy&amp;#p_portlets_WAR_insurance" method="post">
+	<input name="policyId" type="hidden" value="">
+	<input name="policyVersionId" type="hidden" value="0">
+	<input name="NEAT_Request_ProductCategoryClass" type="hidden">
+</form>
+<form name="reinstatePolicyForm" style="display: block;" action="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Freinstate_policy&amp;#p_portlets_WAR_insurance" method="post">
+	<input name="policyId" type="hidden" value="">
+	<input name="policyVersionId" type="hidden" value="">
+	<input name="riskAreaApproved" type="hidden" value="false">
+	<input name="NEAT_Request_ProductCategoryClass" type="hidden">
+</form>
+<form name="selectPOSReceiptForm" style="display: block;" action="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Fexport_sale_to_pos&amp;#p_portlets_WAR_insurance" method="post">
+	<input name="policyId" type="hidden" value="">
+	<input name="policyVersionId" type="hidden" value="">
+	<input name="posExportType" type="hidden" value="">
+	<input name="policyNumber" type="hidden" value="">
+	<input name="currentPolicyTabId" type="hidden" value="">
+	<input name="mode" type="hidden" value="search_policy">
+</form>
+<form name="extractDetailForm" style="display: block;" action="http://tneat-sql:7777/neat/c/portal/layout?p_l_id=51.5&amp;p_p_id=portlets_WAR_insurance&amp;p_p_action=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;_portlets_WAR_insurance_struts_action=%2Finsurance%2Fview_extract_detail&amp;#p_portlets_WAR_insurance" method="post">
+	<input name="policyId" type="hidden" value="">
+</form>
+
+<script type="text/javascript">
+function pageInit() {
+  insuranceSearchPolicyForm.householdNumber.focus();
+  checkIfApprovalNeededForFSA();      
+}
+
+//added in bug14580
+function checkIfApprovalNeededForFSA() {
+	var isNeedsApproval = 'null';
+	var fsaPolicyId = 'null';
+	var fsaPolicyVersionId = 'null'; 
+	if(isNeedsApproval != 'null' && fsaPolicyId != 'null' 
+		&& fsaPolicyVersionId != 'null') {
+		var isApprove = confirm("The policy is in a risk area. Do you want to proceed and create an approval?");
+		if(isApprove == true) {
+			reinstatePolicyForm.policyId.value = fsaPolicyId;
+			reinstatePolicyForm.policyVersionId.value = fsaPolicyVersionId;
+			reinstatePolicyForm.riskAreaApproved.value = 'true';
+	        //audit
+	        auditButtonAction("", reinstatePolicyForm.policyId.value, reinstatePolicyForm.policyVersionId.value );
+			
+			formSubmit(reinstatePolicyForm);
+			return true;			
+		}	
+	}
+}
+
+YAHOO.util.Event.onDOMReady(pageInit);
+</script>
+
+        
+
+
+						
+					
+
+					
+				
+
+				
+
+
+	
+
+
+
+
+
+			
+
+            
+
+		
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+	
+
+	
+		setTimeout("openSessionWarning()", 3000000);
+	
+
+	function extendSession() {
+		loadPage("/neat/c/portal/extend_session");
+
+		setTimeout("openSessionWarning()", 3000000);
+	}
+
+	function openSessionWarning() {
+		window.open("/neat/c/portal/extend_session_confirm", "session", "directories=no,height=150,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no,width=300");
+	}
+	
+</script>
+
+<iframe id="hidden_iframe" style="height: 1px; visibility: hidden;"></iframe>
+<iframe id="request_processing_layer_shim" frameborder="0" scrolling="no" style="display: none;"></iframe>
+
+
+<form id="redirect_form" style="display: block;" action="" enctype="application/x-www-form-urlencoded" method="post"></form>
+</div>
+
+
+
+
+</body></html>

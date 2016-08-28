@@ -1,0 +1,260 @@
+<html>
+<head>
+<title>TestNG:  NEAT Tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>NEAT Tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>4/2/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Jun 09 16:45:14 IST 2016</td>
+</tr>
+<tr><td>Total time:</td><td>2038 seconds (2038190 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.BCAA.neat.testcases.HabitationalTests.additionalInsuredAsPrimaryPolicyholderTest()'><b>additionalInsuredAsPrimaryPolicyholderTest</b><br>Test class: com.BCAA.neat.testcases.HabitationalTests<br>Test method: BCAA-3973:Set an additional insured as the primary policyholder<br/>
+<a href="#Output-1687087217" onClick='toggleBox("Output-1687087217", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1687087217" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1687087217">
+<div style='width: 100px; float: left;'><a style='padding:20px' href='C:\Users\optimus150.OPTIMUSDOM\Desktop\Optimus-repository-10May\BCAA Test Automation Framework\Screenshot\additionalInsuredAsPrimaryPolicyholderTest_09-06-2016_16-55-30.png'><img src='C:\Users\optimus150.OPTIMUSDOM\Desktop\Optimus-repository-10May\BCAA Test Automation Framework\Screenshot\additionalInsuredAsPrimaryPolicyholderTest_09-06-2016_16-55-30.png' width='200px' /> </a></div></div><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == td[6]/input[contains(@value,&apos;true&apos;)] (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 15.21 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;optimus-150&apos;, ip: &apos;192.197.48.156&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_40&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=true, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:8141/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 2a8d2099-92a9-4910-96eb-1e3f87a98797
+*** Element info: {Using=xpath, value=td[6]/input[contains(@value,&apos;true&apos;)]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
+	at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:198)
+	at org.openqa.selenium.remote.RemoteWebElement.findElementByXPath(RemoteWebElement.java:295)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:194)
+	at com.BCAA.neat.baseElementClass.Table.verifyCheckBoxChecked(Table.java:199)
+	at com.BCAA.neat.pageObjects.insurance.EditInsuredPage.verifyPrimaryNonPrimaryHolders(EditInsuredPage.java:94)
+	at com.BCAA.neat.baseInsurance.InsuranceLibrary.goToInsuredsTabAndEditPrimaryPolicyHolder(InsuranceLibrary.java:372)
+	at com.BCAA.neat.testcases.HabitationalTests.additionalInsuredAsPrimaryPolicyholderTest(HabitationalTests.java:161)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1687087217", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1687087217'><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == td[6]/input[contains(@value,&apos;true&apos;)] (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 15.21 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;optimus-150&apos;, ip: &apos;192.197.48.156&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_40&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=true, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:8141/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 2a8d2099-92a9-4910-96eb-1e3f87a98797
+*** Element info: {Using=xpath, value=td[6]/input[contains(@value,&apos;true&apos;)]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
+	at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:198)
+	at org.openqa.selenium.remote.RemoteWebElement.findElementByXPath(RemoteWebElement.java:295)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:194)
+	at com.BCAA.neat.baseElementClass.Table.verifyCheckBoxChecked(Table.java:199)
+	at com.BCAA.neat.pageObjects.insurance.EditInsuredPage.verifyPrimaryNonPrimaryHolders(EditInsuredPage.java:94)
+	at com.BCAA.neat.baseInsurance.InsuranceLibrary.goToInsuredsTabAndEditPrimaryPolicyHolder(InsuranceLibrary.java:372)
+	at com.BCAA.neat.testcases.HabitationalTests.additionalInsuredAsPrimaryPolicyholderTest(HabitationalTests.java:161)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+</pre></div></td>
+<td>152</td>
+<td>com.BCAA.neat.testcases.HabitationalTests@14bee915</td></tr>
+<tr>
+<td title='com.BCAA.neat.testcases.HabitationalTests.reinstatePolicy()'><b>reinstatePolicy</b><br>Test class: com.BCAA.neat.testcases.HabitationalTests<br>Test method: BCAA-3960: Reinstate a Policy<br/>
+<a href="#Output-407241000" onClick='toggleBox("Output-407241000", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-407241000" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-407241000">
+<div style='width: 100px; float: left;'><a style='padding:20px' href='C:\Users\optimus150.OPTIMUSDOM\Desktop\Optimus-repository-10May\BCAA Test Automation Framework\Screenshot\reinstatePolicy_09-06-2016_17-11-12.png'><img src='C:\Users\optimus150.OPTIMUSDOM\Desktop\Optimus-repository-10May\BCAA Test Automation Framework\Screenshot\reinstatePolicy_09-06-2016_17-11-12.png' width='200px' /> </a></div></div><br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: Timed out after 60 seconds waiting for visibility of element located by By.id: btnAssetsTabDeleteId
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;optimus-150&apos;, ip: &apos;192.197.48.156&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_40&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=true, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:8141/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 2a8d2099-92a9-4910-96eb-1e3f87a98797
+	at com.BCAA.neat.executor.Browser.waitTillElementIsClickable(Browser.java:377)
+	at com.BCAA.neat.baseElementClass.Button.clickWhenElementIsClickable(Button.java:40)
+	at com.BCAA.neat.pageObjects.insurance.HomeEvaluationTabPage.addHomeEvaluation(HomeEvaluationTabPage.java:127)
+	at com.BCAA.neat.baseInsurance.InsuranceLibrary.createAsset(InsuranceLibrary.java:415)
+	at com.BCAA.neat.baseInsurance.InsuranceLibrary.commitQuote(InsuranceLibrary.java:185)
+	at com.BCAA.neat.baseInsurance.InsuranceLibrary.issuePolicy(InsuranceLibrary.java:204)
+	at com.BCAA.neat.testcases.HabitationalTests.reinstatePolicy(HabitationalTests.java:185)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace407241000", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace407241000'><pre>java.lang.AssertionError: Timed out after 60 seconds waiting for visibility of element located by By.id: btnAssetsTabDeleteId
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;optimus-150&apos;, ip: &apos;192.197.48.156&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_40&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=true, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:8141/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 2a8d2099-92a9-4910-96eb-1e3f87a98797
+	at org.testng.Assert.fail(Assert.java:94)
+	at com.BCAA.neat.executor.Browser.waitTillElementIsClickable(Browser.java:377)
+	at com.BCAA.neat.baseElementClass.Button.clickWhenElementIsClickable(Button.java:40)
+	at com.BCAA.neat.pageObjects.insurance.HomeEvaluationTabPage.addHomeEvaluation(HomeEvaluationTabPage.java:127)
+	at com.BCAA.neat.baseInsurance.InsuranceLibrary.createAsset(InsuranceLibrary.java:415)
+	at com.BCAA.neat.baseInsurance.InsuranceLibrary.commitQuote(InsuranceLibrary.java:185)
+	at com.BCAA.neat.baseInsurance.InsuranceLibrary.issuePolicy(InsuranceLibrary.java:204)
+	at com.BCAA.neat.testcases.HabitationalTests.reinstatePolicy(HabitationalTests.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+</pre></div></td>
+<td>344</td>
+<td>com.BCAA.neat.testcases.HabitationalTests@14bee915</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.BCAA.neat.testcases.HabitationalTests.SmokeTest()'><b>SmokeTest</b><br>Test class: com.BCAA.neat.testcases.HabitationalTests<br>Test method: Smoke Test</td>
+<td></td>
+<td>428</td>
+<td>com.BCAA.neat.testcases.HabitationalTests@14bee915</td></tr>
+<tr>
+<td title='com.BCAA.neat.testcases.HabitationalTests.commitQuoteCopyAndIssuePolicyTest()'><b>commitQuoteCopyAndIssuePolicyTest</b><br>Test class: com.BCAA.neat.testcases.HabitationalTests<br>Test method: TA-3946:Commit Quote, Copy and Issue a Policy</td>
+<td></td>
+<td>543</td>
+<td>com.BCAA.neat.testcases.HabitationalTests@14bee915</td></tr>
+<tr>
+<td title='com.BCAA.neat.testcases.HabitationalTests.createAndDeleteExternalClaimTest()'><b>createAndDeleteExternalClaimTest</b><br>Test class: com.BCAA.neat.testcases.HabitationalTests<br>Test method: BCAA-3953: Create and Delete External Claim</td>
+<td></td>
+<td>53</td>
+<td>com.BCAA.neat.testcases.HabitationalTests@14bee915</td></tr>
+<tr>
+<td title='com.BCAA.neat.testcases.HabitationalTests.voidPolicy()'><b>voidPolicy</b><br>Test class: com.BCAA.neat.testcases.HabitationalTests<br>Test method: BCAA-3962: Void a Policy</td>
+<td></td>
+<td>478</td>
+<td>com.BCAA.neat.testcases.HabitationalTests@14bee915</td></tr>
+</table><p>
+</body>
+</html>
